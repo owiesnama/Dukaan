@@ -16,3 +16,12 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+.idea/vcs.xml
+.idea/php.xml
+.idea/modules.xml
+.idea/Dukaan.iml
+.idea/workspace.xml
+.idea/dictionaries/owiesnama.xml
+.idea/blade.xml
+.idea/blade.xml
+.idea/dictionaries/owiesnama.xml
