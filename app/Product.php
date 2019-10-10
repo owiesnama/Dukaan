@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Filters\ProductFilters;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -35,4 +36,18 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+
+    /**
+     * Apply all relevant product filters.
+     *
+     * @param  Builder $builder
+     * @param  ProductFilters $filters
+     * @return Builder
+     */
+    public function scopeFilterBy($builder, ProductFilters $filters)
+    {
+        return $filters->apply($builder);
+    }
+
 }

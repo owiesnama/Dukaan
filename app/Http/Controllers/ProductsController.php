@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ProductFilters;
 use App\Product;
 
 class ProductsController extends Controller
 {
 
-    public function index()
+    public function index(ProductFilters $filters)
     {
-        $products = Product::latest()->paginate(16);
+        $products = Product::latest()->filterBy($filters)->paginate(16);
 
         return view('admin.products.index', compact('products'));
     }
