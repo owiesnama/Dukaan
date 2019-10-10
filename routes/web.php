@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::prefix('admin')
+    ->middleware('auth')
+    ->group(function () {
+
+        Route::get('/products', 'ProductsController@index');
+        Route::get('/products/create', 'ProductsController@create');
+        Route::get('/products/{product}/edit', 'ProductsController@edit');
+        Route::post('/products', 'ProductsController@store');
+        Route::put('/products/{product}', 'ProductsController@update');
+
+    });
