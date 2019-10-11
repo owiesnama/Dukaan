@@ -19,15 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::prefix('admin')
     ->middleware('auth')
+    ->namespace('Admin')
+    ->name('admin.')
     ->group(function () {
-
-        Route::get('/products', 'ProductsController@index');
-        Route::get('/products/create', 'ProductsController@create');
-        Route::get('/products/{product}/edit', 'ProductsController@edit');
-        Route::post('/products', 'ProductsController@store');
-        Route::put('/products/{product}', 'ProductsController@update');
-
+        Route::resource('categories', 'CategoriesController');
+        Route::resource('products', 'ProductsController');
     });
