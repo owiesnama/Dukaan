@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Product;
 
 class ProductsController extends Controller
 {
-
     public function index()
     {
         $products = Product::latest()->paginate(16);
@@ -14,9 +14,8 @@ class ProductsController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
-
     /**
-     * return creating product view
+     * return creating product view.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -26,7 +25,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Create a new product
+     * Create a new product.
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
@@ -36,6 +35,7 @@ class ProductsController extends Controller
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'category_id' => 'sometimes',
         ]);
 
         Product::create($validatedAttributes);
@@ -43,11 +43,11 @@ class ProductsController extends Controller
         return redirect('/admin/products');
     }
 
-
     /**
-     * return editing product view
+     * return editing product view.
      *
      * @param Product $product
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Product $product)
@@ -56,24 +56,22 @@ class ProductsController extends Controller
     }
 
     /**
-     * a update a given product
+     * a update a given product.
      *
      * @param Product $product
+     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function update(Product $product)
     {
-
         $validatedAttributes = request()->validate([
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
         ]);
 
-
         $product->update($validatedAttributes);
 
         return redirect('/admin/products');
-
     }
 }
