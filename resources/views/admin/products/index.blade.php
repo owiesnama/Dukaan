@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 
 @section('content')
 
     <section>
-
+        
         <ul>
             @forelse($products as $product)
                 <li>

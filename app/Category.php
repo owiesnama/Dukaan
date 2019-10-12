@@ -12,7 +12,10 @@ class Category extends Model
 
     public function parent()
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->belongsTo(Category::class, 'parent_id')
+            ->withDefault([
+                'name' => '-',
+            ]);
     }
 
     public function children()

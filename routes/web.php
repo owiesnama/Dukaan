@@ -26,4 +26,6 @@ Route::prefix('admin')
     ->group(function () {
         Route::resource('categories', 'CategoriesController');
         Route::resource('products', 'ProductsController');
+
+        Route::get('dashboard', 'DashboardController@index');
     });

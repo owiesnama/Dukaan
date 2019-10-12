@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CategoriesController extends Controller
 {
@@ -90,7 +91,7 @@ class CategoriesController extends Controller
         $attributes = $request->validate([
             'name' => 'required',
             'desc' => 'required',
-            'parent_id' => 'sometimes',
+            'parent_id' => ['sometimes', Rule::notIn($category->id)],
         ]);
 
         $category->fill($attributes);
@@ -108,5 +109,8 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
+        $category->delete();
+
+        return redirect()->route('admin.categories.index');
     }
 }
