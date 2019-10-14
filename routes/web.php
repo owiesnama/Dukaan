@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/products/{products}', 'ProductsController@show');
+
 Route::prefix('admin')
     ->middleware('auth')
     ->namespace('Admin')
