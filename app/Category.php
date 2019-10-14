@@ -33,6 +33,11 @@ class Category extends Model
         $query->whereNull('parent_id');
     }
 
+    public function scopeNot($query, $id)
+    {
+        $query->where('id', '!=', $id);
+    }
+
     public function addSubCategory(Category $category)
     {
         if ($category->is($this)) {

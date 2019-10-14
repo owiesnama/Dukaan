@@ -73,7 +73,7 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        $categories = Category::main()->get();
+        $categories = Category::main()->not($category->id)->get();
 
         return view('admin.categories.edit', compact('category', 'categories'));
     }

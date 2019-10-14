@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
 
@@ -21,7 +22,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $categories = Category::all();
+
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -31,16 +34,16 @@ class ProductsController extends Controller
      */
     public function store()
     {
-        $validatedAttributes = request()->validate([
+        $attributes = request()->validate([
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'category_id' => 'sometimes',
+            'category_id' => 'required',
         ]);
 
-        Product::create($validatedAttributes);
+        Product::create($attributes);
 
-        return redirect('/admin/products');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -52,7 +55,9 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        $categories = Category::all();
+
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -64,14 +69,22 @@ class ProductsController extends Controller
      */
     public function update(Product $product)
     {
-        $validatedAttributes = request()->validate([
+        $attributes = request()->validate([
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'category_id' => 'required',
         ]);
 
-        $product->update($validatedAttributes);
+        $product->update($attributes);
 
         return redirect('/admin/products');
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect()->route('admin.products.index');
     }
 }
