@@ -16,6 +16,7 @@
     <!-- Bootstrap fremwork main css -->
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <!-- Owl Carousel min css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-rtl.css" integrity="sha256-Y4fsmcZ5AITTOI41har72EhwauUaLt5u51px24bEtKc=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
     <!-- This core.css file contents all plugings css file. -->
@@ -53,7 +54,7 @@
 <script src="{{asset('js/plugins.js')}}"></script>
 <script src="{{asset('js/slick.min.js')}}"></script>
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-<!-- Waypoints.min.js. -->
+@stack('scripts')
 <script src="{{asset('js/waypoints.min.js')}}"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="{{asset('js/main.js')}}"></script>

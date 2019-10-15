@@ -6,7 +6,7 @@
 /*
     font-family: 'Old Standard TT', serif;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
 
 */
 
@@ -29,7 +29,7 @@
     line-height: 80px;
     position: relative;
     text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
 }
 .main__menu li {
     position: relative;
@@ -365,7 +365,7 @@ nav.off__canvars--menu ul li ul li a:hover {
     transition: all 0.2s ease-in-out 0s;
     padding: 9px 18px;
     transition: 0.3s;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
 }
 .main__menu li.drop ul.dropdown li:hover > a {
     background: #fafafa none repeat scroll 0 0;

@@ -43,8 +43,14 @@
 
 /*
     font-family: 'Old Standard TT', serif;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
 */
+
+
+@font-face {
+    font-family: 'NeoSansArabic';
+    src: url('/fonts/NeoSansArabic.ttf')  format('truetype');
+}
 
 
 /*---------------------------------------
@@ -128,7 +134,7 @@
 
 .section__title--2 h2 {
     color: #313131;
-    font-family: Poppins;
+    font-family: NeoSansArabic;
     font-size: 40px;
     font-weight: 700;
 }
@@ -255,7 +261,7 @@
 }
 .fr__pro__prize li {
     color: #313131;
-    font-family: Poppins;
+    font-family: NeoSansArabic;
     font-size: 16px;
     font-weight: 500;
     margin: 0 5px;
@@ -295,7 +301,7 @@
     background: #c43b68 none repeat scroll 0 0;
     color: #fff;
     display: inline-block;
-    font-family: Poppins;
+    font-family: NeoSansArabic;
     font-size: 15px;
     height: 50px;
     line-height: 50px;
@@ -333,7 +339,7 @@
 }
 .product__offer span {
     color: #c43b68;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 13px;
     text-transform: uppercase;
 }
@@ -479,7 +485,7 @@
 }
 .pro__prize li {
     color: #313131;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 16px;
     font-weight: 600;
 }
@@ -630,7 +636,7 @@
 .bl__date span {
     color: #777777;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 14px;
     padding-bottom: 7px;
     position: relative;
@@ -660,7 +666,7 @@
 .blog__btn a {
     color: #c43b68;
     display: inline-block;
-    font-family: "Poppins",sans-serif;
+    font-family: "NeoSansArabic",sans-serif;
     font-size: 15px;
     transition: all 0.4s ease 0s;
 }
@@ -1030,7 +1036,7 @@
     border: 1px solid #c43b68;
     color: #ffffff;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     height: 40px;
     line-height: 40px;
     padding: 0 28px;
@@ -1077,7 +1083,7 @@
 }
 .ht__bann__details p span.theme-color {
     color: #c43b68;
-    font-family: "Poppins",sans-serif;
+    font-family: "NeoSansArabic",sans-serif;
     font-weight: 700;
     margin-top: 16px;
     display: inline-block;
@@ -1163,7 +1169,7 @@
 }
 .top__pro__prize li {
     color: #313131;
-    font-family: Poppins;
+    font-family: NeoSansArabic;
     font-size: 15px;
     font-weight: 500;
 }
@@ -1250,7 +1256,7 @@
     background: #fff none repeat scroll 0 0;
     color: #222222;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 400;
     height: 50px;
     line-height: 50px;
@@ -1342,7 +1348,7 @@
     background: #212121 none repeat scroll 0 0;
     color: #c43b68;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     height: 50px;
     line-height: 50px;
     padding: 0 26px;
@@ -1368,7 +1374,7 @@
 }
 .breadcrumb-item {
     color: #494949;
-    font-family: "Poppins",sans-serif;
+    font-family: "NeoSansArabic",sans-serif;
     font-size: 18px;
     font-weight: 500;
     text-transform: capitalize;
@@ -1599,7 +1605,7 @@
 }
 .ht__com__btn li a {
     color: #ed1c24;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -1652,7 +1658,7 @@
     height: 30px;
     display: inline-block;
     line-height: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 13px;
     text-transform: uppercase;
     font-weight: 600;
@@ -1723,7 +1729,7 @@
 .ht__list__product .product__action li.ht__addto__cart a {
     background: #c43b68 none repeat scroll 0 0;
     color: #ffffff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 500;
     height: 50px;
     line-height: 50px;
@@ -1845,7 +1851,7 @@ select.ht__select {
 }
 .ht__product__dtl h6 {
     color: #100d13;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 400;
     margin-top: 11px;
     margin-bottom: 11px;
@@ -1876,7 +1882,7 @@ select.ht__select {
 }
 .sin__desc p span {
     color: #100d13;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 14px;
     text-transform: capitalize;
 }
@@ -1906,7 +1912,7 @@ select.ht__select {
     border: 1px solid #d7d7d7;
     color: #212121;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 12px;
     font-weight: 600;
     height: 20px;
@@ -1987,7 +1993,7 @@ select.ht__select {
 }
 .pro__details__tab li a {
     color: #9f9f9f;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
@@ -2073,7 +2079,7 @@ select.select__size {
     text-transform: uppercase;
     vertical-align: middle;
     white-space: nowrap;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     color: #000000;
     font-weight: 600;
     font-size: 16px;
@@ -2102,7 +2108,7 @@ select.select__size {
     color: #313131;
     font-size: 14px;
     width: 120px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 600;
 }
 .table-content table td.product-name a {
@@ -2129,7 +2135,7 @@ select.select__size {
 .table-content table .product-price .amount {
     color: #313131;
     font-size: 14px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 600;
     font-weight: 600;
 }
@@ -2151,7 +2157,7 @@ select.select__size {
 .buttons-cart a {
     background: #ebebeb none repeat scroll 0 0;
     color: #3f3f3f;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 12px;
     font-weight: 500;
     height: 62px;
@@ -2192,7 +2198,7 @@ select.select__size {
     justify-content: space-between;
 }
 .buttons-cart a + a {
-    margin-left: 20px;
+    margin-left: 0px;
 }
 .coupon {
     margin-bottom: 40px;
@@ -2329,7 +2335,7 @@ a.shipping-calculator-button:hover{
 }
 .ht__coupon__code span {
     color: #3f3f3f;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
 }
@@ -2354,7 +2360,7 @@ a.shipping-calculator-button:hover{
     background: #212121 none repeat scroll 0 0;
     color: #fff;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 14px;
     font-weight: 500;
     height: 56px;
@@ -2384,7 +2390,7 @@ a.shipping-calculator-button:hover{
 }
 .cart__total span {
     color: #3f3f3f;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -2396,7 +2402,7 @@ a.shipping-calculator-button:hover{
     background: #ebebeb none repeat scroll 0 0;
     color: #3f3f3f;
     display: block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 500;
     height: 65px;
     line-height: 65px;
@@ -2426,7 +2432,7 @@ a.shipping-calculator-button:hover{
 }
 .cart__desc li {
     color: #3f3f3f;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 14px;
     font-weight: 500;
     text-transform: uppercase;
@@ -2443,7 +2449,7 @@ a.shipping-calculator-button:hover{
 }
 .cart__price li {
     color: #3f3f3f;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 14px;
     font-weight: 600;
 }
@@ -2469,7 +2475,7 @@ a.shipping-calculator-button:hover{
     background: rgba(63, 217, 178, 0.86) none repeat scroll 0 0;
     color: #212121;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 13px;
     font-weight: 500;
     height: 40px;
@@ -2544,7 +2550,7 @@ a.shipping-calculator-button:hover{
     border-radius: 100%;
     color: #3f3f3f;
     display: inline-block;
-    font-family: "Poppins",sans-serif;
+    font-family: "NeoSansArabic",sans-serif;
     font-size: 13px;
     font-weight: 600;
     height: 45px;
@@ -2572,7 +2578,7 @@ a.shipping-calculator-button:hover{
 
 .htc__blog__details__wrap span.ht__fashion__show {
     color: #c43b68;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
 }
@@ -2649,7 +2655,7 @@ a.shipping-calculator-button:hover{
     border: 1px solid #c43b68;
     color: #212121;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 600;
     height: 50px;
     line-height: 50px;
@@ -2687,7 +2693,7 @@ a.shipping-calculator-button:hover{
 .ht__comment__details span {
     color: #949494;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 500;
 }
 .ht__comment__details p {
@@ -2699,7 +2705,7 @@ a.shipping-calculator-button:hover{
     border-radius: 4px;
     color: #333333;
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-weight: 600;
     height: 30px;
     line-height: 28px;
@@ -2835,7 +2841,7 @@ a.shipping-calculator-button:hover{
     background: #c43b68 none repeat scroll 0 0;
     border: 1px solid #c43b68;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     font-size: 14px;
     font-weight: 600;
     height: 50px;
@@ -3214,7 +3220,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     letter-spacing: 1px;
     text-transform: uppercase;
     margin-bottom: 10px;
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
     cursor: pointer;
 }
 .accordion .accordion__title:before{
@@ -3235,7 +3241,7 @@ ul.htc__instagram__posts.owl-carousel li img {
 
 /*Accordion body form styles*/
 .accordion__body__form{
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
 }
 .accordion__body__form .checkout-method__subtitle{
     letter-spacing: 1px;
@@ -3335,7 +3341,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     height: 40px;
     line-height: 40px;
     padding: 0 15px;
-    font-family: "poppins";
+    font-family: "NeoSansArabic";
     transition: all 0.3s ease-in-out 0s;
     border: 1px solid #888;
 }
@@ -3361,12 +3367,12 @@ ul.htc__instagram__posts.owl-carousel li img {
     margin-bottom: 15px;
 }
 .shipinfo p{
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
 }
 .shipinfo .ship-to-another-trigger{
     display: inline-block;
     margin-top: 20px;
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
     font-size: 16px;
 }
 .shipinfo .ship-to-another-trigger i.zmdi{
@@ -3387,7 +3393,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     margin-top: 0px;
 }
 .shipmethod .single-input label{
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
     color: #3333;
     font-weight: 500;
 }
@@ -3397,7 +3403,7 @@ ul.htc__instagram__posts.owl-carousel li img {
 .paymentinfo .single-method a{
     display: inline-block;
     margin-top: 15px;
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
     font-size: 16px;
 }
 
@@ -3417,7 +3423,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 1px;
-    font-family: "poppins";
+    font-family: "NeoSansArabic";
     font-size: 16px;
     font-weight: 600;
     color: #3f3f3f;
@@ -3451,7 +3457,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     color: #c43b68;
 }
 .order-details .order-details__item .single-item .single-item__content span{
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
     font-weight: 600;
     display: block;
 }
@@ -3496,7 +3502,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     width: 30%;
     text-align: left;
     font-weight: 600;
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
 }
 .order-details .ordre-details__total{
     margin: 0 30px;
@@ -3520,7 +3526,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     width: 30%;
     text-align: left;
     font-weight: 700;
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
     letter-spacing: 1px;
 }
 
@@ -3534,7 +3540,7 @@ ul.htc__instagram__posts.owl-carousel li img {
     text-transform: uppercase;
     background: #212121;
     color: #ffffff;
-    font-family: "Poppins";
+    font-family: "NeoSansArabic";
     padding: 0 45px;
     font-weight: 600;
     letter-spacing: 1px;
