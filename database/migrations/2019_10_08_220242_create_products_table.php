@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->double('price');
             $table->boolean('published')->default(true);
+            $table->unsignedInteger('category_id')->index();
             $table->timestamps();
 
         });

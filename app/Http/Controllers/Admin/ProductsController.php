@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Filters\ProductFilters;
+use App\Category;
+use App\Http\Controllers\Controller;
 use App\Product;
 
 class ProductsController extends Controller
 {
-
     public function index(ProductFilters $filters)
     {
         $products = Product::latest()->filterBy($filters)->paginate(16);
@@ -15,66 +16,76 @@ class ProductsController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
-
     /**
-     * return creating product view
+     * return creating product view.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        return view('admin.products.create');
+        $categories = Category::all();
+
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
-     * Create a new product
+     * Create a new product.
      *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function store()
     {
-        $validatedAttributes = request()->validate([
+        $attributes = request()->validate([
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'category_id' => 'required',
         ]);
 
-        Product::create($validatedAttributes);
+        Product::create($attributes);
 
-        return redirect('/admin/products');
+        return redirect()->route('admin.products.index');
     }
 
-
     /**
-     * return editing product view
+     * return editing product view.
      *
      * @param Product $product
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        $categories = Category::all();
+
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
-     * a update a given product
+     * a update a given product.
      *
      * @param Product $product
+     *
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function update(Product $product)
     {
-
-        $validatedAttributes = request()->validate([
+        $attributes = request()->validate([
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
+            'category_id' => 'required',
         ]);
 
-
-        $product->update($validatedAttributes);
+        $product->update($attributes);
 
         return redirect('/admin/products');
+    }
 
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return redirect()->route('admin.products.index');
     }
 }

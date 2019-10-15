@@ -7,20 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property \Carbon\Carbon $created_at
- * @property int $id
+ * @property int            $id
  * @property \Carbon\Carbon $updated_at
  */
 class Product extends Model
 {
-    protected $fillable = ['name', 'description', 'price', 'published'];
-
+    protected $fillable = [
+        'name', 'description', 'price', 'published', 'category_id',
+    ];
 
     /**
-     * url path for this project
+     * url path for this project.
      *
      * it return a string of this project url path ex:/projects/1
      *
-     * @return String
+     * @return string
      */
     public function path()
     {
