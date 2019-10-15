@@ -2,7 +2,6 @@
 
 namespace App\Filters;
 
-
 class ProductFilters extends Filters
 {
     /**
@@ -12,14 +11,13 @@ class ProductFilters extends Filters
      */
     protected $filters = ['priceLessThan', 'priceMoreThan'];
 
-
     public function priceLessThan($price)
     {
-        return $this->builder->where('price', '<', $price);
+        $this->builder->where('price', '<', $price);
     }
 
     public function priceMoreThan($price)
     {
-        return $this->builder->where('price', '>', $price);
+        $this->builder->where('price', '>', $price);
     }
 }
