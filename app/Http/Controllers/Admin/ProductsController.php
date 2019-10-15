@@ -40,9 +40,16 @@ class ProductsController extends Controller
             'description' => 'required',
             'price' => 'required',
             'category_id' => 'required',
+            'images.*' => 'mimes:jpeg,png',
         ]);
 
-        Product::create($attributes);
+        $product = Product::create($attributes);
+
+        if (request()->has('images')) {
+            $product->addImages(request('images'));
+        }
+
+        flash('Product added successully')->success();
 
         return redirect()->route('admin.products.index');
     }
@@ -78,6 +85,7 @@ class ProductsController extends Controller
         ]);
 
         $product->update($attributes);
+        flash('Product updated successully')->success();
 
         return redirect('/admin/products');
     }
@@ -85,6 +93,7 @@ class ProductsController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        flash('Product deleted')->success();
 
         return redirect()->route('admin.products.index');
     }

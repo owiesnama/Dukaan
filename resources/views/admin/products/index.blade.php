@@ -18,7 +18,10 @@
                 @foreach($products as $product)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $product->name }}</td>
+                    <td>
+                        <img src="{{ optional($product->getMedia('images')->first())->getUrl() ?? '' }}" alt="" width="60" height="60">
+                        {{ $product->name }}
+                    </td>
                     <td>{{ number_format($product->price, 2) }}</td>
                     <td>{{ nl2br($product->description) }}</td>
                     <td>{{ $product->category->name }}</td>

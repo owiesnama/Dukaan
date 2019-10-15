@@ -4,14 +4,18 @@ namespace App;
 
 use App\Filters\ProductFilters;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
 /**
  * @property \Carbon\Carbon $created_at
  * @property int            $id
  * @property \Carbon\Carbon $updated_at
  */
-class Product extends Model
+class Product extends Model implements HasMedia
 {
+    use HasMediaTrait;
+
     protected $fillable = [
         'name', 'description', 'price', 'published', 'category_id',
     ];
@@ -38,12 +42,12 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-
     /**
      * Apply all relevant product filters.
      *
-     * @param  Builder $builder
-     * @param  ProductFilters $filters
+     * @param Builder        $builder
+     * @param ProductFilters $filters
+     *
      * @return Builder
      */
     public function scopeFilterBy($builder, ProductFilters $filters)
@@ -51,4 +55,10 @@ class Product extends Model
         return $filters->apply($builder);
     }
 
+    public function addImages($images)
+    {
+        collect($images)->map(function ($image) {
+            $this->addMedia($image)->toMediaCollection('images');
+        });
+    }
 }
