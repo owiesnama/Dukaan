@@ -39,7 +39,7 @@
 /*
     font-family: 'Old Standard TT', serif;
 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
 */
 
 /*------------------
@@ -83,7 +83,7 @@ html {
     }
 }
 body {
-    font-family: 'Old Standard TT', serif;
+    font-family: 'NeoSansArabic', serif;
     color: #666666;
     font-weight: 400;
     font-size: 14px;
@@ -92,7 +92,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 p{
-    font-family: 'Old Standard TT', serif;
+    font-family: 'NeoSansArabic', serif;
     color: #666666;
     font-weight: 400;
     font-size: 16px;
@@ -111,7 +111,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'NeoSansArabic', sans-serif;
     color: #313131;
     font-weight: 400;
     -webkit-font-variant-ligatures: common-ligatures;
@@ -351,7 +351,7 @@ body {
 ----------------------------*/
 
  .bg--1 {
-  background: rgba(0, 0, 0, 0) url("../../images/bg/1.jpg") no-repeat fixed 0 0 / cover ;
+  background: rgba(0, 0, 0, 0) url("images/bg/1.jpg") no-repeat fixed 0 0 / cover ;
 }
 
 

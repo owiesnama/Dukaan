@@ -21,6 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/products/{products}', 'ProductsController@show');
 
+Route::get('/cart', 'CartController@index')->name('cart');
+
+Route::get('/contact-us', 'PagesController@contactUs')->name('contact us');
+
 Route::prefix('admin')
     ->middleware('auth')
     ->namespace('Admin')
