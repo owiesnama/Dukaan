@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <a href="{{ route('admin.categories.create') }}" class="btn btn-success">Add Category</a>
+    <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Add Category</a>
     <br>
     <section>
         <table class="table table-bordered table-hover">

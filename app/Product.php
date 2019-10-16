@@ -55,6 +55,16 @@ class Product extends Model implements HasMedia
         return $filters->apply($builder);
     }
 
+    public function getThumbnailAttribute()
+    {
+        return $this->getMedia('images')->first() ? $this->getMedia('images')->first()->getUrl() : '#';
+    }
+
+    /**
+     *  Add images to the products.
+     *
+     * @param array $images
+     */
     public function addImages($images)
     {
         collect($images)->map(function ($image) {

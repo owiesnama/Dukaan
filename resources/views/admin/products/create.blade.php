@@ -37,9 +37,9 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-sm-4" for="category">Images</label>
+                <label class="control-label col-sm-4" for="images">Images</label>
                 <div class="col-sm-8">
-                    <input type="file" name="images[]" multiple>
+                    <input type="file" id="images" name="images[]" multiple>
                 </div>
             </div>
 

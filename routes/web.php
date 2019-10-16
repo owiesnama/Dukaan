@@ -34,4 +34,5 @@ Route::prefix('admin')
         Route::resource('products', 'ProductsController');
 
         Route::get('dashboard', 'DashboardController@index');
+        Route::name('remove-media')->get('remove-media/{media}', 'RemoveMediaController');
     });

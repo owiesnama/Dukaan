@@ -85,6 +85,10 @@ class ProductsController extends Controller
         ]);
 
         $product->update($attributes);
+        if (request()->has('images')) {
+            $product->addImages(request('images'));
+        }
+
         flash('Product updated successully')->success();
 
         return redirect('/admin/products');
