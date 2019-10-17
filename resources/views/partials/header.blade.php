@@ -18,37 +18,15 @@
                                 <li class="drop"><a href="{{route('home')}}">@lang('navigation.shop')</a>
                                     <ul class="dropdown mega_dropdown">
                                         <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Shop Pages</a>
+                                        @foreach($mainCategories as $mainCategory)
+                                        <li><a class="mega__title" href="product-grid.html">{{$mainCategory->name}}</a>
                                             <ul class="mega__item">
-                                                <li><a href="product-grid.html">Product Grid</a></li>
-                                                <li><a href="cart.html">cart</a></li>
-                                                <li><a href="checkout.html">checkout</a></li>
-                                                <li><a href="wishlist.html">wishlist</a></li>
+                                                @foreach($mainCategory->children as $category)
+                                                <li><a href="product-grid.html">{{$category->name}}</a></li>
+                                                @endforeach
                                             </ul>
                                         </li>
-                                        <!-- End Single Mega MEnu -->
-                                        <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Variable Product</a>
-                                            <ul class="mega__item">
-                                                <li><a href="#">Category</a></li>
-                                                <li><a href="#">My Account</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- End Single Mega MEnu -->
-                                        <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Product Types</a>
-                                            <ul class="mega__item">
-                                                <li><a href="#">Simple Product</a></li>
-                                                <li><a href="#">Variable Product</a></li>
-                                                <li><a href="#">Grouped Product</a></li>
-                                                <li><a href="#">Downloadable Product</a></li>
-                                                <li><a href="#">Simple Product</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- End Single Mega MEnu -->
+                                            @endforeach<!-- End Single Mega MEnu -->
                                     </ul>
                                 </li>
                                 <li class="drop"><a href="{{route('cart')}}">@lang('navigation.cart')</a></li>

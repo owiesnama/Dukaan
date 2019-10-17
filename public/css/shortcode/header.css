@@ -383,11 +383,12 @@ nav.off__canvars--menu ul li ul li a:hover {
 ---------------------------------*/
 
 .main__menu li.drop ul.dropdown.mega_dropdown {
-  width: 654px;
+  width: auto;
+    max-width: 1000px;
 }
 
 .dropdown.mega_dropdown {
-    width: 655px;
+    width: 1000px;
 }
 .dropdown.mega_dropdown {
     display: flex;
@@ -397,7 +398,9 @@ nav.off__canvars--menu ul li ul li a:hover {
 .dropdown.mega_dropdown li a.mega__title {
     display: inline-block;
     font-size: 20px;
-    margin-bottom: 20px;
+    margin: 0 5px 20px;
+    height:30px;
+    overflow-y: hidden;
     padding: 0 0 10px;
     position: relative;
     text-transform: capitalize;
@@ -603,7 +606,7 @@ nav.off__canvars--menu ul li ul li a:hover {
   height: 60px;
   line-height: 60px;
   padding: 0 70px 0 20px;
-  text-align: left;
+  text-align: right;
 }
 .search__area .search__inner form input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #333;
