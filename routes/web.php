@@ -12,16 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/shop');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/shop', 'HomeController@index')->name('home');
+
+Route::get('/category/{category}/products/', 'CategoryProductsController@index');
 
 Route::get('/products/{products}', 'ProductsController@show');
 
 Route::get('/cart', 'CartController@index')->name('cart');
+
+Route::get('/checkout', 'CheckoutController@index');
 
 Route::get('/contact-us', 'PagesController@contactUs')->name('contact us');
 
