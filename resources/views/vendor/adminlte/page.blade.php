@@ -111,7 +111,7 @@
 
             <!-- Main content -->
             <section class="content">
-
+                @include('flash::message')
                 @yield('content')
 
             </section>
@@ -146,4 +146,7 @@
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     @stack('js')
     @yield('js')
+    <script>
+    $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+    </script>
 @stop

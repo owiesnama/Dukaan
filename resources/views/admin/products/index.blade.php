@@ -4,7 +4,7 @@
 @section('content')
 
     <section>
-        <a class="btn btn-success" href="{{ route('admin.products.create') }}">Add product</a>
+        <a class="btn btn-primary" href="{{ route('admin.products.create') }}">Add product</a>
         <table class="table table-bordered table-hover">
             <thead>
                 <th width="5%"></th>
@@ -18,7 +18,10 @@
                 @foreach($products as $product)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $product->name }}</td>
+                    <td>
+                        <img src="{{ $product->thumbnail }}" alt="" width="60" height="60">
+                        {{ $product->name }}
+                    </td>
                     <td>{{ number_format($product->price, 2) }}</td>
                     <td>{{ nl2br($product->description) }}</td>
                     <td>{{ $product->category->name }}</td>

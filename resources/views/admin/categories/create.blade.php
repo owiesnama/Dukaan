@@ -17,17 +17,17 @@
                 <label class="control-label col-sm-4" for="desc">Description</label>
                 <div class="col-sm-8">
                     <textarea id="desc" name="desc" class="form-control">{{ old('desc') }}</textarea>
-                </div>    
+                </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-4" for="parent"></label>
+                <label class="control-label col-sm-4" for="parent">Main category</label>
                 <div class="col-sm-8">
                     <select id="parent" name="parent_id" class="form-control">
-                    <option value=""></option>
-                    @foreach($categories as $mainCategory)
-                        <option value="{{ $mainCategory->id }}">{{ $mainCategory->name }}</option>
-                    @endforeach
-                </select>
+                        <option value=""></option>
+                        @foreach($categories as $mainCategory)
+                            <option value="{{ $mainCategory->id }}">{{ $mainCategory->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col-sm-8 col-sm-offset-4">

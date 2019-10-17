@@ -4,7 +4,7 @@
 @section('content')
 
     <section>
-        <form action="{{ route('admin.products.store') }}" method="post" class="form-horizontal col-lg-6">
+        <form action="{{ route('admin.products.store') }}" method="post" class="form-horizontal col-lg-6" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label class="control-label col-sm-4" for="name">Name</label>
@@ -35,6 +35,14 @@
                     </select>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="images">Images</label>
+                <div class="col-sm-8">
+                    <input type="file" id="images" name="images[]" multiple>
+                </div>
+            </div>
+
              <div class="col-sm-8 col-sm-offset-4">
                 <button type="submit" class="btn btn-primary btn-lg">Create</button>
             </div>
