@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'NeoSansArabic';
+
+  src: url("/fonts/NeoSansArabic.ttf") format("truetype");
+}
+
+html, body {
+  font-family: NeoSansArabic;
+}
+
+.main-sidebar {
+  border: 1px #e3e3e3 solid;
+}
