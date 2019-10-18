@@ -25,6 +25,8 @@ Route::get('/products/{products}', 'ProductsController@show');
 
 Route::get('/cart', 'CartController@index')->name('cart');
 
+Route::post('/cart/{product}', 'CartController@store');
+
 Route::get('/checkout', 'CheckoutController@index');
 
 Route::get('/contact-us', 'PagesController@contactUs')->name('contact us');

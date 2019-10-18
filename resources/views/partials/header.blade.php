@@ -56,7 +56,7 @@
                             </div>
                             <div class="htc__shopping__cart">
                                 <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
-                                <a><span class="htc__qua">2</span></a>
+                                <a><span class="htc__qua">{{$cart->count()}}</span></a>
                             </div>
                         </div>
                     </div>
