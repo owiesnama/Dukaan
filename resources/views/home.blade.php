@@ -12,6 +12,7 @@
                             <div class="section__title--2 text-center">
                                 <h2 class="title__line">@lang('home.New Arrivals')</h2>
                                 <p>@lang('home.What\'s new in our store')</p>
+                                @include('partials.recent-products')
                             </div>
                         </div>
                     </div>
