@@ -15,8 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $recentProducts = Product::latest()->get()->take(8);
+        $products = Product::latest()->get()->take(8);
 
-        return view('home', compact('recentProducts'));
+        return view('home', compact('products'));
     }
 }

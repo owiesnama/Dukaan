@@ -55,4 +55,12 @@ class Category extends Model
     {
         $this->products()->save($product);
     }
+
+    public function getProducts()
+    {
+        return Product::whereHas('category', function ($query) {
+            $query->whereIn('id', $this->children->pluck('id'))
+                ->orWhere('id', $this->id);
+        })->get();
+    }
 }

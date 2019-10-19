@@ -21,7 +21,7 @@ Route::get('/shop', 'HomeController@index')->name('home');
 
 Route::get('/category/{category}/products/', 'CategoryProductsController@index');
 
-Route::get('/products/{products}', 'ProductsController@show');
+Route::get('/products/{product}', 'ProductsController@show');
 
 Route::get('/cart', 'CartController@index')->name('cart');
 

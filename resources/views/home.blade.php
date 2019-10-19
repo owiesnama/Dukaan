@@ -19,11 +19,11 @@
                         <div class="row">
                             <div class="product__list clearfix mt--30">
                                 <!-- Start Single Category -->
-                                @foreach($recentProducts as $product)
+                                @foreach($products as $product)
                                     <div class="col-md-4    col-lg-3 col-sm-4 col-xs-12">
                                         <div class="category">
                                             <div class="ht__cat__thumb">
-                                                <a href="/products/1">
+                                                <a href="/products/{{ $product->id }}">
                                                     <img src="{{asset($product->thumbnail)}}?{{$product->id}}" alt="product images">
                                                 </a>
                                             </div>
