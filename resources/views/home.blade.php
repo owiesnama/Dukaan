@@ -22,29 +22,9 @@
                                 <!-- Start Single Category -->
                                 @foreach($products as $product)
                                     <div class="col-md-4    col-lg-3 col-sm-4 col-xs-12">
-                                        <div class="category">
-                                            <div class="ht__cat__thumb">
-                                                <a href="/products/{{ $product->id }}">
-                                                    <img src="{{asset($product->thumbnail)}}?{{$product->id}}" alt="product images">
-                                                </a>
-                                            </div>
-                                            <div class="fr__hover__info">
-                                                <ul class="product__action">
-                                                    <li><a href="wishlist.html"><i class="icon-heart icons"></i></a>
-                                                    </li>
-                                                    <form method="post" >
-                                                    <li><a  @click="addToCart({{$product}})"><i class="icon-handbag icons"></i></a></li>
-                                                    </form>
-                                                    <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="fr__product__inner">
-                                                <h4><a href="/products/1">{{Str::limit($product->name,20)}}</a></h4>
-                                                <ul class="fr__pro__prize">
-                                                    <li>{{$product->price}}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+
+                                        <Product :product="{{$product}}"></Product>
+
                                     </div>
                                 @endforeach
 
