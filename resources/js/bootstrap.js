@@ -1,5 +1,7 @@
 window._ = require('lodash');
 
+import './helpers'
+
 window.Vue = require('vue');
 
 /**

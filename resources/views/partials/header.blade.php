@@ -18,7 +18,7 @@
                                         <!-- Start Single Mega MEnu -->
                                         @foreach($mainCategories->take(8) as $mainCategory)
                                             <li><a class="mega__title"
-                                                   href="product-grid.html">{{$mainCategory->name}}</a>
+                                                   href="/category/{{$mainCategory->id}}/products">{{$mainCategory->name}}</a>
                                                 <ul class="mega__item">
                                                     @foreach($mainCategory->children as $category)
                                                         <li>

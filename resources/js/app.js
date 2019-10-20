@@ -22,6 +22,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('flash', require('./components/Flash.vue').default);
 Vue.component('Cart', require('./components/Cart.vue').default);
+Vue.component('Product', require('./components/Product.vue').default);
 
 
 /**

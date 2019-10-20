@@ -34,9 +34,6 @@
 
     <!-- Modernizr JS -->
     <script src="{{asset('js/vendor/modernizr-3.5.0.min.js')}}"></script>
-    <script>
-        let cartContent = JSON.parse({{$cart}})
-    </script>
 </head>
 <body>
 <div id="app" class="wrapper">
@@ -63,7 +60,7 @@
             </div>
         </div>
         <!-- End Search Popap -->
-    <Cart :content="cart.content"></Cart>
+    <Cart :initial-content="cart.content"></Cart>
     </div>
     @yield('content')
     @include('partials.footer')

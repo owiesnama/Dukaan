@@ -10,18 +10,19 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
 
 /**
  * @property \Carbon\Carbon $created_at
- * @property int            $id
+ * @property int $id
  * @property \Carbon\Carbon $updated_at
  * @property mixed description
  * @property mixed price
  */
-class Product extends Model implements HasMedia,Buyable
+class Product extends Model implements HasMedia, Buyable
 {
     use HasMediaTrait;
 
     protected $fillable = [
         'name', 'description', 'price', 'published', 'category_id',
     ];
+    protected $appends = ['thumbnail'];
 
     /**
      * url path for this project.
@@ -48,7 +49,7 @@ class Product extends Model implements HasMedia,Buyable
     /**
      * Apply all relevant product filters.
      *
-     * @param Builder        $builder
+     * @param Builder $builder
      * @param ProductFilters $filters
      *
      * @return Builder
@@ -60,7 +61,7 @@ class Product extends Model implements HasMedia,Buyable
 
     public function getThumbnailAttribute()
     {
-        return $this->getMedia('images')->first() ? $this->getMedia('images')->first()->getUrl() : 'https://placeimg.com/640/480/any';
+        return $this->getMedia('images')->first() ? $this->getMedia('images')->first()->getUrl() : 'https://placeimg.com/640/480/any?' . $this->id;
     }
 
     /**

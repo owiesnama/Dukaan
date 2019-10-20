@@ -5,7 +5,7 @@
                 <a href="#"><i class="zmdi zmdi-close"></i></a>
             </div>
             <div class="shp__cart__wrap">
-                <div v-for="product in content"
+                <div v-for="product in initialContent"
                      :key="product.id"
                      class="shp__single__product">
                     <div class="shp__pro__thumb">
@@ -28,14 +28,34 @@
                 <li class="total__price"></li>
             </ul>
             <ul class="shopping__btn">
-                <li><a href="/cart">@lang('general.View Cart')</a></li>
-                <li class="shp__checkout"><a href="/checkout">@lang('general.Checkout')</a></li>
+                <li><a href="/cart">{{lang('general.View Cart')}}</a></li>
+                <li class="shp__checkout"><a href="/checkout">{{lang('general.Checkout')}}</a></li>
             </ul>
         </div>
     </div>
 </template>
 <script>
     export default{
-        props:['content']
+        props:['initialContent'],
+
+        data(){
+          return{
+              content:null
+          }
+        },
+
+        mounted(){
+            console.log(this.initialContent)
+            this.content = this.initialContent
+            console.log(this.content)
+        },
+
+        created(){
+
+            this.$on('cart:updated', content => {
+                console.log(content)
+                this.content = content
+            })
+        }
     }
 </script>
