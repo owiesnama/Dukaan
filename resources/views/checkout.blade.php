@@ -31,7 +31,7 @@
                                 <div class="accordion-list">
                                     <div class="accordion">
                                         <div class="accordion__title">
-                                            Checkout Method
+                                            @lang('checkout.shipping method')
                                         </div>
                                         <div class="accordion__body">
                                             <div class="accordion__body__form">
@@ -50,12 +50,12 @@
                                                                     <div class="single-input">
                                                                         <input type="radio" id="checkout-method-1"
                                                                                name="checkout-method" checked="checked">
-                                                                        <label for="checkout-method-1">@lang('Checkout as guest')</label>
+                                                                        <label for="checkout-method-1">@lang('checkout.Checkout as guest')</label>
                                                                     </div>
                                                                     <div class="single-input">
                                                                         <input type="radio" id="checkout-method-2"
                                                                                name="checkout-method">
-                                                                        <label for="checkout-method-2">@lang('Register')</label>
+                                                                        <label for="checkout-method-2">@lang('checkout.Register')</label>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -151,8 +151,7 @@
                                         <div class="accordion__body">
                                             <div class="shipinfo">
                                                 <h3 class="shipinfo__title">@lang('checkout.Shipping Address')</h3>
-                                                <p><b>Address:</b> Bootexperts, Banasree D-Block, Dhaka 1219, Bangladesh
-                                                </p>
+                                                <p>Bootexperts, Banasree D-Block, Dhaka 1219, Bangladesh</p>
                                                 <a href="#"
                                                    class="ship-to-another-trigger">@lang('checkout.Ship to another address')
                                                     <i

@@ -2,7 +2,7 @@
 
 return [
     'checkout as a guest or register' => 'اتمم الشراء كضيف او قم بالتسجيل',
-    'Register with us for future convenience' => 'سجل الان لتسوق اكثر راحة في المرات المقبلة',
+    'Register with us for future convenience' => 'سجل الان لتتسوق براحة أكثر في المرات المقبلة',
     'Checkout as guest' => 'اتمام الشراء كضيف',
     'Register' => 'سجل',
     'register and save time' => 'سجل الان وحافظ على وقتك',
