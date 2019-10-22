@@ -1,7 +1,7 @@
 @extends('layouts.shop')
 
 @section('content')
- <div class="ht__bradcaump__area"
+    <div class="ht__bradcaump__area"
          style="background: rgba(0, 0, 0, 0) url(/images/bg/4.jpg) no-repeat scroll center center / cover ;">
         <div class="ht__bradcaump__wrap">
             <div class="container">
@@ -34,9 +34,10 @@
                             <div class="product__big__images">
                                 <div class="portfolio-full-image tab-content">
                                     @foreach($product->getMedia('images') as $image)
-                                        <div role="tabpanel" class="tab-pane fade in{{ $loop->first ? ' active' : '' }}" id="img-tab-{{ $loop->iteration }}">
-                                        <img src="{{ $image->getUrl() }}" alt="full-image">
-                                    </div>
+                                        <div role="tabpanel" class="tab-pane fade in{{ $loop->first ? ' active' : '' }}"
+                                             id="img-tab-{{ $loop->iteration }}">
+                                            <img src="{{ $image->getUrl() }}" alt="full-image">
+                                        </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -80,19 +81,21 @@
                                 <div class="sin__desc align--left">
                                     <p><span>@lang('products.categories'): </span></p>
                                     <ul class="pro__cat__list">
-                                        <li><a href="/category/{{ $product->category->id }}/products">{{ $product->category->name }}</a></li>
+                                        <li>
+                                            <a href="/category/{{ $product->category->id }}/products">{{ $product->category->name }}</a>
+                                        </li>
                                     </ul>
                                 </div>
-                               {{--  <div class="sin__desc align--left">
-                                    <p><span>@lang('general.tags'):</span></p>
-                                    <ul class="pro__cat__list">
-                                        <li><a href="#">Fashion,</a></li>
-                                        <li><a href="#">Accessories,</a></li>
-                                        <li><a href="#">Women,</a></li>
-                                        <li><a href="#">Men,</a></li>
-                                        <li><a href="#">Kid,</a></li>
-                                    </ul>
-                                </div> --}}
+                                {{--  <div class="sin__desc align--left">
+                                     <p><span>@lang('general.tags'):</span></p>
+                                     <ul class="pro__cat__list">
+                                         <li><a href="#">Fashion,</a></li>
+                                         <li><a href="#">Accessories,</a></li>
+                                         <li><a href="#">Women,</a></li>
+                                         <li><a href="#">Men,</a></li>
+                                         <li><a href="#">Kid,</a></li>
+                                     </ul>
+                                 </div> --}}
 
                                 <div class="sin__desc product__share__link">
                                     <p><span>@lang('general.Share this'):</span></p>
@@ -154,7 +157,15 @@
                         <!-- Start Single Content -->
                         <div role="tabpanel" id="review" class="pro__single__content tab-pane fade">
                             <div class="pro__tab__content__inner">
-
+                                @foreach($product->reviews()->recent()->get() as $review)
+                                    <div class="mb-4 py-2 border-b border-solid border-gray-400">
+                                        <div class="flex justify-between mb-2">
+                                            <h3 class="text-bold text-lg">{{$review->creator->name}}</h3>
+                                            <span>{{$review->created_at->diffForHumans()}}</span>
+                                        </div>
+                                        <p class="">{{$review->body}}</p>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                         <!-- End Single Content -->

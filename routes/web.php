@@ -21,7 +21,14 @@ Route::get('/shop', 'HomeController@index')->name('home');
 
 Route::get('/category/{category}/products/', 'CategoryProductsController@index');
 
+
+
 Route::get('/products/{product}', 'ProductsController@show');
+
+Route::post('/products/{product}/reviews', 'ProductReviewsController@store')->middleware('auth');
+
+Route::delete('/products/{product}/reviews/{review}', 'ProductReviewsController@destroy')->middleware('auth');
+
 
 Route::get('/cart', 'CartController@index')->name('cart');
 

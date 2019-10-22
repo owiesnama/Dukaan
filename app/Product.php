@@ -47,6 +47,16 @@ class Product extends Model implements HasMedia, Buyable
     }
 
     /**
+     * reviews which associated whit this product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    /**
      * Apply all relevant product filters.
      *
      * @param Builder $builder
