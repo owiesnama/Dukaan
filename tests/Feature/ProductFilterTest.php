@@ -15,7 +15,7 @@ class ProductFilterTest extends TestCase
     {
         $this->signIn();
         factory(Product::class)->create([
-            'name' => 'T-Shirt',
+            'name' => 'Expensive',
             'price' => 1000,
         ]);
 
@@ -25,11 +25,11 @@ class ProductFilterTest extends TestCase
         ]);
 
         $this->get('/admin/products?priceLessThan=1000')
-            ->assertDontSee('T-Shirt')
+            ->assertDontSee('Expensive')
             ->assertSee('Cheap');
 
         $this->get('/admin/products?priceMoreThan=500')
-            ->assertSee('T-Shirt')
+            ->assertSee('Expensive')
             ->assertDontSee('Cheap');
     }
 }
