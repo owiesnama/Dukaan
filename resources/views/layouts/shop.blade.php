@@ -62,6 +62,7 @@
         <!-- End Search Popap -->
     <Cart :initial-content="cart.content"></Cart>
     </div>
+    @include('flash::message')
     @yield('content')
     @include('partials.footer')
     <Flash></Flash>

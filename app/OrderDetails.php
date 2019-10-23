@@ -19,12 +19,18 @@ class OrderDetails implements Arrayable
         $this->city = $details['city'];
         $this->address = $details['address'];
         $this->phone = $details['phone'];
-        $this->description = $details['description'];
+        $this->description = $details['desc'];
     }
 
     public function toArray()
     {
-        return compact('name', 'city', 'address', 'phone', 'description');
+        return [
+            'name' => $this->name,
+            'city' => $this->city,
+            'address' => $this->address,
+            'phone' => $this->phone,
+            'description' => $this->description,
+        ];
     }
 
     /**

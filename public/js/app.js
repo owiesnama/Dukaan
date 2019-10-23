@@ -2035,8 +2035,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
+  created: function created() {
+    console.log(this.product);
+  },
   methods: {
     addToCart: function addToCart(product) {
+      console.log(product);
       _Cart__WEBPACK_IMPORTED_MODULE_0__["default"].add(product);
     }
   }
@@ -20003,7 +20007,7 @@ var render = function() {
       _c("ul", { staticClass: "fr__pro__prize" }, [
         _c("li", {
           domProps: {
-            textContent: _vm._s(_vm.product.price.toFixed(2) + " SDG")
+            textContent: _vm._s(this.product.price.toFixed(2) + " SDG")
           }
         })
       ])
@@ -32972,9 +32976,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

@@ -23,7 +23,7 @@
                                 @foreach($products as $product)
                                     <div class="col-md-4    col-lg-3 col-sm-4 col-xs-12">
 
-                                        <Product :product="{{$product}}"></Product>
+                                        <Product :product="{{$product}}" key="{{$product->id}}"></Product>
 
                                     </div>
                                 @endforeach

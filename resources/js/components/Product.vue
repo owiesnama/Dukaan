@@ -15,7 +15,7 @@
         <div class="fr__product__inner">
             <h4><a :href="'/products/'+product.id" v-text="product.name"></a></h4>
             <ul class="fr__pro__prize">
-                <li v-text="product.price.toFixed(2) + ' SDG'"></li>
+                <li v-text="this.product.price.toFixed(2) + ' SDG'"></li>
             </ul>
         </div>
     </div>
@@ -25,8 +25,12 @@
     export default{
         props: ['product'],
 
+        created() {
+            console.log(this.product)
+        },
         methods: {
-            addToCart(product){
+            addToCart(product) {
+                console.log(product)
                 Cart.add(product)
             }
         }

@@ -17,6 +17,8 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id')->index()->nullable();
             $table->json('details')->nullable();
+            $table->json('cart_details')->nullable();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

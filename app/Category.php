@@ -2,11 +2,14 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property mixed $products
  * @property mixed $children
+ * @mixin Builder
+ * @method static Category main()
  */
 class Category extends Model
 {
