@@ -23,6 +23,8 @@ Route::get('/category/{category}/products/', 'CategoryProductsController@index')
 
 Route::get('/products/{product}', 'ProductsController@show');
 
+Route::post('/products/{product}/rate', 'ProductRatingController@store')->middleware('auth');
+
 Route::get('/cart', 'CartController@index')->name('cart');
 
 Route::post('/cart/{product}', 'CartController@store');
