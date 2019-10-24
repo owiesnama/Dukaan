@@ -57,6 +57,20 @@ class Product extends Model implements HasMedia, Buyable
     }
 
     /**
+     * add review to the product
+     *
+     * @param $review
+     * @param User|null $user
+     */
+    public function review($review, $user = null)
+    {
+        $this->reviews()->create([
+           'user_id'=> $user ? $user->id : auth()->id(),
+            'body'=> $review,
+        ]);
+    }
+
+    /**
      * Apply all relevant product filters.
      *
      * @param Builder $builder

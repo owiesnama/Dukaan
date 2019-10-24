@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 import Cart from "./Cart";
-
+import lozad from 'lozad'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,7 +19,6 @@ import Cart from "./Cart";
 const files = require.context('./views', true, /\.vue$/i)
 
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('flash', require('./components/Flash.vue').default);
 Vue.component('Cart', require('./components/Cart.vue').default);
 Vue.component('Product', require('./components/Product.vue').default);
@@ -30,15 +29,40 @@ Vue.component('Product', require('./components/Product.vue').default);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
 const app = new Vue({
     el: '#app',
-    data:{
-      cart: false,
+    data: {
+        cart: Cart,
+        cartContent: Cart.contents(),
+        cartItemsCount: 0,
+    },
+    methods: {
+        size(object){
+            return _.size(object)
+        },
+
+        initializeLozad(){
+            lozad('.lozad', {
+                load: function (el) {
+                    el.src = el.dataset.src;
+                    el.onload = function () {
+                        el.classList.add('fade')
+                    }
+                }
+            }).observe()
+        }
+    },
+    mounted(){
+        console.log(Cart.contents())
+
+        this.cartItemsCount = this.size(this.cart.contents())
+        window.events.$on('cart:updated', (content) => {
+            this.cartItemsCount = this.size(content)
+        })
     },
     created(){
-        axios.get('/cart').then(({data})=> {
-            this.cart = new Cart(data)
-        })
+        Cart.init()
+        this.initializeLozad()
+        console.log(lozad)
     }
 });

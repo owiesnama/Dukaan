@@ -11,19 +11,22 @@ class ProductReviewsController extends Controller
     public function store(Product $product)
     {
 
-        $attributes = request()->validate([
-            'user_id' => 'required',
+        request()->validate([
             'body' => 'required',
         ]);
 
-        $product->reviews()->create($attributes);
+        $product->review(request('body'));
+        if (\request()->wantsJson()) {
 
-        return response('review created',200);
+            return response('review created', 200);
+        }
+
+        return back();
     }
 
-    public function destroy(Product $product,Review $review)
+    public function destroy(Product $product, Review $review)
     {
-        if(! auth()->user()->is($review->creator)){
+        if (!auth()->user()->is($review->creator)) {
             abort(403);
         }
 

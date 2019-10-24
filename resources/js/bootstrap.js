@@ -1,5 +1,4 @@
 window._ = require('lodash');
-
 import './helpers'
 
 window.Vue = require('vue');
@@ -27,6 +26,11 @@ window.flash = function(message, level = 'success') {
     window.events.$emit('flash', { message, level });
 };
 
+window.fire = function(event, payload) {
+    window.events.$emit(event, payload)
+};
+
+
 // import Echo from 'laravel-echo';
 
 // window.Pusher = require('pusher-js');
@@ -37,3 +41,8 @@ window.flash = function(message, level = 'success') {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+
+// Initialize lozad
+
+

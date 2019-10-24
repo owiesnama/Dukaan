@@ -166,6 +166,15 @@
                                         <p class="">{{$review->body}}</p>
                                     </div>
                                 @endforeach
+                                @auth()
+                                <div>
+                                    <form action="/products/{{$product->id}}/reviews?review" method="post">
+                                        @csrf
+                                        <textarea class="single-input bg-white" name="body" ></textarea>
+                                        <button type="submit" class="fr__btn">@lang('Review')</button>
+                                    </form>
+                                </div>
+                                @endauth()
                             </div>
                         </div>
                         <!-- End Single Content -->

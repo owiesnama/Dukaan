@@ -60,7 +60,7 @@
             </div>
         </div>
         <!-- End Search Popap -->
-    <Cart :initial-content="cart.content"></Cart>
+    <Cart :initial-content="cartContent"></Cart>
     </div>
     @yield('content')
     @include('partials.footer')
@@ -76,7 +76,9 @@
 <script
         src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
+crossorigin="anonymous"></script>
+
+
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <!-- All js plugins included in this file. -->
 <script src="{{asset('js/plugins.js')}}"></script>
@@ -86,6 +88,8 @@
 <script src="{{asset('js/waypoints.min.js')}}"></script>
 <!-- Main js file that contents all jQuery plugins activation. -->
 <script src="{{asset('js/main.js')}}"></script>
+
+
 
 </body>
 
