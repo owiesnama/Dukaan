@@ -5,8 +5,6 @@
  */
 
 require('./bootstrap');
-import Cart from "./Cart";
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,7 +17,6 @@ import Cart from "./Cart";
 const files = require.context('./views', true, /\.vue$/i)
 
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('flash', require('./components/Flash.vue').default);
 Vue.component('Cart', require('./components/Cart.vue').default);
 Vue.component('Product', require('./components/Product.vue').default);
@@ -30,15 +27,28 @@ Vue.component('Product', require('./components/Product.vue').default);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
 const app = new Vue({
     el: '#app',
-    data:{
-      cart: false,
+    data: {
+        cartContent: cart.content,
     },
+
+    computed: {
+        cartItemsCount(){
+            return this.size(this.cartContent)
+        }
+    },
+
+    methods: {
+        size(object){
+            return _.size(object)
+        },
+    },
+
     created(){
-        axios.get('/cart').then(({data})=> {
-            this.cart = new Cart(data)
+        Events.on(['cart:initialized', 'cart:updated'], content => {
+            console.log(content)
+            this.cartContent = content
         })
     }
 });

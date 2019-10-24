@@ -21,13 +21,12 @@
     </div>
 </template>
 <script>
-    import Cart from '../Cart'
     export default{
         props: ['product'],
 
         methods: {
             addToCart(product){
-                Cart.add(product)
+                cart.add(product)
             }
         }
     }

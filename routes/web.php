@@ -21,11 +21,23 @@ Route::get('/shop', 'HomeController@index')->name('home');
 
 Route::get('/category/{category}/products/', 'CategoryProductsController@index');
 
+
+
 Route::get('/products/{product}', 'ProductsController@show');
+
+Route::post('/products/{product}/rate', 'ProductRatingController@store')->middleware('auth');
+
+Route::post('/products/{product}/reviews', 'ProductReviewsController@store')->middleware('auth');
+
+Route::delete('/products/{product}/reviews/{review}', 'ProductReviewsController@destroy')->middleware('auth');
+
 
 Route::get('/cart', 'CartController@index')->name('cart');
 
+
 Route::post('/cart/{product}', 'CartController@store');
+
+Route::delete('/cart/{rowId}', 'CartController@destroy');
 
 Route::get('/checkout', 'CheckoutController@index');
 

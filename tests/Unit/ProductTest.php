@@ -19,4 +19,19 @@ class ProductTest extends TestCase
 
         $this->assertEquals("/admin/products/$product->id",$product->path());
     }
+
+    /**
+     *
+     * @test
+     */
+    public function it_can_be_reviewed()
+    {
+        $this->signIn();
+
+        $product = factory('App\Product')->create();
+
+        $product->review('its awesome');
+
+        $this->assertCount(1,$product->reviews);
+    }
 }
