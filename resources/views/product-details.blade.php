@@ -9,11 +9,13 @@
                     <div class="col-xs-12">
                         <div class="bradcaump__inner">
                             <nav class="bradcaump-inner">
-                                <a class="breadcrumb-item" href="/shop">Home</a>
-                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                <a class="breadcrumb-item" href="product-grid.html">Products</a>
-                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                <span class="breadcrumb-item active">ean shirt</span>
+                                <a class="breadcrumb-item" href="/shop">@lang('navigation.home')</a>
+                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-left"></i></span>
+                                <a class="breadcrumb-item" href="/category/{{$product->category->id}}/products">
+                                    @lang('general.Products')
+                                </a>
+                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-left"></i></span>
+                                <span class="breadcrumb-item active">{{$product->name}}</span>
                             </nav>
                         </div>
                     </div>
@@ -60,13 +62,10 @@
                         <div class="ht__product__dtl">
                             <h2>{{ $product->name }}</h2>
                             <h6>@lang('products.Code'): <span>{{ $product->code ?? '' }}</span></h6>
-                            <ul class="rating">
-                                <li><i class="icon-star icons"></i></li>
-                                <li><i class="icon-star icons"></i></li>
-                                <li><i class="icon-star icons"></i></li>
-                                <li class="old"><i class="icon-star icons"></i></li>
-                                <li class="old"><i class="icon-star icons"></i></li>
-                            </ul>
+                            <h6>@lang('products.Rating'): <span>{{ $product->rating()}}</span></h6>
+                            @auth()
+                            <star-rating initial="{{$product->ratingFor(auth()->user())}}" action="/products/{{$product->id}}/rate"></star-rating>
+                            @endauth()
                             <ul class="pro__prize">
                                 {{-- <li class="old__prize">$82.5</li> --}}
                                 <li>{{ number_format($product->price, 2) }} SDG</li>
@@ -86,39 +85,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                {{--  <div class="sin__desc align--left">
-                                     <p><span>@lang('general.tags'):</span></p>
-                                     <ul class="pro__cat__list">
-                                         <li><a href="#">Fashion,</a></li>
-                                         <li><a href="#">Accessories,</a></li>
-                                         <li><a href="#">Women,</a></li>
-                                         <li><a href="#">Men,</a></li>
-                                         <li><a href="#">Kid,</a></li>
-                                     </ul>
-                                 </div> --}}
 
-                                <div class="sin__desc product__share__link">
-                                    <p><span>@lang('general.Share this'):</span></p>
-                                    <ul class="pro__share">
-                                        <li><a href="#" target="_blank"><i
-                                                        class="icon-social-twitter icons"></i></a></li>
-
-                                        <li><a href="#" target="_blank"><i class="icon-social-instagram icons"></i></a>
-                                        </li>
-
-                                        <li><a href="https://www.facebook.com/Furny/?ref=bookmarks" target="_blank"><i
-                                                        class="icon-social-facebook icons"></i></a></li>
-
-                                        <li><a href="#" target="_blank"><i class="icon-social-google icons"></i></a>
-                                        </li>
-
-                                        <li><a href="#" target="_blank"><i
-                                                        class="icon-social-linkedin icons"></i></a></li>
-
-                                        <li><a href="#" target="_blank"><i class="icon-social-pinterest icons"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -190,7 +157,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="section__title--2 text-center">
-                        <h2 class="title__line">New Arrivals</h2>
+                        <h2 class="title__line">@lang('home.New Arrivals')</h2>
                         {{-- <p>But I must explain to you how all this mistaken idea</p> --}}
                     </div>
                 </div>

@@ -1,3 +1,37 @@
+.rating {
+  width: 208px;
+  height: 40px;
+}
+
+.rating label {
+  float: right;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.rating label:not(:first-of-type) {
+  padding-right: 2px;
+}
+
+.rating label:before {
+  content: "\2605";
+  font-size: 42px;
+  color: #CCCCCC;
+  line-height: 1;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating input:checked ~ label:before,
+.rating:not(:checked) > label:hover:before,
+.rating:not(:checked) > label:hover ~ label:before {
+  color: #F9DF4A;
+}
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document

@@ -20,6 +20,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 Vue.component('flash', require('./components/Flash.vue').default);
 Vue.component('Cart', require('./components/Cart.vue').default);
 Vue.component('Product', require('./components/Product.vue').default);
+Vue.component('StarRating', require('./components/StarRating.vue').default);
 
 
 /**
@@ -47,7 +48,6 @@ const app = new Vue({
 
     created(){
         Events.on(['cart:initialized', 'cart:updated'], content => {
-            console.log(content)
             this.cartContent = content
         })
     }
