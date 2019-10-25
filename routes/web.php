@@ -1,7 +1,5 @@
 <?php
 
-//Auth::loginUsingId(1);
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +24,8 @@ Route::get('/category/{category}/products/', 'CategoryProductsController@index')
 
 
 Route::get('/products/{product}', 'ProductsController@show');
+
+Route::post('/products/{product}/rate', 'ProductRatingController@store')->middleware('auth');
 
 Route::post('/products/{product}/reviews', 'ProductReviewsController@store')->middleware('auth');
 

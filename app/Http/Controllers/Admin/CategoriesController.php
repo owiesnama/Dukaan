@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -40,15 +41,13 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $attributes = $request->validate([
-            'name' => 'required',
-            'desc' => 'required',
-            'parent_id' => 'sometimes',
-        ]);
-
-        $category = Category::create($attributes);
+        if ($request->canAddCategory()) {
+            Category::create($request->all());
+        } else {
+            flash(__('Sorry, the max main categories is ').config('dukaan.max_categories'))->error();
+        }
 
         return redirect()->route('admin.categories.index');
     }
@@ -86,16 +85,18 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        $attributes = $request->validate([
-            'name' => 'required',
-            'desc' => 'required',
+        $this->validate($request, [
             'parent_id' => ['sometimes', Rule::notIn($category->id)],
         ]);
 
-        $category->fill($attributes);
-        $category->save();
+        if ($request->canAddCategory()) {
+            $category->fill($request->all());
+            $category->save();
+        } else {
+            flash(__('Sorry, the max main categories is ').config('dukaan.max_categories'))->error();
+        }
 
         return redirect()->route('admin.categories.index');
     }

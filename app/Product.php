@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Filters\ProductFilters;
+use App\Traits\CanBeRated;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -17,7 +18,7 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
  */
 class Product extends Model implements HasMedia, Buyable
 {
-    use HasMediaTrait;
+    use HasMediaTrait,CanBeRated;
 
     protected $fillable = [
         'name', 'description', 'price', 'published', 'category_id',
