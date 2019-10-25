@@ -1838,7 +1838,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Cart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Cart */ "./resources/js/Cart.js");
 //
 //
 //
@@ -1874,23 +1873,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['initialContent'],
   data: function data() {
     return {
       content: {}
     };
   },
-  mounted: function mounted() {
-    this.content = _.clone(this.initialContent);
+  methods: {
+    removeProduct: function removeProduct(product) {
+      cart.remove(product);
+    }
   },
   created: function created() {
     var _this = this;
 
-    window.events.$on('cart:updated', function (content) {
-      console.log(content);
+    Events.on(['cart:initialized', 'cart:updated'], function (content) {
       _this.content = content;
     });
   }
@@ -1976,7 +1973,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Cart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Cart */ "./resources/js/Cart.js");
 //
 //
 //
@@ -1999,12 +1995,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
   methods: {
     addToCart: function addToCart(product) {
-      _Cart__WEBPACK_IMPORTED_MODULE_0__["default"].add(product);
+      cart.add(product);
     }
   }
 });
@@ -2073,10 +2068,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['cart'],
   methods: {
     addToCart: function addToCart(product) {
-      this.cart.add(product);
+      cart.add(product);
     }
   }
 });
@@ -19234,27 +19228,6 @@ module.exports = function isBuffer (obj) {
 
 /***/ }),
 
-/***/ "./node_modules/lozad/dist/lozad.min.js":
-/*!**********************************************!*\
-  !*** ./node_modules/lozad/dist/lozad.min.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/*! lozad.js - v1.14.0 - 2019-10-19
-* https://github.com/ApoorvSaxena/lozad.js
-* Copyright (c) 2019 Apoorv Saxena; Licensed MIT */
-!function(t,e){ true?module.exports=e():undefined}(this,function(){"use strict";
-/**
-   * Detect IE browser
-   * @const {boolean}
-   * @private
-   */var d="undefined"!=typeof document&&document.documentMode,c={rootMargin:"0px",threshold:0,load:function(t){if("picture"===t.nodeName.toLowerCase()){var e=document.createElement("img");d&&t.getAttribute("data-iesrc")&&(e.src=t.getAttribute("data-iesrc")),t.getAttribute("data-alt")&&(e.alt=t.getAttribute("data-alt")),t.append(e)}if("video"===t.nodeName.toLowerCase()&&!t.getAttribute("data-src")&&t.children){for(var r=t.children,a=void 0,o=0;o<=r.length-1;o++)(a=r[o].getAttribute("data-src"))&&(r[o].src=a);t.load()}if(t.getAttribute("data-src")&&(t.src=t.getAttribute("data-src")),t.getAttribute("data-srcset")&&t.setAttribute("srcset",t.getAttribute("data-srcset")),t.getAttribute("data-background-image"))t.style.backgroundImage="url('"+t.getAttribute("data-background-image").split(",").join("'),url('")+"')";else if(t.getAttribute("data-background-image-set")){var i=t.getAttribute("data-background-image-set").split(","),n=i[0].substr(0,i[0].indexOf(" "))||i[0];// Substring before ... 1x
-n=-1===n.indexOf("url(")?"url("+n+")":n,1===i.length?t.style.backgroundImage=n:t.setAttribute("style",(t.getAttribute("style")||"")+"background-image: "+n+"; background-image: -webkit-image-set("+i+"); background-image: image-set("+i+")")}t.getAttribute("data-toggle-class")&&t.classList.toggle(t.getAttribute("data-toggle-class"))},loaded:function(){}};function l(t){t.setAttribute("data-loaded",!0)}var b=function(t){return"true"===t.getAttribute("data-loaded")};return function(){var r,a,o=0<arguments.length&&void 0!==arguments[0]?arguments[0]:".lozad",t=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{},e=Object.assign({},c,t),i=e.root,n=e.rootMargin,d=e.threshold,u=e.load,s=e.loaded,g=void 0;return"undefined"!=typeof window&&window.IntersectionObserver&&(g=new IntersectionObserver((r=u,a=s,function(t,e){t.forEach(function(t){(0<t.intersectionRatio||t.isIntersecting)&&(e.unobserve(t.target),b(t.target)||(r(t.target),l(t.target),a(t.target)))})}),{root:i,rootMargin:n,threshold:d})),{observe:function(){for(var t=function(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:document;return t instanceof Element?[t]:t instanceof NodeList?t:e.querySelectorAll(t)}(o,i),e=0;e<t.length;e++)b(t[e])||(g?g.observe(t[e]):(u(t[e]),l(t[e]),s(t[e])))},triggerLoad:function(t){b(t)||(u(t),l(t),s(t))},observer:g}}});
-
-
-/***/ }),
-
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -19750,13 +19723,22 @@ var render = function() {
             "div",
             { key: product.id, staticClass: "shp__single__product" },
             [
-              _vm._m(1, true),
+              _c("div", { staticClass: "shp__pro__thumb" }, [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("img", {
+                    attrs: {
+                      src: product.options.thumbnail,
+                      alt: "product images"
+                    }
+                  })
+                ])
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "shp__pro__details" }, [
                 _c("h2", [
                   _c("a", {
                     attrs: { href: "/products/" + product.id },
-                    domProps: { textContent: _vm._s(product.name) }
+                    domProps: { textContent: _vm._s(product.options.name) }
                   })
                 ]),
                 _vm._v(" "),
@@ -19769,14 +19751,26 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(2, true)
+              _c(
+                "div",
+                {
+                  staticClass: "remove__btn",
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.removeProduct(product)
+                    }
+                  }
+                },
+                [_vm._m(1, true)]
+              )
             ]
           )
         }),
         0
       ),
       _vm._v(" "),
-      _vm._m(3),
+      _vm._m(2),
       _vm._v(" "),
       _c("ul", { staticClass: "shopping__btn" }, [
         _c("li", [
@@ -19809,25 +19803,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "shp__pro__thumb" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("img", {
-          attrs: {
-            src: "/images/product-2/sm-smg/1.jpg",
-            alt: "product images"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "remove__btn" }, [
-      _c("a", { attrs: { href: "#", title: "Remove this item" } }, [
-        _c("i", { staticClass: "zmdi zmdi-close" })
-      ])
+    return _c("a", { attrs: { href: "#", title: "Remove this item" } }, [
+      _c("i", { staticClass: "zmdi zmdi-close" })
     ])
   },
   function() {
@@ -19835,8 +19812,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("ul", { staticClass: "shoping__total" }, [
-      _c("li", { staticClass: "subtotal" }, [_vm._v("Subtotal")]),
-      _vm._v(" "),
       _c("li", { staticClass: "total__price" })
     ])
   }
@@ -32107,13 +32082,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Cart =
 /*#__PURE__*/
 function () {
-  function Cart(content) {
+  function Cart() {
     _classCallCheck(this, Cart);
 
-    this.content = content;
+    this.content = {};
   }
 
-  _createClass(Cart, null, [{
+  _createClass(Cart, [{
     key: "init",
     value: function init() {
       var _this = this;
@@ -32121,6 +32096,7 @@ function () {
       return axios.get('/cart').then(function (_ref) {
         var data = _ref.data;
         _this.content = data.cart;
+        Events.fire('cart:initialized', _this.content);
       });
     }
   }, {
@@ -32137,7 +32113,21 @@ function () {
         var data = _ref2.data;
         _this2.content = data.cart;
         flash(data.message);
-        fire('cart:updated', _this2.content);
+        Events.fire('cart:updated', _this2.content);
+      })["catch"](function () {
+        return flash('opps somthing gose wrong ...');
+      });
+    }
+  }, {
+    key: "remove",
+    value: function remove(product) {
+      var _this3 = this;
+
+      return axios["delete"]("/cart/".concat(product.rowId)).then(function (_ref3) {
+        var data = _ref3.data;
+        _this3.content = data.cart;
+        Events.fire('cart:item-removed', _this3.content);
+        Events.fire('cart:updated', _this3.content);
       })["catch"](function () {
         return flash('opps somthing gose wrong ...');
       });
@@ -32151,27 +32141,66 @@ function () {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/*! no exports provided */
+/***/ "./resources/js/Events.js":
+/*!********************************!*\
+  !*** ./resources/js/Events.js ***!
+  \********************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Cart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Cart */ "./resources/js/Cart.js");
-/* harmony import */ var lozad__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lozad */ "./node_modules/lozad/dist/lozad.min.js");
-/* harmony import */ var lozad__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lozad__WEBPACK_IMPORTED_MODULE_1__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Events =
+/*#__PURE__*/
+function () {
+  function Events() {
+    _classCallCheck(this, Events);
+  }
+
+  _createClass(Events, [{
+    key: "fire",
+    value: function fire(event, payload) {
+      events.$emit(event, payload);
+    }
+  }, {
+    key: "on",
+    value: function on(event, callback) {
+      if (Array.isArray(event)) {
+        event.forEach(function (singleEvent) {
+          events.$on(singleEvent, callback);
+        });
+      } else {
+        events.$on(event, callback);
+      }
+    }
+  }]);
+
+  return Events;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Events);
+
+/***/ }),
+
+/***/ "./resources/js/app.js":
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -32179,6 +32208,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
+
 
 var files = __webpack_require__("./resources/js/views sync recursive \\.vue$/");
 
@@ -32197,39 +32227,25 @@ Vue.component('Product', __webpack_require__(/*! ./components/Product.vue */ "./
 var app = new Vue({
   el: '#app',
   data: {
-    cart: _Cart__WEBPACK_IMPORTED_MODULE_0__["default"],
-    cartContent: _Cart__WEBPACK_IMPORTED_MODULE_0__["default"].contents(),
-    cartItemsCount: 0
+    cartContent: cart.content
+  },
+  computed: {
+    cartItemsCount: function cartItemsCount() {
+      return this.size(this.cartContent);
+    }
   },
   methods: {
     size: function size(object) {
       return _.size(object);
-    },
-    initializeLozad: function initializeLozad() {
-      lozad__WEBPACK_IMPORTED_MODULE_1___default()('.lozad', {
-        load: function load(el) {
-          el.src = el.dataset.src;
-
-          el.onload = function () {
-            el.classList.add('fade');
-          };
-        }
-      }).observe();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     var _this = this;
 
-    console.log(_Cart__WEBPACK_IMPORTED_MODULE_0__["default"].contents());
-    this.cartItemsCount = this.size(this.cart.contents());
-    window.events.$on('cart:updated', function (content) {
-      _this.cartItemsCount = _this.size(content);
+    Events.on(['cart:initialized', 'cart:updated'], function (content) {
+      console.log(content);
+      _this.cartContent = content;
     });
-  },
-  created: function created() {
-    _Cart__WEBPACK_IMPORTED_MODULE_0__["default"].init();
-    this.initializeLozad();
-    console.log(lozad__WEBPACK_IMPORTED_MODULE_1___default.a);
   }
 });
 
@@ -32245,7 +32261,10 @@ var app = new Vue({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ "./resources/js/helpers.js");
+/* harmony import */ var _Events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Events */ "./resources/js/Events.js");
+/* harmony import */ var _Cart__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Cart */ "./resources/js/Cart.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -32263,17 +32282,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 window.events = new Vue();
+window.Events = new _Events__WEBPACK_IMPORTED_MODULE_1__["default"]();
 
 window.flash = function (message) {
   var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'success';
-  window.events.$emit('flash', {
+  window.Events.fire('flash', {
     message: message,
     level: level
   });
-};
-
-window.fire = function (event, payload) {
-  window.events.$emit(event, payload);
 }; // import Echo from 'laravel-echo';
 // window.Pusher = require('pusher-js');
 // window.Echo = new Echo({
@@ -32282,7 +32298,11 @@ window.fire = function (event, payload) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-// Initialize lozad
+
+
+
+window.cart = new _Cart__WEBPACK_IMPORTED_MODULE_2__["default"]();
+cart.init(); // Initialize lozad
 
 /***/ }),
 

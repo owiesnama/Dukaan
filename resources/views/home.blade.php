@@ -1,7 +1,7 @@
 @extends('layouts.shop')
 
 @section('content')
-    <shop-view :cart="cart" inline-template>
+    <shop-view inline-template>
         <div>
             <!-- Start Slider Area -->
             <!-- Start Category Area -->

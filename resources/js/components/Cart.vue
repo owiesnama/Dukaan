@@ -10,21 +10,20 @@
                      class="shp__single__product">
                     <div class="shp__pro__thumb">
                         <a href="#">
-                            <img src="/images/product-2/sm-smg/1.jpg" alt="product images">
+                            <img :src="product.options.thumbnail" alt="product images">
                         </a>
                     </div>
                     <div class="shp__pro__details">
-                        <h2><a :href="'/products/'+product.id" v-text="product.name"></a></h2>
+                        <h2><a :href="'/products/'+product.id" v-text="product.options.name"></a></h2>
                         <span class="quantity">الكمية:{{product.qty}}</span>
                         <span class="shp__price">السعر:{{product.price}}</span>
                     </div>
-                    <div class="remove__btn">
+                    <div class="remove__btn" @click.prevent="removeProduct(product)">
                         <a href="#" title="Remove this item"><i class="zmdi zmdi-close"></i></a>
                     </div>
                 </div>
             </div>
             <ul class="shoping__total">
-                <li class="subtotal">Subtotal</li>
                 <li class="total__price"></li>
             </ul>
             <ul class="shopping__btn">
@@ -35,22 +34,20 @@
     </div>
 </template>
 <script>
-    import Cart from '../Cart'
     export default{
-        props: ['initialContent'],
-
         data(){
             return {
                 content: {}
             }
         },
-        mounted(){
-            this.content = _.clone(this.initialContent)
+        methods:{
+            removeProduct(product){
+                cart.remove(product)
+            }
         },
-        created(){
 
-            window.events.$on('cart:updated', content => {
-                console.log(content)
+        created(){
+            Events.on(['cart:initialized', 'cart:updated'], content => {
                 this.content = content
             })
         }

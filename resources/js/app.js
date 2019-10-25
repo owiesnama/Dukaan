@@ -5,8 +5,6 @@
  */
 
 require('./bootstrap');
-import Cart from "./Cart";
-import lozad from 'lozad'
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -32,37 +30,25 @@ Vue.component('Product', require('./components/Product.vue').default);
 const app = new Vue({
     el: '#app',
     data: {
-        cart: Cart,
-        cartContent: Cart.contents(),
-        cartItemsCount: 0,
+        cartContent: cart.content,
     },
+
+    computed: {
+        cartItemsCount(){
+            return this.size(this.cartContent)
+        }
+    },
+
     methods: {
         size(object){
             return _.size(object)
         },
-
-        initializeLozad(){
-            lozad('.lozad', {
-                load: function (el) {
-                    el.src = el.dataset.src;
-                    el.onload = function () {
-                        el.classList.add('fade')
-                    }
-                }
-            }).observe()
-        }
     },
-    mounted(){
-        console.log(Cart.contents())
 
-        this.cartItemsCount = this.size(this.cart.contents())
-        window.events.$on('cart:updated', (content) => {
-            this.cartItemsCount = this.size(content)
-        })
-    },
     created(){
-        Cart.init()
-        this.initializeLozad()
-        console.log(lozad)
+        Events.on(['cart:initialized', 'cart:updated'], content => {
+            console.log(content)
+            this.cartContent = content
+        })
     }
 });

@@ -1,24 +1,36 @@
 class Cart {
-    constructor(content) {
-        this.content = content
+    constructor() {
+        this.content = {}
     }
-    static init(){
+
+    init() {
         return axios.get('/cart')
-            .then(({data})=> {
+            .then(({data}) => {
                 this.content = data.cart
+                Events.fire('cart:initialized', this.content)
             })
     }
 
-    static contents() {
+    contents() {
         return this.content
     }
 
-    static add(product) {
+    add(product) {
         return axios.post(`/cart/${product.id}`)
             .then(({data}) => {
                 this.content = data.cart
                 flash(data.message)
-                fire('cart:updated',this.content)
+                Events.fire('cart:updated', this.content)
+            })
+            .catch(() => flash('opps somthing gose wrong ...'))
+    }
+
+    remove(product){
+        return axios.delete(`/cart/${product.rowId}`)
+            .then(({data}) => {
+                this.content = data.cart
+                Events.fire('cart:item-removed', this.content)
+                Events.fire('cart:updated', this.content)
             })
             .catch(() => flash('opps somthing gose wrong ...'))
     }

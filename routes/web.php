@@ -34,7 +34,10 @@ Route::delete('/products/{product}/reviews/{review}', 'ProductReviewsController@
 
 Route::get('/cart', 'CartController@index')->name('cart');
 
+
 Route::post('/cart/{product}', 'CartController@store');
+
+Route::delete('/cart/{rowId}', 'CartController@destroy');
 
 Route::get('/checkout', 'CheckoutController@index');
 
