@@ -6,6 +6,7 @@ return [
     'Subtotal' => 'اجمالي المشتريات',
     'View Cart' => 'استعراض سلة المشتريات',
     'Checkout' => 'إتمام الشراء',
+    'Products'=> 'المنتجات',
     'pages-names' => [
         'home' => 'الرئسية',
         'shopping cart' => 'سلة المشتريات',
