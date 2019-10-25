@@ -9,4 +9,18 @@ class Rating extends Model
      * @var array
      */
     protected $guarded = [];
+
+
+    /**
+     * Get products with high ratings.
+     *
+     * @param Builder $builder
+     * @param ProductFilters $filters
+     *
+     * @return Builder
+     */
+    public static function mostRated()
+    {
+        return static::where('rating', '>' , 4);
+    }
 }
