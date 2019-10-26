@@ -1,3 +1,9 @@
 <script>
-    export default{}
+    export default{
+        methods:{
+            addToCart(product){
+                cart.add(product)
+            }
+        }
+    }
 </script>

@@ -3,17 +3,16 @@
 @section('content')
     <Checkout-View inline-template>
         <div>
-            <div class="ht__bradcaump__area"
-                 style="background: rgba(0, 0, 0, 0) url(images/bg/4.jpg) no-repeat scroll center center / cover ;">
+            <div class="ht__bradcaump__area">
                 <div class="ht__bradcaump__wrap">
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="bradcaump__inner">
                                     <nav class="bradcaump-inner">
-                                        <a class="breadcrumb-item" href="index.blade.php">Home</a>
+                                        <a class="breadcrumb-item" href="/">@lang('navigation.home')</a>
                                         <span class="brd-separetor"><i class="zmdi zmdi-chevron-left"></i></span>
-                                        <span class="breadcrumb-item active">checkout</span>
+                                        <span class="breadcrumb-item active">@lang('general.pages-names.checkout')</span>
                                     </nav>
                                 </div>
                             </div>

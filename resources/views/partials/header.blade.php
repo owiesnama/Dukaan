@@ -21,9 +21,11 @@
                                                    href="/category/{{$mainCategory->id}}/products">{{$mainCategory->name}}</a>
                                                 <ul class="mega__item">
                                                     @foreach($mainCategory->children as $category)
+                                                        @if(!! $category->products->count())
                                                         <li>
                                                             <a href="/category/{{$category->id}}/products">{{$category->name}}</a>
                                                         </li>
+                                                        @endif
                                                     @endforeach
                                                 </ul>
                                             </li>

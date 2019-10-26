@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class CartController extends Controller
 {
@@ -21,7 +21,7 @@ class CartController extends Controller
         Cart::add($product, 1, ['name' => $product->name, 'thumbnail' => $product->thumbnail,]);
 
         return response([
-            'message' => 'product added to the cart',
+            'message' => Lang::get('cart.product added to the cart'),
             'cart' => Cart::content(),
         ], 200);
     }
@@ -31,7 +31,7 @@ class CartController extends Controller
         Cart::remove($rowId);
 
         return response([
-            'message' => 'product removed from the cart',
+            'message' => Lang::get('cart.product removed from the cart'),
             'cart' => Cart::content(),
         ]);
     }

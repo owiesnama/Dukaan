@@ -9,7 +9,7 @@ class CategoryProductsController extends Controller
 {
     public function index(Category $category)
     {
-        $products = $category->getProducts();
+        $products = $category->getProducts()->paginate(12);
         return view('products', compact('products'));
     }
 }

@@ -11395,6 +11395,15 @@ video {
   z-index: auto;
 }
 
+.ht__list__product .ht__list__thumb {
+  margin-left: 40px;
+}
+
+.ht__list__product .ht__list__thumb img {
+  height: 300px;
+  width: 250px;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

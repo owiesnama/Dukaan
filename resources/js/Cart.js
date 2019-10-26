@@ -22,7 +22,7 @@ class Cart {
                 flash(data.message)
                 Events.fire('cart:updated', this.content)
             })
-            .catch(() => flash('opps somthing gose wrong ...'))
+            .catch(() => flash('عذرا هنالك خطأ ما...'))
     }
 
     remove(product){
@@ -32,7 +32,7 @@ class Cart {
                 Events.fire('cart:item-removed', this.content)
                 Events.fire('cart:updated', this.content)
             })
-            .catch(() => flash('opps somthing gose wrong ...'))
+            .catch(() => flash('عذرا هنالك خطأ ما...'))
     }
 }
 

@@ -2093,7 +2093,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    addToCart: function addToCart(product) {
+      cart.add(product);
+    }
+  }
+});
 
 /***/ }),
 
@@ -32279,7 +32285,7 @@ function () {
         flash(data.message);
         Events.fire('cart:updated', _this2.content);
       })["catch"](function () {
-        return flash('opps somthing gose wrong ...');
+        return flash('عذرا هنالك خطأ ما...');
       });
     }
   }, {
@@ -32293,7 +32299,7 @@ function () {
         Events.fire('cart:item-removed', _this3.content);
         Events.fire('cart:updated', _this3.content);
       })["catch"](function () {
-        return flash('opps somthing gose wrong ...');
+        return flash('عذرا هنالك خطأ ما...');
       });
     }
   }]);
