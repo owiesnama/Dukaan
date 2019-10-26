@@ -50,12 +50,16 @@
                                                                     <div class="single-input">
                                                                         <input type="radio" id="checkout-method-1"
                                                                                value="guest"
+                                                                               v-model="checkout_method"
+                                                                               @change="onMethodChange"
                                                                                name="checkout_method" checked="checked">
                                                                         <label for="checkout-method-1">@lang('checkout.Checkout as guest')</label>
                                                                     </div>
                                                                     <div class="single-input">
                                                                         <input type="radio" id="checkout-method-2"
                                                                                value="register"
+                                                                               v-model="checkout_method"
+                                                                               @change="onMethodChange"
                                                                                name="checkout_method">
                                                                         <label for="checkout-method-2">@lang('checkout.Register')</label>
                                                                     </div>
@@ -95,30 +99,35 @@
                                             <div class="accordion__body">
                                                 <div class="bilinfo">
                                                     <div class="row">
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-12" v-if="show_email">
                                                             <div class="single-input">
-                                                                <input type="text" name="order[name]" placeholder="@lang('checkout.Name')">
+                                                                <input type="text" name="address[email]" placeholder="@lang('checkout.Email Address')" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" name="order[city]" placeholder="@lang('checkout.City')">
+                                                                <input type="text" name="address[name]" placeholder="@lang('checkout.Name')" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" name="order[address]" placeholder="@lang('checkout.Address')">
+                                                                <input type="text" name="address[city]" placeholder="@lang('checkout.City')" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <input type="text" name="order[phone]" placeholder="@lang('checkout.Phone')">
+                                                                <input type="text" name="address[address]" placeholder="@lang('checkout.Address')" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="single-input">
-                                                                <textarea name="order[desc]" placeholder="@lang('checkout.Description')"
-                                                                          rows="4" class="form-control"></textarea>
+                                                                <input type="text" name="address[phone]" placeholder="@lang('checkout.Phone')" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="single-input">
+                                                                <textarea name="address[details]" placeholder="@lang('checkout.Description')"
+                                                                          rows="4" class="form-control" required></textarea>
                                                             </div>
                                                         </div>
                                                     </div>

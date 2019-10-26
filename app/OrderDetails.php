@@ -11,7 +11,7 @@ class OrderDetails implements Arrayable
     public $city;
     public $address;
     public $phone;
-    public $description;
+    public $details;
 
     public function __construct(array $details)
     {
@@ -19,7 +19,7 @@ class OrderDetails implements Arrayable
         $this->city = $details['city'];
         $this->address = $details['address'];
         $this->phone = $details['phone'];
-        $this->description = $details['desc'];
+        $this->description = $details['details'];
     }
 
     public function toArray()
@@ -29,7 +29,7 @@ class OrderDetails implements Arrayable
             'city' => $this->city,
             'address' => $this->address,
             'phone' => $this->phone,
-            'description' => $this->description,
+            'details' => $this->details,
         ];
     }
 

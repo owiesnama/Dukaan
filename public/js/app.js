@@ -2002,10 +2002,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addToCart: function addToCart(product) {
-<<<<<<< HEAD
-      console.log(product);
-      _Cart__WEBPACK_IMPORTED_MODULE_0__["default"].add(product);
-=======
       cart.add(product);
     }
   }
@@ -2046,7 +2042,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(this.$el.action, {
         rating: this.rating
       });
->>>>>>> c4ea51f00ba62765b0d9a26aed7bf23db15e38f1
     }
   }
 });
@@ -2075,7 +2070,23 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      checkout_method: 'guest',
+      show_email: false
+    };
+  },
+  methods: {
+    onMethodChange: function onMethodChange() {
+      if (this.checkout_method == 'register') {
+        this.show_email = true;
+      } else {
+        this.show_email = false;
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -33149,9 +33160,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /home/abdalla/web/php-projects/laravel/Dukaan/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/abdalla/web/php-projects/laravel/Dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/abdalla/web/php-projects/laravel/Dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

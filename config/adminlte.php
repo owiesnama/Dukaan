@@ -142,6 +142,12 @@ return [
             'can' => 'manage-dashboard',
             'icon' => 'fa fa-cubes',
         ],
+        [
+            'text' => 'Orders',
+            'url' => 'admin/orders',
+            'can' => 'manage-dashboard',
+            'icon' => 'fa fa-bus',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

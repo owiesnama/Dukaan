@@ -8,5 +8,6 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'desc' => $faker->sentence,
+        'code' => Str::random(3),
     ];
 });

@@ -41,6 +41,6 @@ class CategoryRequest extends FormRequest
         $maxCategories = config('dukaan.max_categories');
         $mainCategoriesCount = Category::main()->count();
 
-        return !$this->parent_id && $mainCategoriesCount < $maxCategories;
+        return !request('parent_id') ? $mainCategoriesCount < $maxCategories : true;
     }
 }
