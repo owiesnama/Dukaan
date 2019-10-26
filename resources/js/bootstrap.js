@@ -1,7 +1,6 @@
 window._ = require('lodash');
-
 import './helpers'
-
+import Events from './Events'
 window.Vue = require('vue');
 
 /**
@@ -23,9 +22,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.events = new Vue();
 
+window.Events = new Events();
+
 window.flash = function(message, level = 'success') {
-    window.events.$emit('flash', { message, level });
+    window.Events.fire('flash', { message, level });
 };
+
 
 // import Echo from 'laravel-echo';
 
@@ -37,3 +39,11 @@ window.flash = function(message, level = 'success') {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+import Cart from './Cart'
+
+window.cart = new Cart();
+
+cart.init()
+// Initialize lozad
+
+

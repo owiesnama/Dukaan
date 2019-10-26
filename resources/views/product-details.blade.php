@@ -1,19 +1,20 @@
 @extends('layouts.shop')
 
 @section('content')
- <div class="ht__bradcaump__area"
-         style="background: rgba(0, 0, 0, 0) url(/images/bg/4.jpg) no-repeat scroll center center / cover ;">
+    <div class="ht__bradcaump__area">
         <div class="ht__bradcaump__wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="bradcaump__inner">
                             <nav class="bradcaump-inner">
-                                <a class="breadcrumb-item" href="/shop">Home</a>
-                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                <a class="breadcrumb-item" href="product-grid.html">Products</a>
-                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
-                                <span class="breadcrumb-item active">ean shirt</span>
+                                <a class="breadcrumb-item" href="/shop">@lang('navigation.home')</a>
+                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-left"></i></span>
+                                <a class="breadcrumb-item" href="/category/{{$product->category->id}}/products">
+                                    @lang('general.Products')
+                                </a>
+                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-left"></i></span>
+                                <span class="breadcrumb-item active">{{$product->name}}</span>
                             </nav>
                         </div>
                     </div>
@@ -34,9 +35,10 @@
                             <div class="product__big__images">
                                 <div class="portfolio-full-image tab-content">
                                     @foreach($product->getMedia('images') as $image)
-                                        <div role="tabpanel" class="tab-pane fade in{{ $loop->first ? ' active' : '' }}" id="img-tab-{{ $loop->iteration }}">
-                                        <img src="{{ $image->getUrl() }}" alt="full-image">
-                                    </div>
+                                        <div role="tabpanel" class="tab-pane fade in{{ $loop->first ? ' active' : '' }}"
+                                             id="img-tab-{{ $loop->iteration }}">
+                                            <img src="{{ $image->getUrl() }}" alt="full-image">
+                                        </div>
                                     @endforeach
                                 </div>
                             </div>
@@ -59,13 +61,10 @@
                         <div class="ht__product__dtl">
                             <h2>{{ $product->name }}</h2>
                             <h6>@lang('products.Code'): <span>{{ $product->code ?? '' }}</span></h6>
-                            <ul class="rating">
-                                <li><i class="icon-star icons"></i></li>
-                                <li><i class="icon-star icons"></i></li>
-                                <li><i class="icon-star icons"></i></li>
-                                <li class="old"><i class="icon-star icons"></i></li>
-                                <li class="old"><i class="icon-star icons"></i></li>
-                            </ul>
+                            <h6>@lang('products.Rating'): <span>{{ $product->rating()}}</span></h6>
+                            @auth()
+                            <star-rating initial="{{$product->ratingFor(auth()->user())}}" action="/products/{{$product->id}}/rate"></star-rating>
+                            @endauth()
                             <ul class="pro__prize">
                                 {{-- <li class="old__prize">$82.5</li> --}}
                                 <li>{{ number_format($product->price, 2) }} SDG</li>
@@ -80,42 +79,12 @@
                                 <div class="sin__desc align--left">
                                     <p><span>@lang('products.categories'): </span></p>
                                     <ul class="pro__cat__list">
-                                        <li><a href="/category/{{ $product->category->id }}/products">{{ $product->category->name }}</a></li>
-                                    </ul>
-                                </div>
-                               {{--  <div class="sin__desc align--left">
-                                    <p><span>@lang('general.tags'):</span></p>
-                                    <ul class="pro__cat__list">
-                                        <li><a href="#">Fashion,</a></li>
-                                        <li><a href="#">Accessories,</a></li>
-                                        <li><a href="#">Women,</a></li>
-                                        <li><a href="#">Men,</a></li>
-                                        <li><a href="#">Kid,</a></li>
-                                    </ul>
-                                </div> --}}
-
-                                <div class="sin__desc product__share__link">
-                                    <p><span>@lang('general.Share this'):</span></p>
-                                    <ul class="pro__share">
-                                        <li><a href="#" target="_blank"><i
-                                                        class="icon-social-twitter icons"></i></a></li>
-
-                                        <li><a href="#" target="_blank"><i class="icon-social-instagram icons"></i></a>
-                                        </li>
-
-                                        <li><a href="https://www.facebook.com/Furny/?ref=bookmarks" target="_blank"><i
-                                                        class="icon-social-facebook icons"></i></a></li>
-
-                                        <li><a href="#" target="_blank"><i class="icon-social-google icons"></i></a>
-                                        </li>
-
-                                        <li><a href="#" target="_blank"><i
-                                                        class="icon-social-linkedin icons"></i></a></li>
-
-                                        <li><a href="#" target="_blank"><i class="icon-social-pinterest icons"></i></a>
+                                        <li>
+                                            <a href="/category/{{ $product->category->id }}/products">{{ $product->category->name }}</a>
                                         </li>
                                     </ul>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -154,7 +123,24 @@
                         <!-- Start Single Content -->
                         <div role="tabpanel" id="review" class="pro__single__content tab-pane fade">
                             <div class="pro__tab__content__inner">
-
+                                @foreach($product->reviews()->recent()->get() as $review)
+                                    <div class="mb-4 py-2 border-b border-solid border-gray-400">
+                                        <div class="flex justify-between mb-2">
+                                            <h3 class="text-bold text-lg">{{$review->creator->name}}</h3>
+                                            <span>{{$review->created_at->diffForHumans()}}</span>
+                                        </div>
+                                        <p class="">{{$review->body}}</p>
+                                    </div>
+                                @endforeach
+                                @auth()
+                                <div>
+                                    <form action="/products/{{$product->id}}/reviews?review" method="post">
+                                        @csrf
+                                        <textarea class="single-input bg-white" name="body" ></textarea>
+                                        <button type="submit" class="fr__btn">@lang('Review')</button>
+                                    </form>
+                                </div>
+                                @endauth()
                             </div>
                         </div>
                         <!-- End Single Content -->
@@ -170,7 +156,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="section__title--2 text-center">
-                        <h2 class="title__line">New Arrivals</h2>
+                        <h2 class="title__line">@lang('home.New Arrivals')</h2>
                         {{-- <p>But I must explain to you how all this mistaken idea</p> --}}
                     </div>
                 </div>

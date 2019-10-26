@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Filters\ProductFilters;
+use App\Traits\CanBeRated;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -17,7 +18,7 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
  */
 class Product extends Model implements HasMedia, Buyable
 {
-    use HasMediaTrait;
+    use HasMediaTrait,CanBeRated;
 
     protected $fillable = [
         'name', 'description', 'price', 'published', 'category_id',
@@ -44,6 +45,30 @@ class Product extends Model implements HasMedia, Buyable
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * reviews which associated whit this product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    /**
+     * add review to the product
+     *
+     * @param $review
+     * @param User|null $user
+     */
+    public function review($review, $user = null)
+    {
+        $this->reviews()->create([
+           'user_id'=> $user ? $user->id : auth()->id(),
+            'body'=> $review,
+        ]);
     }
 
     /**

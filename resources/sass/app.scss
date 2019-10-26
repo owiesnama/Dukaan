@@ -1,5 +1,16 @@
+@import "star-rating";
+
 @tailwind base;
 
 @tailwind components;
 
 @tailwind utilities;
+.ht__list__product{
+  .ht__list__thumb{
+    margin-left:40px;
+    img{
+      height: 300px;
+      width: 250px;
+    }
+  }
+}

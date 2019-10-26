@@ -11,19 +11,6 @@
                             <p>
                                 نص تعريفي حول الشركة المالكه للمتجر للتعريف بالسركة
                             </p>
-                            <div class="ft__social__link">
-                                <ul class="social__link">
-                                    <li><a href="#"><i class="icon-social-twitter icons"></i></a></li>
-
-                                    <li><a href="#"><i class="icon-social-instagram icons"></i></a></li>
-
-                                    <li><a href="#"><i class="icon-social-facebook icons"></i></a></li>
-
-                                    <li><a href="#"><i class="icon-social-google icons"></i></a></li>
-
-                                    <li><a href="#"><i class="icon-social-linkedin icons"></i></a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -50,10 +37,9 @@
                         <div class="ft__inner">
                             <ul class="ft__list">
                                 <li><a href="#">@lang('footer.My Account')</a></li>
-                                <li><a href="cart.html">@lang('footer.My Cart')</a></li>
+                                <li><a href="/cart">@lang('footer.My Cart')</a></li>
                                 <li><a href="#">@lang('footer.Login')</a></li>
-                                <li><a href="wishlist.html">@lang('footer.Wishlist')</a></li>
-                                <li><a href="checkout.html">@lang('footer.Checkout')</a></li>
+                                <li><a href="/checkout">@lang('footer.Checkout')</a></li>
                             </ul>
                         </div>
                     </div>

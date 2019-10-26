@@ -21,9 +21,11 @@
                                                    href="/category/{{$mainCategory->id}}/products">{{$mainCategory->name}}</a>
                                                 <ul class="mega__item">
                                                     @foreach($mainCategory->children as $category)
+                                                        @if(!! $category->products->count())
                                                         <li>
                                                             <a href="/category/{{$category->id}}/products">{{$category->name}}</a>
                                                         </li>
+                                                        @endif
                                                     @endforeach
                                                 </ul>
                                             </li>
@@ -56,7 +58,7 @@
                             </div>
                             <div class="htc__shopping__cart">
                                 <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
-                                <a><span class="htc__qua">{{$cart->count()}}</span></a>
+                                <a><span class="htc__qua" v-text="cartItemsCount"></span></a>
                             </div>
                         </div>
                     </div>

@@ -75,7 +75,5 @@ class ProductsTest extends TestCase
             ->assertRedirect('/admin/products');
 
 
-        $this->assertDatabaseHas('products', $product);
-
     }
 }

@@ -21,7 +21,6 @@
     </div>
 </template>
 <script>
-    import Cart from '../Cart'
     export default{
         props: ['product'],
 
@@ -29,9 +28,8 @@
             console.log(this.product)
         },
         methods: {
-            addToCart(product) {
-                console.log(product)
-                Cart.add(product)
+            addToCart(product){
+                cart.add(product)
             }
         }
     }
