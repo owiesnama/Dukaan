@@ -18,6 +18,11 @@ class Order extends Model
         return new OrderDetails(json_decode($details, true));
     }
 
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
     /**
      * Serialize the OrderDetails to json string
      *
@@ -26,5 +31,20 @@ class Order extends Model
     public function setDetailsAttribute($details)
     {
         $this->attributes['details'] = json_encode($details->toArray());
+    }
+
+    public function getCartDetailsAttribute($cartDetails)
+    {
+        return json_decode($cartDetails);
+    }
+
+    public function getAmountAttribute()
+    {
+        return collect($this->cart_details)->sum('subtotal');
+    }
+
+    public function getInfoAttribute()
+    {
+        return $this->address->address . ' / ' . $this->address->city;
     }
 }

@@ -38,12 +38,17 @@ class ProductsController extends Controller
         $attributes = request()->validate([
             'name' => 'required',
             'description' => 'required',
+            'detailed_description' => 'required',
             'price' => 'required',
             'category_id' => 'required',
             'images.*' => 'mimes:jpeg,png',
         ]);
 
-        $product = Product::create($attributes);
+        $category = Category::findOrFail(request('category_id'));
+
+        $product = new Product($attributes);
+        $product->code = $category->code . str_pad($category->products()->count() + 1, 3, '0');
+        $product->save();
 
         if (request()->has('images')) {
             $product->addImages(request('images'));
@@ -80,6 +85,7 @@ class ProductsController extends Controller
         $attributes = request()->validate([
             'name' => 'required',
             'description' => 'required',
+            'detailed_description' => 'required',
             'price' => 'required',
             'category_id' => 'required',
         ]);

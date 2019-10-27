@@ -27,6 +27,13 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="control-label col-sm-4" for="details">Detailed description</label>
+                <div class="col-sm-8">
+                    <textarea id="details" name="detailed_description"
+                        class="form-control" rows="6">{{ $product->detailed_description?:old('detailed_description') }}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-sm-4" for="category">Category</label>
                 <div class="col-sm-8">
                     <select name="category_id" id="category" class="form-control" required>
@@ -43,7 +50,7 @@
                     <a href="{{ route('admin.remove-media', $image) }}" class="btn btn-danger" onclick="return confirm('Delete image?')"><i class="fa fa-trash"></i></a>
                 @endforeach
             </div>
-            
+
             <div class="form-group">
                 <label class="control-label col-sm-4" for="images">Images</label>
                 <div class="col-sm-8">

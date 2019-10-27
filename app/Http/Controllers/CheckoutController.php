@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Str;
+use App\Address;
+use App\User;
 use App\Order;
 use App\OrderDetails;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 
 class CheckoutController extends Controller
 {
@@ -17,16 +21,24 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         if (Cart::content()->isNotEmpty()) {
-            $orderDetails = new OrderDetails($request->order);
             $order = new Order();
+            $address = Address::create($request->address);
+
             if ($request->checkout_method == 'register') {
-                // Register the user
+                $user = User::create([
+                    'name' => $request->address['name'],
+                    'email' => $request->address['email'],
+                    'password' => Str::random(8),
+                ]);
+                $address->user_id = $user->id;
+                $address->save();
                 $order->user_id = 1;
-            } else {
-                $order->details = $orderDetails;
             }
+
             $order->cart_details = Cart::content();
+            $order->address_id = $address->id;
             $order->save();
+
             Cart::destroy();
 
             flash(__('checkout.Order purchased successfully'))->success();

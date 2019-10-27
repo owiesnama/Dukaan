@@ -2094,7 +2094,23 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      checkout_method: 'guest',
+      show_email: false
+    };
+  },
+  methods: {
+    onMethodChange: function onMethodChange() {
+      if (this.checkout_method == 'register') {
+        this.show_email = true;
+      } else {
+        this.show_email = false;
+      }
+    }
+  }
+});
 
 /***/ }),
 

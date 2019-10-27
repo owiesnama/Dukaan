@@ -38,6 +38,7 @@ Route::prefix('admin')
     ->group(function () {
         Route::resource('categories', 'CategoriesController');
         Route::resource('products', 'ProductsController');
+        Route::resource('orders', 'OrdersController')->only(['index', 'show', 'update']);
 
         Route::get('dashboard', 'DashboardController@index');
         Route::name('remove-media')->get('remove-media/{media}', 'RemoveMediaController');
