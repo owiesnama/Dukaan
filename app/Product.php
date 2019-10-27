@@ -21,7 +21,7 @@ class Product extends Model implements HasMedia, Buyable
     use HasMediaTrait,CanBeRated;
 
     protected $fillable = [
-        'name', 'description', 'price', 'published', 'category_id',
+        'name', 'description', 'price','code', 'published', 'category_id',
         'detailed_description'
     ];
     protected $appends = ['thumbnail'];

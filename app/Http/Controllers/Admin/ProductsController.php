@@ -54,7 +54,7 @@ class ProductsController extends Controller
             $product->addImages(request('images'));
         }
 
-        flash('Product added successully')->success();
+        flash('Product added successfully')->success();
 
         return redirect()->route('admin.products.index');
     }

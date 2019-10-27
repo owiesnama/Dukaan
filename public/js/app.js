@@ -2094,14 +2094,25 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      cartContent: cart.contents(),
       checkout_method: 'guest',
       show_email: false
     };
   },
   methods: {
+    removeProduct: function removeProduct(product) {
+      cart.remove(product);
+    },
+    updateProduct: function updateProduct(product) {
+      cart.update(product);
+    },
+    size: function size(object) {
+      return _.size(object);
+    },
     onMethodChange: function onMethodChange() {
       if (this.checkout_method == 'register') {
         this.show_email = true;
@@ -2109,6 +2120,13 @@ __webpack_require__.r(__webpack_exports__);
         this.show_email = false;
       }
     }
+  },
+  created: function created() {
+    var _this = this;
+
+    Events.on(['cart:initialized', 'cart:updated'], function (content) {
+      _this.cartContent = content;
+    });
   }
 });
 
