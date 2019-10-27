@@ -47,10 +47,10 @@ class CheckoutController extends Controller
 
             Cart::destroy();
 
-            flash(__('checkout.Order purchased successfully'))->success();
+            session()->flash('flash',__('checkout.Order purchased successfully'));
         } else {
-            flash(__('checkout.Your cart is empty'))->warning();
+            session()->flash('flash',__('checkout.Order purchased successfully'));
         }
-        return back();
+        return redirect('/');
     }
 }
