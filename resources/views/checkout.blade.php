@@ -31,84 +31,121 @@
                                     <form action="{{ route('checkout.store') }}" method="post">
                                         @csrf
                                         <div>
-                                            <h3 class="title my-2 text-2xl font-bold">@lang('checkout.shipping method')</h3>
 
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <div class="checkout-method">
-                                                        <div class="checkout-method__single">
-                                                            <h5 class="checkout-method__title">
-                                                                @lang('checkout.checkout as a guest or register')
-                                                                <i
-                                                                        class="zmdi zmdi-caret-left"></i>
-                                                            </h5>
-                                                            <p class="checkout-method__subtitle">@lang('checkout.Register with us for future convenience')
-                                                                :</p>
-                                                            <div class="single-input">
-                                                                <input type="radio" id="checkout-method-1"
-                                                                       value="guest"
-                                                                       v-model="checkout_method"
-                                                                       @change="onMethodChange"
-                                                                       name="checkout_method" checked="checked">
-                                                                <label for="checkout-method-1">@lang('checkout.Checkout as guest')</label>
-                                                            </div>
-                                                            <div class="single-input">
-                                                                <input type="radio" id="checkout-method-2"
-                                                                       value="register"
-                                                                       v-model="checkout_method"
-                                                                       @change="onMethodChange"
-                                                                       name="checkout_method">
-                                                                <label for="checkout-method-2">@lang('checkout.Register')</label>
+                                            @guest
+                                                <h3 class="title my-2 text-2xl font-bold">@lang('checkout.shipping method')</h3>
+                                                <div class="row">
+                                                    <div class="col-md-7">
+                                                        <div class="checkout-method">
+                                                            <div class="checkout-method__single">
+                                                                <h5 class="checkout-method__title">
+                                                                    @lang('checkout.checkout as a guest or register')
+                                                                    <i
+                                                                            class="zmdi zmdi-caret-left"></i>
+                                                                </h5>
+                                                                <p class="checkout-method__subtitle">@lang('checkout.Register with us for future convenience')
+                                                                    :</p>
+                                                                <div class="single-input">
+                                                                    <input type="radio" id="checkout-method-1"
+                                                                           value="guest"
+                                                                           v-model="checkoutMethod"
+                                                                           @change="addCredentialsFields"
+                                                                           name="checkout_method" checked="checked">
+                                                                    <label for="checkout-method-1">@lang('checkout.Checkout as guest')</label>
+                                                                </div>
+                                                                <div class="single-input">
+                                                                    <input type="radio" id="checkout-method-2"
+                                                                           value="register"
+                                                                           v-model="checkoutMethod"
+                                                                           @change="addCredentialsFields"
+                                                                           name="checkout_method">
+                                                                    <label for="checkout-method-2">@lang('checkout.Register')</label>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endguest
                                         </div>
                                         <div>
                                             <h3 class="title my-2 text-2xl font-bold">@lang('checkout.Billing data')</h3>
 
                                             <div class="bilinfo">
                                                 <div class="row">
-                                                    <div class="col-md-12" v-if="show_email">
+                                                    <div class="col-md-12" v-if="showCredentials">
                                                         <div class="single-input">
-                                                            <input type="text" name="address[email]"
+                                                            <input type="text" name="email"
                                                                    placeholder="@lang('checkout.Email Address')"
                                                                    required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-12" v-if="showCredentials">
                                                         <div class="single-input">
-                                                            <input type="text" name="address[name]"
-                                                                   placeholder="@lang('checkout.Name')" required>
+                                                            <input type="password" name="password" min="6"
+                                                                   placeholder="@lang('checkout.Password')"
+                                                                   required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12">
-                                                        <div class="single-input">
-                                                            <input type="text" name="address[city]"
-                                                                   placeholder="@lang('checkout.City')" required>
+                                                    @auth
+                                                        @foreach(Auth::user()->addresses as $address)
+                                                        <div class="col-md-12">
+                                                            <div class="single-input row">
+                                                                <div class="col-lg-1">
+                                                                    <input type="radio" id="address_{{ $address->id }}"
+                                                                           value="{{ $address->id }}"
+                                                                           name="address"{{ $loop->first ? ' checked' : '' }}>
+                                                                </div>
+                                                                <div class="col-lg-11">
+                                                                    <label for="address_{{ $address->id }}">
+                                                                        @lang('checkout.Name'): [ {{ $address->name }} ]
+                                                                        <br>
+                                                                        @lang('checkout.City'): [ {{ $address->city }} ]
+                                                                        <br>
+                                                                        @lang('checkout.Phone'): [ {{ $address->phone }} ]
+                                                                        <br>
+                                                                        @lang('checkout.Address'): [ {{ $address->address }} ]
+                                                                        <br>
+                                                                        @lang('checkout.Description'): {!! nl2br($address->details) !!}
+                                                                    </label>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="single-input">
-                                                            <input type="text" name="address[address]"
-                                                                   placeholder="@lang('checkout.Address')" required>
+                                                        @endforeach
+                                                    @endauth
+                                                    @guest
+                                                        <div class="col-md-12">
+                                                            <div class="single-input">
+                                                                <input type="text" name="address[name]"
+                                                                       placeholder="@lang('checkout.Name')" required>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="single-input">
-                                                            <input type="text" name="address[phone]"
-                                                                   placeholder="@lang('checkout.Phone')" required>
+                                                        <div class="col-md-12">
+                                                            <div class="single-input">
+                                                                <input type="text" name="address[city]"
+                                                                       placeholder="@lang('checkout.City')" required>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="single-input">
-                                                                <textarea name="address[details]"
-                                                                          placeholder="@lang('checkout.Description')"
-                                                                          rows="4" class="form-control"
-                                                                          required></textarea>
+                                                        <div class="col-md-12">
+                                                            <div class="single-input">
+                                                                <input type="text" name="address[address]"
+                                                                       placeholder="@lang('checkout.Address')" required>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                        <div class="col-md-12">
+                                                            <div class="single-input">
+                                                                <input type="text" name="address[phone]"
+                                                                       placeholder="@lang('checkout.Phone')" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="single-input">
+                                                                    <textarea name="address[details]"
+                                                                              placeholder="@lang('checkout.Description')"
+                                                                              rows="4" class="form-control"
+                                                                              required></textarea>
+                                                            </div>
+                                                        </div>
+                                                    @endguest
                                                 </div>
                                             </div>
 

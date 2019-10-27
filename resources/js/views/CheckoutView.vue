@@ -4,8 +4,8 @@
         data() {
             return {
                 cartContent: cart.contents(),
-                checkout_method: 'guest',
-                show_email: false,
+                checkoutMethod: 'guest',
+                showCredentials: false,
             }
         },
         methods: {
@@ -19,12 +19,8 @@
             size(object){
                 return _.size(object)
             },
-            onMethodChange() {
-                if (this.checkout_method == 'register') {
-                    this.show_email = true
-                } else {
-                    this.show_email = false
-                }
+            addCredentialsFields() {
+                this.showCredentials = this.checkoutMethod == 'register'
             }
         },
 

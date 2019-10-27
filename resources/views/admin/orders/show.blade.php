@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <td>details</td>
-                <td>{{ nl2br($order->address->details) }}</td>
+                <td>{!! nl2br($order->address->details) !!}</td>
             </tr>
             <tr>
                 <td>Products</td>

@@ -22,7 +22,7 @@
                     <td>{{ $order->address->name }}</td>
                     <td>{{ $order->address->phone }}</td>
                     <td>{{ $order->info }}</td>
-                    <td>{{ nl2br($order->address->details) }}</td>
+                    <td>{!! nl2br($order->address->details) !!}</td>
                     <td>{{ $order->status }}</td>
                     <td>
                         <a href="{{ route('admin.orders.show', $order) }}">Show</a>
