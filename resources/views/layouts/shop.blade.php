@@ -65,7 +65,7 @@
     @include('flash::message')
     @yield('content')
     @include('partials.footer')
-    <Flash></Flash>
+    <Flash message="{{session('flash')}}"></Flash>
 </div>
 </body>
 
