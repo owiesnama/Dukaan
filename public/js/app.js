@@ -2002,10 +2002,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addToCart: function addToCart(product) {
-<<<<<<< HEAD
-      console.log(product);
-      _Cart__WEBPACK_IMPORTED_MODULE_0__["default"].add(product);
-=======
       cart.add(product);
     }
   }
@@ -2046,7 +2042,6 @@ __webpack_require__.r(__webpack_exports__);
       axios.post(this.$el.action, {
         rating: this.rating
       });
->>>>>>> c4ea51f00ba62765b0d9a26aed7bf23db15e38f1
     }
   }
 });
@@ -2062,7 +2057,31 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      content: cart.contents()
+    };
+  },
+  methods: {
+    removeProduct: function removeProduct(product) {
+      cart.remove(product);
+    },
+    updateProduct: function updateProduct(product) {
+      cart.update(product);
+    },
+    size: function size(object) {
+      return _.size(object);
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    Events.on(['cart:initialized', 'cart:updated'], function (content) {
+      _this.content = content;
+    });
+  }
+});
 
 /***/ }),
 
@@ -32260,11 +32279,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var Cart =
 /*#__PURE__*/
 function () {
+  /**
+   *
+   */
   function Cart() {
     _classCallCheck(this, Cart);
 
     this.content = {};
   }
+  /**
+   *
+   * @returns {Promise.<TResult>|*|Promise<V|U>|Promise<U>}
+   */
+
 
   _createClass(Cart, [{
     key: "init",
@@ -32277,11 +32304,22 @@ function () {
         Events.fire('cart:initialized', _this.content);
       });
     }
+    /**
+     *
+     * @returns {*|Cart|{}}
+     */
+
   }, {
     key: "contents",
     value: function contents() {
       return this.content;
     }
+    /**
+     *
+     * @param product
+     * @returns {Promise<U>|Promise.<T>}
+     */
+
   }, {
     key: "add",
     value: function add(product) {
@@ -32296,16 +32334,44 @@ function () {
         return flash('عذرا هنالك خطأ ما...');
       });
     }
+    /**
+     *
+     * @param product
+     * @returns {Promise.<TResult>}
+     */
+
+  }, {
+    key: "update",
+    value: function update(product) {
+      var _this3 = this;
+
+      return axios.put("/cart/".concat(product.rowId), {
+        qty: product.qty
+      }).then(function (_ref3) {
+        var data = _ref3.data;
+        _this3.content = data.cart;
+        Events.fire('cart:item-updated', product);
+        Events.fire('cart:updated', _this3.content);
+      })["catch"](function () {
+        return flash('عذرا هنالك خطأ ما...');
+      });
+    }
+    /**
+     *
+     * @param product
+     * @returns {Promise<U>|Promise.<T>}
+     */
+
   }, {
     key: "remove",
     value: function remove(product) {
-      var _this3 = this;
+      var _this4 = this;
 
-      return axios["delete"]("/cart/".concat(product.rowId)).then(function (_ref3) {
-        var data = _ref3.data;
-        _this3.content = data.cart;
-        Events.fire('cart:item-removed', _this3.content);
-        Events.fire('cart:updated', _this3.content);
+      return axios["delete"]("/cart/".concat(product.rowId)).then(function (_ref4) {
+        var data = _ref4.data;
+        _this4.content = data.cart;
+        Events.fire('cart:item-removed', _this4.content);
+        Events.fire('cart:updated', _this4.content);
       })["catch"](function () {
         return flash('عذرا هنالك خطأ ما...');
       });
@@ -33149,9 +33215,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

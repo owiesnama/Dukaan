@@ -20,4 +20,5 @@ return [
     'enter' => 'إدخال',
     'product added to the cart'=>'تم إضافة المنتج للسلة',
     'product removed from the cart'=>'تم حذف المنتج من السلة',
+    'product updated successfully'=>'تم تحديث المنتج من السلة',
 ];

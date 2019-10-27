@@ -20,12 +20,15 @@ Route::delete('/products/{product}/reviews/{review}', 'ProductReviewsController@
 
 Route::get('/cart', 'CartController@index')->name('cart');
 
+
 Route::post('/cart/{product}', 'CartController@store');
+Route::put('/cart/{product}', 'CartController@update');
+Route::delete('/cart/{rowId}', 'CartController@destroy');
+
 
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 Route::get('/checkout/{order}', 'CheckoutController@show')->name('checkout.show');
-Route::delete('/cart/{rowId}', 'CartController@destroy');
 Route::get('/contact-us', 'PagesController@contactUs')->name('contact us');
 
 Route::prefix('admin')

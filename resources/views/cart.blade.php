@@ -41,68 +41,22 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img
-                                                            src="images/product-2/cart-img/1.jpg"
-                                                            alt="product img"/></a></td>
-                                            <td class="product-name"><a href="#">New Dress For Sunday</a>
-                                                <ul class="pro__prize">
-                                                    <li class="old__prize">$82.5</li>
-                                                    <li>$75.2</li>
-                                                </ul>
-                                            </td>
-                                            <td class="product-price"><span class="amount">£165.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"/></td>
-                                            <td class="product-subtotal">£165.00</td>
-                                            <td class="product-remove"><a href="#"><i class="icon-trash icons"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img
-                                                            src="images/product-2/cart-img/2.jpg"
-                                                            alt="product img"/></a></td>
-                                            <td class="product-name"><a href="#">New Dress For Sunday</a>
-                                                <ul class="pro__prize">
-                                                    <li class="old__prize">$82.5</li>
-                                                    <li>$75.2</li>
-                                                </ul>
-                                            </td>
-                                            <td class="product-price"><span class="amount">£50.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"/></td>
-                                            <td class="product-subtotal">£50.00</td>
-                                            <td class="product-remove"><a href="#"><i class="icon-trash icons"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img
-                                                            src="images/product-2/cart-img/3.jpg"
-                                                            alt="product img"/></a></td>
-                                            <td class="product-name"><a href="#">New Dress For Sunday</a>
-                                                <ul class="pro__prize">
-                                                    <li class="old__prize">$82.5</li>
-                                                    <li>$75.2</li>
-                                                </ul>
-                                            </td>
-                                            <td class="product-price"><span class="amount">£50.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"/></td>
-                                            <td class="product-subtotal">£50.00</td>
-                                            <td class="product-remove"><a href="#"><i class="icon-trash icons"></i></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
+                                        <tr v-for="product in content">
                                             <td class="product-thumbnail"><a href="#"><img
                                                             src="images/product-2/cart-img/4.jpg"
                                                             alt="product img"/></a></td>
-                                            <td class="product-name"><a href="#">New Dress For Sunday</a>
+                                            <td class="product-name"><a href="#" v-text="product.options.name">New Dress For Sunday</a>
                                                 <ul class="pro__prize">
-                                                    <li class="old__prize">$82.5</li>
-                                                    <li>$75.2</li>
+                                                    <li v-text="product.price"></li>
                                                 </ul>
                                             </td>
-                                            <td class="product-price"><span class="amount">£50.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"/></td>
-                                            <td class="product-subtotal">£50.00</td>
-                                            <td class="product-remove"><a href="#"><i class="icon-trash icons"></i></a>
+                                            <td class="product-price"><span class="product.price"></span></td>
+                                            <td class="product-quantity">
+                                                <input type="number" min="1" @input="updateProduct(product)" v-model="product.qty"/>
+                                            </td>
+                                            <td class="product-subtotal" v-text="product.subtotal"></td>
+                                            <td class="product-remove">
+                                                <a href="#" @click.prevent="removeProduct(product)"><i class="icon-trash icons"></i></a>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -140,8 +94,8 @@
                                                 <span>$918.00</span>
                                             </div>
                                             <ul class="payment__btn">
-                                                <li class="active"><a href="/checkout">@lang('cart.payment')</a></li>
-                                                <li><a href="/home">@lang('cart.continue shopping')</a></li>
+                                                <li class="active"><a :href="size(content) ? '/checkout' :'#'">@lang('cart.payment')</a></li>
+                                                <li><a href="/">@lang('cart.continue shopping')</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -151,32 +105,6 @@
                     </div>
                 </div>
             </div>
-            <!-- cart-main-area end -->
-            <!-- End Brand Area -->
-            <!-- Start Banner Area -->
-            <div class="htc__banner__area">
-                <ul class="banner__list owl-carousel owl-theme clearfix">
-                    <li><a href="product-details.html"><img src="images/banner/bn-3/1.jpg" alt="banner images"></a>
-                    </li>
-                    <li><a href="product-details.html"><img src="images/banner/bn-3/2.jpg" alt="banner images"></a>
-                    </li>
-                    <li><a href="product-details.html"><img src="images/banner/bn-3/3.jpg" alt="banner images"></a>
-                    </li>
-                    <li><a href="product-details.html"><img src="images/banner/bn-3/4.jpg" alt="banner images"></a>
-                    </li>
-                    <li><a href="product-details.html"><img src="images/banner/bn-3/5.jpg" alt="banner images"></a>
-                    </li>
-                    <li><a href="product-details.html"><img src="images/banner/bn-3/6.jpg" alt="banner images"></a>
-                    </li>
-                    <li><a href="product-details.html"><img src="images/banner/bn-3/1.jpg" alt="banner images"></a>
-                    </li>
-                    <li><a href="product-details.html"><img src="images/banner/bn-3/2.jpg" alt="banner images"></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- End Banner Area -->
-            <!-- End Banner Area -->
-
         </div>
     </cart-view>
 @endsection
