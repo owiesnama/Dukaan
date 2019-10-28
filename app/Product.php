@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
-
+use Laravel\Scout\Searchable;
 /**
  * @property \Carbon\Carbon $created_at
  * @property int $id
@@ -18,7 +18,7 @@ use Gloudemans\Shoppingcart\Contracts\Buyable;
  */
 class Product extends Model implements HasMedia, Buyable
 {
-    use HasMediaTrait,CanBeRated;
+    use HasMediaTrait,CanBeRated,Searchable;
 
     protected $fillable = [
         'name', 'description', 'price','code', 'published', 'category_id',
@@ -130,5 +130,18 @@ class Product extends Model implements HasMedia, Buyable
     public function getBuyablePrice($options = null)
     {
         return $this->price;
+    }
+
+
+    public function toSearchableArray()
+    {
+
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'price' => $this->price,
+            'description' => $this->description,
+            'code' => $this->code,
+        ];
     }
 }

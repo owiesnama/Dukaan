@@ -36,9 +36,21 @@
                         <h2 class="title__line--2">@lang('footer.My Account')</h2>
                         <div class="ft__inner">
                             <ul class="ft__list">
-                                <li><a href="#">@lang('footer.My Account')</a></li>
+                                <li><a href="/my-account">@lang('footer.My Account')</a></li>
                                 <li><a href="/cart">@lang('footer.My Cart')</a></li>
-                                <li><a href="#">@lang('footer.Login')</a></li>
+                                @guest()
+                                <li><a @click.prevnet="$modal.show('login')">@lang('footer.Login')</a></li>
+                                @endguest
+                                @auth()
+                                <li>
+                                    <form action="/logout" method="post" ref="logoutForm">
+                                        @csrf
+                                        <a @click.prevnet="$refs.logoutForm.submit()">
+                                            @lang('footer.Logout')
+                                        </a>
+                                    </form>
+                                </li>
+                                @endauth
                                 <li><a href="/checkout">@lang('footer.Checkout')</a></li>
                             </ul>
                         </div>
@@ -49,4 +61,5 @@
         </div>
     </div>
     <!-- End Footer Widget -->
+    @include('partials.modals.login')
 </footer>

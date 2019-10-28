@@ -21,13 +21,17 @@ Vue.component('flash', require('./components/Flash.vue').default);
 Vue.component('Cart', require('./components/Cart.vue').default);
 Vue.component('Product', require('./components/Product.vue').default);
 Vue.component('StarRating', require('./components/StarRating.vue').default);
+Vue.component('Login', require('./components/Login.vue').default);
 
-
+import vModal from 'vue-js-modal'
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+Vue.use(vModal);
+
 const app = new Vue({
     el: '#app',
     data: {

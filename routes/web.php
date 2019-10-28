@@ -29,6 +29,8 @@ Route::delete('/cart/{rowId}', 'CartController@destroy');
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 Route::get('/checkout/{order}', 'CheckoutController@show')->name('checkout.show');
+Route::get('/my-account', 'UserAccountController@index')->name('user account');
+Route::get('/search', 'ProductSearchController@index');
 Route::get('/contact-us', 'PagesController@contactUs')->name('contact us');
 
 Route::prefix('admin')

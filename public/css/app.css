@@ -11404,6 +11404,86 @@ video {
   width: 250px;
 }
 
+.pin-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.v--modal {
+  text-align: right;
+}
+
+.gray-btn a {
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #2d3748;
+  color: #ffffff;
+  font-family: "NeoSansArabic";
+  padding: 0 45px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.gray-btn a:hove {
+  background-color: #2d3748;
+  color: #fff;
+}
+
+.loader {
+  color: transparent !important;
+  pointer-events: none;
+  position: relative;
+}
+
+.loader:after {
+  -webkit-animation: spinAround 500ms infinite linear;
+          animation: spinAround 500ms infinite linear;
+  border: 2px solid #dbdbdb;
+  border-radius: 290486px;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  position: absolute;
+  left: calc(50% - (1em / 2));
+  top: calc(50% - (1em / 2));
+  position: absolute !important;
+}
+
+@-webkit-keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.fr__btn a:focus, .fr__btn a:active {
+  color: #fff;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
