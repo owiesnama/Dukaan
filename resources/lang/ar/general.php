@@ -20,5 +20,9 @@ return [
         'contact us' => 'اتصل بنا',
         'shop' => 'المتجر',
         'checkout' => 'اتمام الشراء',
-    ]
+    ],
+    'about-us' => 'عنّا',
+    'delivery-info' => 'معلومات التوصيل',
+    'privacy' => 'الخصوصية',
+    'terms-and-conditions' => 'الشروط والأحكام',
 ];

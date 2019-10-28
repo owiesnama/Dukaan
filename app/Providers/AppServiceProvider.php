@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Page;
 use App\Product;
 use App\Category;
 use App\Rating;
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('cart', Cart::content());
             $view->with('recentProducts', Product::latest()->take(4)->get());
             $view->with('mostRatedProducts', Rating::mostRated()->take(4)->get());
+            $view->with('pages', Page::all());
         });
     }
 }
