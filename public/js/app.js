@@ -33361,9 +33361,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })
