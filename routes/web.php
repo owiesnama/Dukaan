@@ -34,7 +34,7 @@ Route::get('/search', 'ProductSearchController@index');
 Route::get('/contact-us', 'PagesController@contactUs')->name('contact us');
 
 Route::prefix('admin')
-    ->middleware('auth')
+    ->middleware(['auth', 'admin'])
     ->namespace('Admin')
     ->name('admin.')
     ->group(function () {

@@ -2145,8 +2145,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       cartContent: cart.contents(),
-      checkout_method: 'guest',
-      show_email: false
+      checkoutMethod: 'guest',
+      showCredentials: false
     };
   },
   methods: {
@@ -2159,12 +2159,8 @@ __webpack_require__.r(__webpack_exports__);
     size: function size(object) {
       return _.size(object);
     },
-    onMethodChange: function onMethodChange() {
-      if (this.checkout_method == 'register') {
-        this.show_email = true;
-      } else {
-        this.show_email = false;
-      }
+    addCredentialsFields: function addCredentialsFields() {
+      this.showCredentials = this.checkoutMethod == 'register';
     }
   },
   created: function created() {
@@ -20077,7 +20073,9 @@ var render = function() {
       _c("ul", { staticClass: "fr__pro__prize" }, [
         _c("li", {
           domProps: {
-            textContent: _vm._s(this.product.price.toFixed(2) + " SDG")
+            textContent: _vm._s(
+              parseFloat(_vm.product.price).toFixed(2) + " SDG"
+            )
           }
         })
       ])
@@ -33363,9 +33361,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/bakrialtaif/web/php-projects/laravel/dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Str;
 use App\Address;
 use App\User;
@@ -22,18 +24,22 @@ class CheckoutController extends Controller
     {
         if (Cart::content()->isNotEmpty()) {
             $order = new Order();
-            $address = Address::create($request->address);
-
-            if ($request->checkout_method == 'register') {
-                $user = User::create([
-                    'name' => $request->address['name'],
-                    'email' => $request->address['email'],
-                    'password' => Str::random(8),
-                ]);
-                $address->user_id = $user->id;
-                $address->save();
-                $order->user_id = 1;
+            if (Auth::user()) {
+                $user = Auth::user();
+                $address = $user->address;
+            } else {
+                $address = Address::create($request->address);
+                if ($request->checkout_method == 'register') {
+                    $user = User::create([
+                        'name' => $request->address['name'],
+                        'email' => $request->email,
+                        'password' => Hash::make($request->password),
+                    ]);
+                    $address->user_id = $user->id;
+                    $address->save();
+                }
             }
+            $order->user_id = $user->id;
 
             $order->cart_details = Cart::content();
             $order->address_id = $address->id;
