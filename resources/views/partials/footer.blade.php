@@ -50,6 +50,9 @@
                                         </a>
                                     </form>
                                 </li>
+                                @can('manage-dashboard')
+                                    <li><a href="/admin/dashboard">@lang('footer.Dashboard')</a></li>
+                                @endcan
                                 @endauth
                                 <li><a href="/checkout">@lang('footer.Checkout')</a></li>
                             </ul>
