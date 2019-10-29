@@ -2043,9 +2043,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
-  created: function created() {
-    console.log(this.product);
-  },
   methods: {
     addToCart: function addToCart(product) {
       cart.add(product);

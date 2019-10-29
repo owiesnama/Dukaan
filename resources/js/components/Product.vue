@@ -24,9 +24,6 @@
     export default{
         props: ['product'],
 
-        created() {
-            console.log(this.product)
-        },
         methods: {
             addToCart(product){
                 cart.add(product)

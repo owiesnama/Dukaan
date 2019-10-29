@@ -331,9 +331,9 @@
 
     $("#slider-range").slider({
           range: true,
-          min: 10,
-          max: 500,
-          values: [110, 400],
+          min: 0,
+          max: JSON.parse($('#slider-range').attr('aria-max')),
+          values: JSON.parse($('#slider-range').attr('aria-values')),
           slide: function(event, ui) {
               $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
           }

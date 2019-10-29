@@ -29,12 +29,22 @@
                             <div class="htc__product__rightidebar">
                                 <div class="htc__grid__top">
                                     <div class="htc__select__option">
-                                        <select class="ht__select" name="showBy" v-model="showBy">
-                                            <option value="">@lang('products.Show by')</option>
-                                            <option value="popularity">@lang('products.Sort by popularity')</option>
-                                            <option value="rating">@lang('products.Sort by average rating')</option>
-                                            <option value="newness">@lang('products.Sort by newness')</option>
-                                        </select>
+                                        <form action="/category/{{$category->id}}/products"
+                                              method="get"
+                                              ref="sortBy">
+
+                                            <select class="ht__select"
+                                                    name="sortBy"
+                                                    @change="$refs.sortBy.submit()"
+                                            >
+                                                <option value="">@lang('products.Show by')</option>
+                                                <option value="lowestPrices">@lang('products.Sort by lowest prices')</option>
+                                                <option value="highestPrices">@lang('products.Sort by highest prices')</option>
+                                                <option value="popularity">@lang('products.Sort by popularity')</option>
+                                                <option value="rating">@lang('products.Sort by average rating')</option>
+                                                <option value="newness">@lang('products.Sort by newness')</option>
+                                            </select>
+                                        </form>
                                     </div>
                                     <div class="ht__pro__qun">
                                 <span>@lang('products.Showing') {{$products->firstItem()}}
@@ -89,12 +99,13 @@
                                                                     <li>{{$product->price}}</li>
                                                                 </ul>
                                                                 @auth()
-                                                                <start-rating></start-rating>
+                                                                <star-rating></star-rating>
                                                                 @endauth()
                                                                 <p>{{$product->description}}</p>
                                                                 <div class="fr__list__btn">
                                                                     <a class="fr__btn"
-                                                                       href="/cart" @click.prevent="addToCart({{$product}})">@lang('general.Add to cart')</a>
+                                                                       href="/cart"
+                                                                       @click.prevent="addToCart({{$product}})">@lang('general.Add to cart')</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -118,20 +129,24 @@
                             <div class="htc__product__leftsidebar">
                                 <!-- Start Prize Range -->
                                 <div class="htc-grid-range">
-                                    <h4 class="title__line--4">Price</h4>
+                                    <h4 class="title__line--4">@lang('products.Price')</h4>
                                     <div class="content-shopby">
                                         <div class="price_filter s-filter clear">
-                                            <form action="#" method="GET">
-                                                <div id="slider-range"></div>
+                                            <form action="/category/{{$category->id}}/products"
+                                                  method="GET"
+                                                  ref="priceRange">
+
+
+                                                <div id="slider-range" aria-max="5000000" aria-values="[{{session('lowestPrice')?:0}},{{session('highestPrice')?:250000}}]"></div>
                                                 <div class="slider__range--output">
                                                     <div class="price__output--wrap">
                                                         <div class="price--output">
-                                                            <span>@lang('products.Price') :</span><input type="text"
-                                                                                                         id="amount"
-                                                                                                         readonly>
+                                                            <span>@lang('products.Price') :</span>
+                                                            <input type="text" id="amount" name="priceRange" readonly>
                                                         </div>
                                                         <div class="price--filter">
-                                                            <a href="#">@lang('products.Filter')</a>
+                                                            <a href="#"
+                                                               @click.prevent="$refs.priceRange.submit()">@lang('products.Filter')</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -145,12 +160,14 @@
                                     <div class="htc__category">
                                         <h4 class="title__line--4">@lang('products.categories')</h4>
                                         <ul class="ht__cat__list">
-                                            @foreach ($products[1]->category->siblings() as $sibling)
-                                                <li class="">
-                                                    <a class="text-gray-400"
-                                                       href="/category/{{ $sibling->id }}/products">{{ $sibling->name }}</a>
-                                                </li>
-                                            @endforeach
+                                            @if(!! $products[0])
+                                                @foreach ($products[0]->category->siblings() as $sibling)
+                                                    <li class="">
+                                                        <a class="text-gray-400"
+                                                           href="/category/{{ $sibling->id }}/products">{{ $sibling->name }}</a>
+                                                    </li>
+                                                @endforeach
+                                            @endif
                                         </ul>
                                     </div>
                                 @endif

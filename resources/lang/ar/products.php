@@ -1,6 +1,8 @@
 <?php
 return [
     'Show by' => 'ترتيب علي حسب',
+    'Sort by highest prices' => 'الاكثر سعرا',
+    'Sort by lowest prices' => 'الاقل سعرا',
     'Sort by popularity' => 'الاكثر شعبيه',
     'Sort by average rating' => 'متوسط التقيم',
     'Sort by newness' => 'اخر المنتجات الجديده',
