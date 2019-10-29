@@ -8,6 +8,7 @@ return [
     'Terms & Condition'=>'الشروط والاحكام',
     'My Account'=>'حسابي',
     'Login'=>'تسجيل الدخول',
+    'Register'=>'تسجيل حساب',
     'My Cart'=>'سلة المشتريات',
     'Wishlist'=>'المعروضات المفضلة',
     'Checkout'=>'اتمام الشراء',

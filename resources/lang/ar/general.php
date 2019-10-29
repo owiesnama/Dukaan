@@ -13,6 +13,7 @@ return [
     'Name'=>'الإسم كامل',
     'Hello'=>'مرحبا',
     'Orders'=>'طلباتي',
+    'Username'=>'اسم المستخدم',
     'Profile'=>'الملف الشخصي',
     'pages-names' => [
         'home' => 'الرئسية',

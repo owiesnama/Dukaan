@@ -3,28 +3,37 @@
        width="100%"
        height="100%"
        :pivot-y="0.5">
-    <div class="bg-white w-1/2 mx-auto mt-auto p-8 rounded pin-center">
+    <div class="bg-white w-1/2 mx-auto mt-auto p-8 rounded pin-center overflow-scroll">
         <div class="checkout-method__login">
-            <login inline-template>
+            <register inline-template>
                 <form action="/login" method="post">
                     <h5 class="checkout-method__title text-xl mb-4">@lang('checkout.Login')</h5>
 
-                    <div class="single-input mb-2">
-                        <label for="user-email">@lang('general.Name')</label>
+                    <div class="single-input mb-4">
+                        <label for="name">@lang('general.Name')</label>
                         <input class="px-2 py-4 border border-solid border-gray-400"
-                               v-model="form.email"
-                               type="name"
-                               id="user-email">
+                               v-model="form.name"
+                               type="text"
+                               id="name">
                     </div>
 
-                    <div class="single-input mb-2">
+                    <div class="single-input mb-4">
+                        <label for="username">@lang('general.Username')</label>
+                        <input class="px-2 py-4 border border-solid border-gray-400"
+                               v-model="form.usernama"
+                               type="text"
+                               id="username">
+                    </div>
+
+                    <div class="single-input mb-4">
                         <label for="user-email">@lang('checkout.Email Address')</label>
                         <input class="px-2 py-4 border border-solid border-gray-400"
                                v-model="form.email"
                                type="email"
                                id="user-email">
                     </div>
-                    <div class="single-input mb-8">
+
+                    <div class="single-input mb-4">
                         <label for="user-pass">@lang('checkout.Password')</label>
                         <input class="px-2 py-4 border border-solid border-gray-400"
                                v-model="form.password"
@@ -32,12 +41,12 @@
                                id="user-pass">
                     </div>
 
-                    <div class="single-input mb-8">
-                        <label for="user-pass">@lang('general.Password confirmation')</label>
+                    <div class="single-input mb-4">
+                        <label for="user-passconfirmatiom">@lang('general.Password confirmation')</label>
                         <input class="px-2 py-4 border border-solid border-gray-400"
-                               v-model="form.password"
+                               v-model="form.password_confirmation"
                                type="password"
-                               id="user-pass">
+                               id="user-passconfirmatiom">
                     </div>
 
                     <p class="my-2 text-red-500" v-text="feedback"></p>
@@ -45,17 +54,17 @@
                         <div class="fr__btn">
                             <a href="#"
                                :class="loading ? 'loader': 'text-white' "
-                               @click.prevent="login"
+                               @click.prevent="register"
                             >@lang('checkout.Login')</a>
                         </div>
 
                         <div class="gray-btn">
-                            <a href="#" @click.prevent="$modal.hide('login')">@lang('general.Close')</a>
+                            <a href="#" @click.prevent="$modal.hide('register')">@lang('general.Close')</a>
                         </div>
 
                     </div>
                 </form>
-            </login>
+            </register>
         </div>
 
     </div>

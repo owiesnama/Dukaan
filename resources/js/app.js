@@ -22,6 +22,7 @@ Vue.component('Cart', require('./components/Cart.vue').default);
 Vue.component('Product', require('./components/Product.vue').default);
 Vue.component('StarRating', require('./components/StarRating.vue').default);
 Vue.component('Login', require('./components/Login.vue').default);
+Vue.component('Register', require('./components/Registration.vue').default);
 
 import vModal from 'vue-js-modal'
 /**

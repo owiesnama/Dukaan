@@ -64,15 +64,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12 col-xs-12">
-                                        <div class="ht__coupon__code">
-                                            <span>@lang('cart.enter your discount code')</span>
-                                            <div class="coupon__box">
-                                                <input type="text" placeholder="">
-                                                <div class="ht__cp__btn">
-                                                    <a href="#">@lang('cart.enter')</a>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <div class="col-md-6 col-sm-12 col-xs-12 smt-40 xmt-40">
                                         <div class="htc__cart__total">

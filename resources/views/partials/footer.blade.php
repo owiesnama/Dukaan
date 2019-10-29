@@ -40,6 +40,7 @@
                                 <li><a href="/cart">@lang('footer.My Cart')</a></li>
                                 @guest()
                                 <li><a @click.prevnet="$modal.show('login')">@lang('footer.Login')</a></li>
+                                <li><a @click.prevnet="$modal.show('register')">@lang('footer.Register')</a></li>
                                 @endguest
                                 @auth()
                                 <li>
@@ -62,4 +63,5 @@
     </div>
     <!-- End Footer Widget -->
     @include('partials.modals.login')
+    @include('partials.modals.register')
 </footer>
