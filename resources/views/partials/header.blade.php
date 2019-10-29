@@ -53,9 +53,11 @@
                             <div class="header__search search search__open">
                                 <a href="#"><i class="icon-magnifier icons"></i></a>
                             </div>
+                            @auth
                             <div class="header__account">
-                                <a href="#"><i class="icon-user icons"></i></a>
+                                <a href="/my-account"><i class="icon-user icons"></i></a>
                             </div>
+                            @endauth
                             <div class="htc__shopping__cart">
                                 <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
                                 <a><span class="htc__qua" v-text="cartItemsCount"></span></a>

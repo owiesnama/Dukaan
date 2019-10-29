@@ -25,17 +25,9 @@
             <section class="htc__product__grid bg__white ptb--100">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-9 col-lg-push-3 col-md-9 col-md-push-3 col-sm-12 col-xs-12">
+                        <div class="col-lg-8 col-lg-push-2 col-md-9 col-md-push-3 col-sm-12 col-xs-12">
                             <div class="htc__product__rightidebar">
                                 <div class="htc__grid__top">
-                                    <div class="htc__select__option">
-                                        <select class="ht__select" name="showBy" v-model="showBy">
-                                            <option value="">@lang('products.Show by')</option>
-                                            <option value="popularity">@lang('products.Sort by popularity')</option>
-                                            <option value="rating">@lang('products.Sort by average rating')</option>
-                                            <option value="newness">@lang('products.Sort by newness')</option>
-                                        </select>
-                                    </div>
                                     <div class="ht__pro__qun">
                                 <span>@lang('products.Showing') {{$products->firstItem()}}
                                     - {{$products->lastItem()}} @lang('products.of')
@@ -89,12 +81,13 @@
                                                                     <li>{{$product->price}}</li>
                                                                 </ul>
                                                                 @auth()
-                                                                <start-rating></start-rating>
+                                                                <star-rating></star-rating>
                                                                 @endauth()
                                                                 <p>{{$product->description}}</p>
                                                                 <div class="fr__list__btn">
                                                                     <a class="fr__btn"
-                                                                       href="/cart" @click.prevent="addToCart({{$product}})">@lang('general.Add to cart')</a>
+                                                                       href="/cart"
+                                                                       @click.prevent="addToCart({{$product}})">@lang('general.Add to cart')</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -114,36 +107,7 @@
                             </div>
                             <!-- End Pagenation -->
                         </div>
-                        <div class="col-lg-3 col-lg-pull-9 col-md-3 col-md-pull-9 col-sm-12 col-xs-12 smt-40 xmt-40">
-                            <div class="htc__product__leftsidebar">
-                                <!-- Start Prize Range -->
-                                <div class="htc-grid-range">
-                                    <h4 class="title__line--4">Price</h4>
-                                    <div class="content-shopby">
-                                        <div class="price_filter s-filter clear">
-                                            <form action="#" method="GET">
-                                                <div id="slider-range"></div>
-                                                <div class="slider__range--output">
-                                                    <div class="price__output--wrap">
-                                                        <div class="price--output">
-                                                            <span>@lang('products.Price') :</span><input type="text"
-                                                                                                         id="amount"
-                                                                                                         readonly>
-                                                        </div>
-                                                        <div class="price--filter">
-                                                            <a href="#">@lang('products.Filter')</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Prize Range -->
-                                <!-- Start Category Area -->
 
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
