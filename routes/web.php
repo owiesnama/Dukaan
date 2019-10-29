@@ -19,6 +19,7 @@ Route::post('/products/{product}/reviews', 'ProductReviewsController@store')->mi
 Route::delete('/products/{product}/reviews/{review}', 'ProductReviewsController@destroy')->middleware('auth');
 
 Route::get('/cart', 'CartController@index')->name('cart');
+Route::get('/pages/{page}', 'PagesController@show');
 
 
 Route::post('/cart/{product}', 'CartController@store');
@@ -41,6 +42,8 @@ Route::prefix('admin')
         Route::resource('categories', 'CategoriesController');
         Route::resource('products', 'ProductsController');
         Route::resource('orders', 'OrdersController')->only(['index', 'show', 'update']);
+        Route::get('pages', 'PagesController@index')->name('pages.index');
+        Route::patch('pages', 'PagesController@update')->name('pages.update');
 
         Route::get('dashboard', 'DashboardController@index');
         Route::name('remove-media')->get('remove-media/{media}', 'RemoveMediaController');

@@ -2,5 +2,11 @@
 
 return [
     'max_categories' => env('MAIN_CATEGORIES', 5),
-    'delivery_cost' => 50
+    'delivery_cost' => 50,
+    'pages' => [
+        'about-us' => 'About us',
+        'delivery-info' => 'Delivery info',
+        'privacy' => 'Privacy',
+        'terms-and-conditions' => 'Terms and Conditions',
+    ],
 ];

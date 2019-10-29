@@ -148,6 +148,13 @@ return [
             'can' => 'manage-dashboard',
             'icon' => 'fa fa-bus',
         ],
+        ['header' => 'Content'],
+        [
+            'text' => 'Content',
+            'url' => 'admin/pages',
+            'can' => 'manage-dashboard',
+            'icon' => 'fa fa-pen',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

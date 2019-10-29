@@ -21,10 +21,9 @@
                         <h2 class="title__line--2">@lang('footer.information')</h2>
                         <div class="ft__inner">
                             <ul class="ft__list">
-                                <li><a href="#">@lang('footer.About us')</a></li>
-                                <li><a href="#">@lang('footer.Delivery Information')</a></li>
-                                <li><a href="#">@lang('footer.Privacy & Policy')</a></li>
-                                <li><a href="#">@lang('footer.Terms & Condition')</a></li>
+                                @foreach($pages as $page)
+                                    <li><a href="/pages/{{ $page->slug }}">@lang('general.' . $page->slug)</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
