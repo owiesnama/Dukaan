@@ -2,6 +2,13 @@
 
 namespace App\Providers;
 
+use App\Page;
+use App\Product;
+use App\Category;
+use App\Rating;
+use App\User;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\View\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**
@@ -23,6 +29,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*',function (View $view){
+            $view->with('mainCategories',Category::main()->with('children')->get());
+            $view->with('user', auth()->user() ?: new User());
+            $view->with('cart', Cart::content());
+            $view->with('recentProducts', Product::latest()->take(4)->get());
+            $view->with('mostRatedProducts', Rating::mostRated()->take(4)->get());
+            $view->with('pages', Page::all());
+        });
     }
 }

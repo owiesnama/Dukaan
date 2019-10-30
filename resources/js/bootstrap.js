@@ -1,4 +1,7 @@
 window._ = require('lodash');
+import './helpers'
+import Events from './Events'
+window.Vue = require('vue');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -16,6 +19,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * allows your team to easily build robust real-time web applications.
  */
 
+
+window.events = new Vue();
+
+window.Events = new Events();
+
+window.flash = function(message, level = 'success') {
+    window.Events.fire('flash', { message, level });
+};
+
+
 // import Echo from 'laravel-echo';
 
 // window.Pusher = require('pusher-js');
@@ -26,3 +39,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+import Cart from './Cart'
+
+window.cart = new Cart();
+
+cart.init()
+// Initialize lozad
+
+
