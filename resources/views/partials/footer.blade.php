@@ -35,13 +35,15 @@
                         <h2 class="title__line--2">@lang('footer.My Account')</h2>
                         <div class="ft__inner">
                             <ul class="ft__list">
+                                @auth
                                 <li><a href="/my-account">@lang('footer.My Account')</a></li>
+                                @endauth
                                 <li><a href="/cart">@lang('footer.My Cart')</a></li>
-                                @guest()
+                                @guest
                                 <li><a @click.prevnet="$modal.show('login')">@lang('footer.Login')</a></li>
                                 <li><a @click.prevnet="$modal.show('register')">@lang('footer.Register')</a></li>
                                 @endguest
-                                @auth()
+                                @auth
                                 <li>
                                     <form action="/logout" method="post" ref="logoutForm">
                                         @csrf

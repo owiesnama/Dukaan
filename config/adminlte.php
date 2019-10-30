@@ -105,7 +105,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/dashboard',
 
     'logout_url' => 'logout',
 
@@ -128,6 +128,12 @@ return [
         [
             'text' => 'search',
             'search' => true,
+        ],
+        [
+            'text' => 'Dashboard',
+            'url' => 'admin/dashboard',
+            'can' => 'manage-dashboard',
+            'icon' => 'fa fa-dashboard',
         ],
         ['header' => 'Categories and Products'],
         [

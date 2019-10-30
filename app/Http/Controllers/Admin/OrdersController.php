@@ -20,10 +20,9 @@ class OrdersController extends Controller
         return view('admin.orders.show', compact('order'));
     }
 
-    public function update(Request $request, Order $order)
+    public function update(Order $order)
     {
-        $order->status = ' accepted';
-        $order->save();
+        $order->accept();
 
         return back();
     }

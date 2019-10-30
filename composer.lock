@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56b0e0aafb6cb78811c396fa84f83237",
+    "content-hash": "cc6f1fe34f695440d55679a0ad36b48c",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1105,6 +1105,46 @@
                 "ui"
             ],
             "time": "2019-10-08T13:19:35+00:00"
+        },
+        {
+            "name": "laraveldaily/laravel-charts",
+            "version": "0.1.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelDaily/laravel-charts.git",
+                "reference": "e9d93a9856876cfbee946de101b3be5679dfd654"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelDaily/laravel-charts/zipball/e9d93a9856876cfbee946de101b3be5679dfd654",
+                "reference": "e9d93a9856876cfbee946de101b3be5679dfd654",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelDaily\\LaravelCharts\\LaravelChartsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelDaily\\LaravelCharts\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Povilas Korop",
+                    "email": "povilas@laraveldaily.com"
+                }
+            ],
+            "description": "Create charts and reports from Laravel",
+            "time": "2019-09-11T05:15:28+00:00"
         },
         {
             "name": "league/flysystem",

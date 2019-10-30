@@ -2,11 +2,19 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use InvalidArgumentException;
 
+/**
+ * Class Order
+ * @package App
+ * @method static Order|Builder status($status)
+ */
 class Order extends Model
 {
 
+    protected $appends = ['amount'];
     /**
      * Un-serialize the details json to OrderDetails
      *
@@ -21,6 +29,14 @@ class Order extends Model
     public function address()
     {
         return $this->belongsTo(Address::class);
+    }
+
+    public function scopeStatus(Builder $query, $status)
+    {
+        if (!in_array($status, config('dukaan.order_status'))) {
+            throw new InvalidArgumentException("{$status} is not valid status");
+        }
+        $query->where('status', $status);
     }
 
     /**
@@ -46,5 +62,14 @@ class Order extends Model
     public function getInfoAttribute()
     {
         return $this->address->address . ' / ' . $this->address->city;
+    }
+
+    /**
+     * Change order status to accepted
+     */
+    public function accept()
+    {
+        $this->status = 'accepted';
+        $this->save();
     }
 }
