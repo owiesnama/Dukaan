@@ -55,10 +55,14 @@ class ProductFilters extends Filters
 
     private function rating()
     {
-        return $this->builder->withCount(['ratings as average_rating' => function ($query) {
-            $query->select(DB::raw('coalesce(avg(rating),0)'));
+        if (config('database.default') == 'mysql') {
+            return $this->builder->withCount(['ratings as average_rating' => function ($query) {
+                $query->select(DB::raw('coalesce(avg(rating),0)'));
+            }
+            ])->orderByDesc('average_rating');
+        } else {
+            // Figure it out
         }
-        ])->orderByDesc('average_rating');
     }
 
     private function newness()
