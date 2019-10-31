@@ -48,3 +48,6 @@ Route::prefix('admin')
         Route::get('dashboard', 'DashboardController@index');
         Route::name('remove-media')->get('remove-media/{media}', 'RemoveMediaController');
     });
+
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->middleware('admin');

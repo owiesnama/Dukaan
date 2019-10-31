@@ -15,9 +15,10 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->isAdmin()) {
+        if (auth()->user() && $request->user()->isAdmin()) {
             return $next($request);
         }
+
         return redirect('/shop');
     }
 }
