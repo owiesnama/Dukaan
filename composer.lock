@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "f73e3e8720fb852906c96ea8897ce203",
+=======
+    "content-hash": "cc6f1fe34f695440d55679a0ad36b48c",
+>>>>>>> 1ffbe2f30e4159ccabb54add877da1849626a727
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2143,6 +2147,7 @@
             "time": "2018-07-19T23:38:55+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "rap2hpoutre/laravel-log-viewer",
             "version": "v1.3.2",
             "source": {
@@ -2202,6 +2207,8 @@
             "time": "2019-09-04T14:54:37+00:00"
         },
         {
+=======
+>>>>>>> 1ffbe2f30e4159ccabb54add877da1849626a727
             "name": "spatie/image",
             "version": "1.7.4",
             "source": {
