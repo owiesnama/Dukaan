@@ -48,7 +48,7 @@
                     <div class="col-md-12">
                         <div class="search__inner">
                             <form action="/search" method="get">
-                                <input name="query" placeholder="@lang('home.Search here...')" type="text">
+                                <input name="quer" placeholder="@lang('home.Search here...')" type="text">
                                 <button type="submit"></button>
                             </form>
                             <div class="search__close__btn">

@@ -53,9 +53,13 @@
 
     <div class="row">
         @foreach($charts as $chart)
-        <div class="col-lg-4">
-                <h1>{{ $chart->options['chart_title'] }}</h1>
-                {!! $chart->renderHtml() !!}
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="panel">
+                <div class="panel-body m-0">
+                    <h1>{{ $chart->options['chart_title'] }}</h1>
+                    {!! $chart->renderHtml() !!}
+                </div>
+            </div>
         </div>
         @endforeach
     </div>

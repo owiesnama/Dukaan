@@ -11484,6 +11484,18 @@ video {
   color: #fff;
 }
 
+.pages h1 {
+  font-size: 1.5rem;
+}
+
+.pages h2 {
+  font-size: 1.25rem;
+}
+
+.pages h3 {
+  font-size: 1.125rem;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

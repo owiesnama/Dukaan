@@ -53,6 +53,6 @@ class User extends Authenticatable
 
     public function getAddressAttribute()
     {
-        return $this->addresses()->latest()->first();
+        return $this->addresses()->latest()->first()?:new Address();
     }
 }
