@@ -31,7 +31,7 @@ trait CanBeRated
      */
     public function rating()
     {
-        return round($this->ratings()->get()->avg('rating'),1);
+        return round($this->ratings()->avg('rating'),1);
     }
 
     /**
