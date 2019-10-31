@@ -19,5 +19,7 @@ class Admin
         if (auth()->user() && $request->user()->isAdmin()) {
             return $next($request);
         }
+
+        return redirect('/shop');
     }
 }
