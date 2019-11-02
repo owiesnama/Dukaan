@@ -19969,19 +19969,7 @@ var render = function() {
       _vm._v(" "),
       _vm._m(2),
       _vm._v(" "),
-      _c("ul", { staticClass: "shopping__btn" }, [
-        _c("li", [
-          _c("a", { attrs: { href: "/cart" } }, [
-            _vm._v(_vm._s(_vm.lang("general.View Cart")))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "shp__checkout" }, [
-          _c("a", { attrs: { href: "/checkout" } }, [
-            _vm._v(_vm._s(_vm.lang("general.Checkout")))
-          ])
-        ])
-      ])
+      _vm._m(3)
     ])
   ])
 }
@@ -20010,6 +19998,20 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("ul", { staticClass: "shoping__total" }, [
       _c("li", { staticClass: "total__price" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "shopping__btn" }, [
+      _c("li", [
+        _c("a", { attrs: { href: "/cart" } }, [_vm._v("استعراض السلة")])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "shp__checkout" }, [
+        _c("a", { attrs: { href: "/checkout" } }, [_vm._v("إتمام الشراء")])
+      ])
     ])
   }
 ]
@@ -32646,6 +32648,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -33439,7 +33442,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nSyntaxError\n\n(117:3) `@apply` cannot be used with `.text-bold` because `.text-bold` either cannot be found, or its actual definition includes a pseudo-selector like :hover, :active, etc. If you're sure that `.text-bold` exists, make sure that any `@import` statements are being properly processed *before* Tailwind CSS sees your CSS, as `@apply` can only be used for classes in the same CSS tree.\n\n \u001b[90m 115 | \u001b[39m\n \u001b[90m 116 | \u001b[39m\u001b[33m.pages\u001b[39m h1 \u001b[33m{\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 117 | \u001b[39m  \u001b[36m@apply\u001b[39m \u001b[33m.text-2xl\u001b[39m \u001b[33m.text-bold\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m     | \u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 118 | \u001b[39m\u001b[33m}\u001b[39m\n \u001b[90m 119 | \u001b[39m\n\n    at /home/owiesnama/Projects/Dukaan/node_modules/webpack/lib/NormalModule.js:316:20\n    at /home/owiesnama/Projects/Dukaan/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /home/owiesnama/Projects/Dukaan/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/home/owiesnama/Projects/Dukaan/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at /home/owiesnama/Projects/Dukaan/node_modules/postcss-loader/src/index.js:207:9");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

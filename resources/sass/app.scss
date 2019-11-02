@@ -1,3 +1,11 @@
+@import "./css/bootstrap.min.css";
+@import "./css/owl.carousel.min.css";
+@import "./css/owl.theme.default.min.css";
+@import "./css/core.css";
+@import "./css/style.css";
+@import "./css/responsive.css";
+@import "./css/custom.css";
+@import "./css/shortcode/shortcodes.css";
 @import "star-rating";
 
 @tailwind base;
@@ -27,7 +35,7 @@
 }
 
 .gray-btn {
-  a{
+  a {
 
     display: inline-block;
     height: 45px;
@@ -42,19 +50,18 @@
     letter-spacing: 1px;
     font-size: 16px;
     transition: all 0.3s ease-in-out 0s;
-    &:hove{
+    &:hove {
       @apply .bg-gray-800 .text-white;
     }
 
   }
 }
 
-
 .loader {
-    color: transparent !important;
-    pointer-events: none;
-    position: relative;
-  }
+  color: transparent !important;
+  pointer-events: none;
+  position: relative;
+}
 
 .loader:after {
   animation: spinAround 500ms infinite linear;
@@ -84,23 +91,20 @@
   }
 }
 
-.fr__btn{
-  a:focus,a:active{
+.fr__btn {
+  a:focus, a:active {
     color: #fff;
   }
 }
 
-
-
-
-.pages{
-  h1{
-    @apply .text-2xl .text-bold;
+.pages {
+  h1 {
+    @apply .text-2xl;
   }
-  h2{
-    @apply .text-xl .text-bold;
+  h2 {
+    @apply .text-xl;
   }
-  h3{
-    @apply .text-lg .text-bold;
+  h3 {
+    @apply .text-lg;
   }
 }

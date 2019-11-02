@@ -27,8 +27,8 @@
                 <li class="total__price"></li>
             </ul>
             <ul class="shopping__btn">
-                <li><a href="/cart">{{lang('general.View Cart')}}</a></li>
-                <li class="shp__checkout"><a href="/checkout">{{lang('general.Checkout')}}</a></li>
+                <li><a href="/cart">استعراض السلة</a></li>
+                <li class="shp__checkout"><a href="/checkout">إتمام الشراء</a></li>
             </ul>
         </div>
     </div>

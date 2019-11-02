@@ -1,6 +1,9 @@
 window._ = require('lodash');
+
+
 import './helpers'
 import Events from './Events'
+window.Vue = require('vue');
 window.Vue = require('vue');
 
 /**
@@ -24,8 +27,8 @@ window.events = new Vue();
 
 window.Events = new Events();
 
-window.flash = function(message, level = 'success') {
-    window.Events.fire('flash', { message, level });
+window.flash = function (message, level = 'success') {
+    window.Events.fire('flash', {message, level});
 };
 
 
