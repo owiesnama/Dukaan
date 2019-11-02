@@ -56,7 +56,7 @@ class ProductFilters extends Filters
     private function rating()
     {
         return $this->builder->withCount(['ratings as average_rating' => function ($query) {
-            $query->select(DB::raw('coalesce(avg(rating),0)'));
+            $query->select(DB::raw('avg(rating)'));
         }
         ])->orderByDesc('average_rating');
     }
