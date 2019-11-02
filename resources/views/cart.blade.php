@@ -43,7 +43,7 @@
                                         <tbody>
                                         <tr v-for="product in content">
                                             <td class="product-thumbnail"><a href="#"><img
-                                                            src="images/product-2/cart-img/4.jpg"
+                                                            :src="product.thumbnail"
                                                             alt="product img"/></a></td>
                                             <td class="product-name"><a href="#" v-text="product.options.name">New Dress For Sunday</a>
                                                 <ul class="pro__prize">
@@ -76,14 +76,14 @@
                                                     <li>@lang('cart.shipping')</li>
                                                 </ul>
                                                 <ul class="cart__price">
-                                                    <li>$909.00</li>
-                                                    <li>$9.00</li>
-                                                    <li>0</li>
+                                                    <li v-text="cartTotal + ' SDG'"></li>
+                                                    <li>{{\Gloudemans\Shoppingcart\Facades\Cart::tax()}} SDG</li>
+                                                    <li>{{config('dukaan.delivery_cost')}} SDG</li>
                                                 </ul>
                                             </div>
                                             <div class="cart__total">
                                                 <span>@lang('cart.order total')</span>
-                                                <span>$918.00</span>
+                                                <span v-text="parseFloat(cartTotal) + parseFloat({{Cart::tax()}}) + parseFloat({{config('dukaan.delivery_cost')}}) + ' SDG'"></span>
                                             </div>
                                             <ul class="payment__btn">
                                                 <li class="active"><a :href="size(content) ? '/checkout' :'#'">@lang('cart.payment')</a></li>

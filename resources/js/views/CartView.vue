@@ -2,7 +2,8 @@
     export default{
         data(){
             return {
-                content: cart.contents()
+                content: cart.contents(),
+                cartTotal: cart.total
             }
         },
 
@@ -22,6 +23,7 @@
         created(){
             Events.on(['cart:initialized', 'cart:updated'], content => {
                 this.content = content
+                this.cartTotal = cart.total
             })
         }
     }
