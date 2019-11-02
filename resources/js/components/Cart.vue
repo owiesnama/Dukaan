@@ -28,7 +28,7 @@
             </ul>
             <ul class="shopping__btn">
                 <li><a href="/cart">استعراض السلة</a></li>
-                <li class="shp__checkout"><a href="/checkout">إتمام الشراء</a></li>
+                <li class="shp__checkout"><a href="/checkout">إتمام الشراء </a></li>
             </ul>
         </div>
     </div>
