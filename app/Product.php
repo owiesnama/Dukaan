@@ -4,27 +4,43 @@ namespace App;
 
 use App\Filters\ProductFilters;
 use App\Traits\CanBeRated;
+use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Gloudemans\Shoppingcart\Contracts\Buyable;
-use Laravel\Scout\Searchable;
+use Spatie\MediaLibrary\Models\Media;
+
 /**
  * @property \Carbon\Carbon $created_at
- * @property int $id
+ * @property int            $id
  * @property \Carbon\Carbon $updated_at
  * @property mixed description
  * @property mixed price
  */
 class Product extends Model implements HasMedia, Buyable
 {
-    use HasMediaTrait,CanBeRated,Searchable;
+    use HasMediaTrait, CanBeRated, Searchable;
 
     protected $fillable = [
-        'name', 'description', 'price','code', 'published', 'category_id',
-        'detailed_description'
+        'name', 'description', 'price', 'code', 'published', 'category_id',
+        'detailed_description',
     ];
     protected $appends = ['thumbnail'];
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')
+              ->width(300)
+              ->height(300)
+              ->sharpen(10);
+
+        $this->addMediaConversion('basic')
+            // Full HD
+            ->width(1366)
+            ->height(768)
+            ->sharpen(10);
+    }
 
     /**
      * url path for this project.
@@ -59,7 +75,7 @@ class Product extends Model implements HasMedia, Buyable
     }
 
     /**
-     * add review to the product
+     * add review to the product.
      *
      * @param $review
      * @param User|null $user
@@ -67,15 +83,15 @@ class Product extends Model implements HasMedia, Buyable
     public function review($review, $user = null)
     {
         $this->reviews()->create([
-           'user_id'=> $user ? $user->id : auth()->id(),
-            'body'=> $review,
+            'user_id' => $user ? $user->id : auth()->id(),
+            'body' => $review,
         ]);
     }
 
     /**
      * Apply all relevant product filters.
      *
-     * @param Builder $builder
+     * @param Builder        $builder
      * @param ProductFilters $filters
      *
      * @return Builder
@@ -87,7 +103,7 @@ class Product extends Model implements HasMedia, Buyable
 
     public function getThumbnailAttribute()
     {
-        return $this->getMedia('images')->first() ? $this->getMedia('images')->first()->getUrl() : 'https://placeimg.com/640/480/any?' . $this->id;
+        return $this->getMedia('images')->first() ? $this->getMedia('images')->first()->getUrl('thumb') : 'https://placeimg.com/640/480/any?'.$this->id;
     }
 
     /**
@@ -132,10 +148,8 @@ class Product extends Model implements HasMedia, Buyable
         return $this->price;
     }
 
-
     public function toSearchableArray()
     {
-
         return [
             'id' => $this->id,
             'name' => $this->name,

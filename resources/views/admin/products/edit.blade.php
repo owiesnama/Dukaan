@@ -48,7 +48,7 @@
 
                     <div class="col-sm-8 col-sm-offset-4">
                         @foreach($product->getMedia('images') as $image)
-                            <img src="{{ $image->getUrl() }}" alt="" width="100" height="100">
+                            <img src="{{ $image->getUrl('thumb') }}" alt="" width="100" height="100">
                             <a href="{{ route('admin.remove-media', $image) }}" class="btn btn-danger" onclick="return confirm('Delete image?')"><i class="fa fa-trash"></i></a>
                         @endforeach
                     </div>
