@@ -17,6 +17,8 @@
     <!-- Argon CSS -->
     <!--<link type="text/css" href="css/argon.css?v=1.0.0" rel="stylesheet">-->
     <!--Argon rtl CSS-->
+    <link type="text/css" href="css/argon.css" rel="stylesheet">
+
     <link type="text/css" href="css/argon-rtl.css" rel="stylesheet">
 </head>
 
@@ -51,26 +53,45 @@
                         <div class="text-center text-muted mb-4">
                             <small>او قم بالتسجيل عن طريق البريد الالكتروني</small>
                         </div>
-                        <form role="form">
+                        <form role="form"
+                              action="{{route('login')}}"
+                              method="POST">
+
+                            @csrf
+
                             <div class="form-group">
                                 <div class="input-group input-group-alternative mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="البريد الإلكتروني" type="email">
+                                    <input class="form-control"
+                                           placeholder="البريد الإلكتروني"
+                                           name="email"
+                                           type="email">
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <div class="input-group input-group-alternative">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="كلمة المرور" type="password">
+                                    <input class="form-control"
+                                           placeholder="كلمة المرور"
+                                           name="password"
+                                           type="password">
                                 </div>
                             </div>
-                            <div class="text-center">
-                                <button type="button" class="btn btn-primary mt-4">تسجيل الأن</button>
+                            @error('email')
+                            <div class="alert alert-warning" role="alert">
+                                {{$message}}
                             </div>
+                            @enderror
+                            <div class="text-center">
+                                <button type="submit"
+                                        class="btn btn-primary mt-4">تسجيل الأن</button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
