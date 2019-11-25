@@ -41,13 +41,13 @@ class ProductsController extends Controller
             'detailed_description' => 'required',
             'price' => 'required',
             'category_id' => 'required',
-            'images.*' => 'mimes:jpeg,png',
+            'images.*' => 'mimes:jpeg,png,jpg',
         ]);
 
         $category = Category::findOrFail(request('category_id'));
 
         $product = new Product($attributes);
-        $product->code = $category->code . str_pad($category->products()->count() + 1, 3, '0');
+        $product->code = $category->code.str_pad($category->products()->count() + 1, 3, '0');
         $product->save();
 
         if (request()->has('images')) {

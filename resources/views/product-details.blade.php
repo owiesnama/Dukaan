@@ -37,7 +37,7 @@
                                     @foreach($product->getMedia('images') as $image)
                                         <div role="tabpanel" class="tab-pane fade in{{ $loop->first ? ' active' : '' }}"
                                              id="img-tab-{{ $loop->iteration }}">
-                                            <img src="{{ $image->getUrl() }}" alt="full-image">
+                                            <img src="{{ $image->getUrl('basic') }}" alt="full-image">
                                         </div>
                                     @endforeach
                                 </div>
@@ -48,7 +48,7 @@
                                 @foreach($product->getMedia('images') as $image)
                                     <li role="presentation" class="pot-small-img {{ $loop->first ? ' active' : '' }}">
                                         <a href="#img-tab-{{ $loop->iteration }}" role="tab" data-toggle="tab">
-                                            <img src="{{ $image->getUrl() }}"
+                                            <img src="{{ $image->getUrl('thumb') }}"
                                                  alt="small-image">
                                         </a>
                                     </li>

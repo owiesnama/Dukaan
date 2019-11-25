@@ -43,7 +43,7 @@
                                         <tbody>
                                         <tr v-for="product in content">
                                             <td class="product-thumbnail"><a href="#"><img
-                                                            :src="product.thumbnail"
+                                                            :src="product.options.thumbnail"
                                                             alt="product img"/></a></td>
                                             <td class="product-name"><a href="#" v-text="product.options.name">New Dress For Sunday</a>
                                                 <ul class="pro__prize">
