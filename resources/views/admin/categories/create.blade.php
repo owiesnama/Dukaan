@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.admin')
 
 
 @section('content')
@@ -43,6 +43,4 @@
     </section>
 
 @endsection
-@section('css')
-    <link rel="stylesheet" href="/css/admin.css">
-@stop
+

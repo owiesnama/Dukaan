@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.admin')
 
 @section('content')
     <a href="{{ route('admin.orders.index') }}"><< Back</a>
