@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+import lozad from 'lozad'
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -49,6 +51,10 @@ const app = new Vue({
         size(object){
             return _.size(object)
         },
+    },
+
+    mounted(){
+        lozad(document.querySelectorAll(".lazy-load")).observe();
     },
 
     created(){

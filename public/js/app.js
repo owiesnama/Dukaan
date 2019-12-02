@@ -2041,6 +2041,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
   methods: {
@@ -19416,6 +19417,27 @@ module.exports = function isBuffer (obj) {
 
 /***/ }),
 
+/***/ "./node_modules/lozad/dist/lozad.min.js":
+/*!**********************************************!*\
+  !*** ./node_modules/lozad/dist/lozad.min.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*! lozad.js - v1.14.0 - 2019-10-19
+* https://github.com/ApoorvSaxena/lozad.js
+* Copyright (c) 2019 Apoorv Saxena; Licensed MIT */
+!function(t,e){ true?module.exports=e():undefined}(this,function(){"use strict";
+/**
+   * Detect IE browser
+   * @const {boolean}
+   * @private
+   */var d="undefined"!=typeof document&&document.documentMode,c={rootMargin:"0px",threshold:0,load:function(t){if("picture"===t.nodeName.toLowerCase()){var e=document.createElement("img");d&&t.getAttribute("data-iesrc")&&(e.src=t.getAttribute("data-iesrc")),t.getAttribute("data-alt")&&(e.alt=t.getAttribute("data-alt")),t.append(e)}if("video"===t.nodeName.toLowerCase()&&!t.getAttribute("data-src")&&t.children){for(var r=t.children,a=void 0,o=0;o<=r.length-1;o++)(a=r[o].getAttribute("data-src"))&&(r[o].src=a);t.load()}if(t.getAttribute("data-src")&&(t.src=t.getAttribute("data-src")),t.getAttribute("data-srcset")&&t.setAttribute("srcset",t.getAttribute("data-srcset")),t.getAttribute("data-background-image"))t.style.backgroundImage="url('"+t.getAttribute("data-background-image").split(",").join("'),url('")+"')";else if(t.getAttribute("data-background-image-set")){var i=t.getAttribute("data-background-image-set").split(","),n=i[0].substr(0,i[0].indexOf(" "))||i[0];// Substring before ... 1x
+n=-1===n.indexOf("url(")?"url("+n+")":n,1===i.length?t.style.backgroundImage=n:t.setAttribute("style",(t.getAttribute("style")||"")+"background-image: "+n+"; background-image: -webkit-image-set("+i+"); background-image: image-set("+i+")")}t.getAttribute("data-toggle-class")&&t.classList.toggle(t.getAttribute("data-toggle-class"))},loaded:function(){}};function l(t){t.setAttribute("data-loaded",!0)}var b=function(t){return"true"===t.getAttribute("data-loaded")};return function(){var r,a,o=0<arguments.length&&void 0!==arguments[0]?arguments[0]:".lozad",t=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{},e=Object.assign({},c,t),i=e.root,n=e.rootMargin,d=e.threshold,u=e.load,s=e.loaded,g=void 0;return"undefined"!=typeof window&&window.IntersectionObserver&&(g=new IntersectionObserver((r=u,a=s,function(t,e){t.forEach(function(t){(0<t.intersectionRatio||t.isIntersecting)&&(e.unobserve(t.target),b(t.target)||(r(t.target),l(t.target),a(t.target)))})}),{root:i,rootMargin:n,threshold:d})),{observe:function(){for(var t=function(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:document;return t instanceof Element?[t]:t instanceof NodeList?t:e.querySelectorAll(t)}(o,i),e=0;e<t.length;e++)b(t[e])||(g?g.observe(t[e]):(u(t[e]),l(t[e]),s(t[e])))},triggerLoad:function(t){b(t)||(u(t),l(t),s(t))},observer:g}}});
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -20074,10 +20096,11 @@ var render = function() {
     _c("div", { staticClass: "ht__cat__thumb" }, [
       _c("a", { attrs: { href: "/products/" + _vm.product.id } }, [
         _c("img", {
+          staticClass: "lazy-load",
           attrs: {
             height: "150px",
             width: "100px",
-            src: _vm.product.thumbnail,
+            "data-src": _vm.product.thumbnail,
             alt: _vm.product.description
           }
         })
@@ -32593,14 +32616,18 @@ function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-js-modal */ "./node_modules/vue-js-modal/dist/index.js");
-/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lozad__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lozad */ "./node_modules/lozad/dist/lozad.min.js");
+/* harmony import */ var lozad__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lozad__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-js-modal */ "./node_modules/vue-js-modal/dist/index.js");
+/* harmony import */ var vue_js_modal__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_1__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -32608,7 +32635,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-
 
 var files = __webpack_require__("./resources/js/views sync recursive \\.vue$/");
 
@@ -32628,7 +32654,7 @@ Vue.component('Register', __webpack_require__(/*! ./components/Registration.vue 
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_0___default.a);
+Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_1___default.a);
 var app = new Vue({
   el: '#app',
   data: {
@@ -32643,6 +32669,9 @@ var app = new Vue({
     size: function size(object) {
       return _.size(object);
     }
+  },
+  mounted: function mounted() {
+    lozad__WEBPACK_IMPORTED_MODULE_0___default()(document.querySelectorAll(".lazy-load")).observe();
   },
   created: function created() {
     var _this = this;

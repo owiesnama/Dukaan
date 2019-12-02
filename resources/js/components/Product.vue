@@ -2,7 +2,8 @@
     <div class="category">
         <div class="ht__cat__thumb">
             <a :href="'/products/'+product.id ">
-                <img class="lazy-load" height="150px" width="100px" :data-src="product.thumbnail" :alt="product.description">
+                <img class="lazy-load" height="150px" width="100px" :data-src="product.thumbnail"
+                     :alt="product.description">
             </a>
         </div>
         <div class="fr__hover__info">
@@ -21,7 +22,6 @@
     </div>
 </template>
 <script>
-    import lozad from 'lozad'
 
     export default{
         props: ['product'],
@@ -31,23 +31,5 @@
                 cart.add(product)
             }
         },
-        mounted(){
-            var elmts = document.querySelectorAll(".lazy-load");
-            if (window.img_observer && window.img_observer.observer) {
-                window.img_observer.observer.disconnect();
-                delete window.img_observer;
-                for (let i = 0, len = elmts.length; i < len; i++) {
-                    // load image only when the image src is updated
-                    const img = elmts[i].getAttribute('data-src') || false;
-                    if (img &&
-                        elmts[i].getAttribute('data-loaded') === 'true' &&
-                        img !== elmts[i].getAttribute('src'))
-                    {
-                        elmts[i].setAttribute('data-loaded', false);
-                    }
-                }
-            }
-            window.img_observer = lozad(elmts);
-            window.img_observer.observe();}
     }
 </script>
