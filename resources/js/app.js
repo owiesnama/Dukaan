@@ -54,7 +54,7 @@ const app = new Vue({
     },
 
     mounted(){
-        lozad(document.querySelectorAll(".lazy-load")).observe();
+        lozad(document.querySelectorAll("img")).observe();
     },
 
     created(){

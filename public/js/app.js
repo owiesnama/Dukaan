@@ -32671,7 +32671,7 @@ var app = new Vue({
     }
   },
   mounted: function mounted() {
-    lozad__WEBPACK_IMPORTED_MODULE_0___default()(document.querySelectorAll(".lazy-load")).observe();
+    lozad__WEBPACK_IMPORTED_MODULE_0___default()(document.querySelectorAll("img")).observe();
   },
   created: function created() {
     var _this = this;
@@ -33505,9 +33505,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/owiesnama/Projects/Dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! /home/abdalla/web/php-projects/laravel/Dukaan/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/abdalla/web/php-projects/laravel/Dukaan/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/abdalla/web/php-projects/laravel/Dukaan/resources/sass/admin.scss */"./resources/sass/admin.scss");
 
 
 /***/ })

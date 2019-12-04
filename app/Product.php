@@ -7,6 +7,7 @@ use App\Traits\CanBeRated;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
@@ -31,15 +32,12 @@ class Product extends Model implements HasMedia, Buyable
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-              ->width(300)
-              ->height(300)
-              ->sharpen(10);
+            ->fit(Manipulations::FIT_FILL, 1200, 800)
+            ->background('#c43b68')
+            ->border(5, '007698', Manipulations::BORDER_EXPAND);
 
         $this->addMediaConversion('basic')
-            // Full HD
-            ->width(1366)
-            ->height(768)
-            ->sharpen(10);
+            ->fit(Manipulations::FIT_FILL, 300, 300);
     }
 
     /**
