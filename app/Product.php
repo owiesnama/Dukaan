@@ -32,12 +32,12 @@ class Product extends Model implements HasMedia, Buyable
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->fit(Manipulations::FIT_FILL, 1200, 800)
+            ->fit(Manipulations::FIT_FILL, 300, 300)
             ->background('#c43b68')
             ->border(5, '007698', Manipulations::BORDER_EXPAND);
 
         $this->addMediaConversion('basic')
-            ->fit(Manipulations::FIT_FILL, 300, 300);
+            ->fit(Manipulations::FIT_FILL, 1366, 768);
     }
 
     /**
