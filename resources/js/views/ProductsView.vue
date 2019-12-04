@@ -1,10 +1,11 @@
 <script>
 
     export default{
-        methods:{
+        methods: {
             addToCart(product){
                 cart.add(product)
             }
-        }
+        },
     }
+
 </script>

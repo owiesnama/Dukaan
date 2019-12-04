@@ -45,18 +45,21 @@
                                             <td class="product-thumbnail"><a href="#"><img
                                                             :src="product.options.thumbnail"
                                                             alt="product img"/></a></td>
-                                            <td class="product-name"><a href="#" v-text="product.options.name">New Dress For Sunday</a>
+                                            <td class="product-name"><a href="#" v-text="product.options.name">New Dress
+                                                    For Sunday</a>
                                                 <ul class="pro__prize">
                                                     <li v-text="product.price"></li>
                                                 </ul>
                                             </td>
                                             <td class="product-price"><span class="product.price"></span></td>
                                             <td class="product-quantity">
-                                                <input type="number" min="1" @input="updateProduct(product)" v-model="product.qty"/>
+                                                <input type="number" min="1" @input="updateProduct(product)"
+                                                       v-model="product.qty"/>
                                             </td>
                                             <td class="product-subtotal" v-text="product.subtotal"></td>
                                             <td class="product-remove">
-                                                <a href="#" @click.prevent="removeProduct(product)"><i class="icon-trash icons"></i></a>
+                                                <a href="#" @click.prevent="removeProduct(product)"><i
+                                                            class="icon-trash icons"></i></a>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -86,7 +89,9 @@
                                                 <span v-text="parseFloat(cartTotal) + parseFloat({{Cart::tax()}}) + parseFloat({{config('dukaan.delivery_cost')}}) + ' SDG'"></span>
                                             </div>
                                             <ul class="payment__btn">
-                                                <li class="active"><a :href="size(content) ? '/checkout' :'#'">@lang('cart.payment')</a></li>
+                                                <li class="active"><a
+                                                            :href="size(content) ? '/checkout' :'#'">@lang('cart.payment')</a>
+                                                </li>
                                                 <li><a href="/">@lang('cart.continue shopping')</a></li>
                                             </ul>
                                         </div>
