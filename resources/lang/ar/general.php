@@ -12,6 +12,7 @@ return [
     'Password confirmation'=>'تأكيد كلمة السر',
     'Name'=>'الإسم',
     'Description'=>'الوصف',
+    'Code' => 'الرمز',
     'Hello'=>'مرحبا',
     'Orders'=>'طلباتي',
     'Username'=>'اسم المستخدم',
