@@ -21,7 +21,9 @@ use Spatie\MediaLibrary\Models\Media;
  */
 class Product extends Model implements HasMedia, Buyable
 {
-    use HasMediaTrait, CanBeRated, Searchable;
+    use HasMediaTrait;
+    use CanBeRated;
+    use Searchable;
 
     protected $fillable = [
         'name', 'description', 'price', 'code', 'published', 'category_id',
@@ -32,12 +34,10 @@ class Product extends Model implements HasMedia, Buyable
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
-            ->fit(Manipulations::FIT_FILL, 300, 300)
-            ->background('#c43b68')
-            ->border(5, '007698', Manipulations::BORDER_EXPAND);
+            ->crop(Manipulations::CROP_CENTER, 300, 300);
 
         $this->addMediaConversion('basic')
-            ->fit(Manipulations::FIT_FILL, 1366, 768);
+            ->crop(Manipulations::CROP_CENTER, 1366, 768);
     }
 
     /**
