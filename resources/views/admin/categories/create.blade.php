@@ -44,6 +44,15 @@
                                               class="form-control">{{old('desc') }}</textarea>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="code">@lang('general.Code')</label>
+                                <div>
+                                    <input type="text" id="code" name="code"
+                                              class="form-control" value="{{old('code') }}">
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="control-label" for="parent">@lang('category.Belong to category')</label>
                                 <div>
