@@ -39,6 +39,7 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->name('admin.')
     ->group(function () {
+        Route::redirect('/','admin/dashboard');
         Route::resource('categories', 'CategoriesController');
         Route::resource('products', 'ProductsController');
         Route::resource('orders', 'OrdersController')->only(['index', 'show', 'update']);

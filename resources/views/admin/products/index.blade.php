@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <a class="btn btn-primary mb-4" href="{{ route('admin.products.create') }}">Add product</a>
+                        <a class="btn btn-primary mb-4" href="{{ route('admin.products.create') }}">@lang('general.Create product')</a>
                     </div>
                 </div>
             </div>

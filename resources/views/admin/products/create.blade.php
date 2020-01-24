@@ -10,7 +10,7 @@
                     <div class="card-body">
                         @if ($errors->any())
                             <div class="alert alert-danger flex">
-                                <button type="button" class="close mx-2"  data-dismiss="alert" aria-label="Close">
+                                <button type="button" class="close mx-2" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                                 <ul>
@@ -26,29 +26,30 @@
                               enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label class="control-label" for="name">Name</label>
+                                <label class="control-label" for="name">@lang('general.Name')</label>
                                 <input id="name" type="text" name="name" value="{{ old('name') }}" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="price">Price</label>
+                                <label class="control-label" for="price">@lang('general.Price')</label>
                                 <input id="name" type="text" name="price" value="{{ old('price') }}"
                                        class="form-control">
 
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="description">Description</label>
+                                <label class="control-label" for="description">@lang('general.Description')</label>
                                 <textarea id="description" name="description"
                                           class="form-control" rows="4">{{ old('description') }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="details">Detailed description</label>
+                                <label class="control-label"
+                                       for="details">@lang('products.detailed description')</label>
 
                                 <textarea id="details" name="detailed_description"
                                           class="form-control" rows="6">{{ old('detailed_description') }}</textarea>
 
                             </div>
                             <div class="form-group">
-                                <label class="control-label " for="category">Category</label>
+                                <label class="control-label " for="category">@lang('general.Category')</label>
 
                                 <select name="category_id" id="category" class="form-control" required>
                                     @foreach($categories as $category)
@@ -58,11 +59,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label" for="images">Images</label>
+                                <label class="control-label" for="images">@lang('general.Images')</label>
 
                                 <input type="file" id="images" name="images[]" multiple>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg">Create</button>
+                            <button type="submit" class="btn btn-primary btn-lg">@lang('general.Create')</button>
 
                         </form>
                     </div>

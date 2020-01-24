@@ -40,6 +40,6 @@
 <script src="/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Argon JS -->
 <script src="/js/argon.js?v=1.0.0"></script>
-@yield('js')
+@stack('js')
 </body>
 </html>

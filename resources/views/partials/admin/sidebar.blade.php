@@ -6,8 +6,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="./index.html">
-            <img src="{{asset('img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
+        <a class="text-xl pt-0" href="/admin/dashboard">
+            دكان
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">

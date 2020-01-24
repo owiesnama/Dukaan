@@ -7,7 +7,7 @@
             <div class="col-lg-12 col-sm-12">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Add Category</a>
+                        <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">@lang('general.Create category')</a>
                     </div>
                 </div>
             </div>

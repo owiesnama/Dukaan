@@ -21,34 +21,35 @@
 
                             </div>
                         @endif
-                        <form action="{{ route('admin.products.update', $product) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.products.update', $product) }}" method="post"
+                              enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="form-group">
-                                <label class="control-label" for="name">Name</label>
+                                <label class="control-label" for="name">@lang('general.Name')</label>
                                 <input id="name" type="text" name="name" value="{{ $product->name?:old('name') }}"
                                        class="form-control">
 
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="price">Price</label>
+                                <label class="control-label" for="price">@lang('general.Price')</label>
                                 <input id="name" type="text" name="price" value="{{ $product->price?:old('price') }}"
                                        class="form-control">
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="description">Description</label>
+                                <label class="control-label" for="description">@lang('general.Description')</label>
                                 <textarea id="description" name="description"
                                           class="form-control"
                                           rows="4">{{ $product->description?:old('description') }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="details">Detailed description</label>
+                                <label class="control-label" for="details">@lang('products.detailed description')</label>
                                 <textarea id="details" name="detailed_description"
                                           class="form-control"
                                           rows="6">{{ $product->detailed_description?:old('detailed_description') }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="category">Category</label>
+                                <label class="control-label" for="category">@lang('general.Category')</label>
                                 <select name="category_id" id="category" class="form-control" required>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}"{{ $product->category->is($category) ? ' selected' : '' }}>{{ $category->name }}</option>
@@ -63,11 +64,11 @@
                             @endforeach
 
                             <div class="form-group">
-                                <label class="control-label" for="images">Images</label>
+                                <label class="control-label" for="images">@lang('general.Images')</label>
                                 <input type="file" id="images" name="images[]" multiple>
                             </div>
 
-                            <button type="submit" class="btn btn-info">Update</button>
+                            <button type="submit" class="btn btn-info">@lang('general.Update')</button>
                         </form>
                     </div>
                 </div>

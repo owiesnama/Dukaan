@@ -57,7 +57,7 @@
 
                             </div>
 
-                            <button type="submit" class="btn btn-info">Add</button>
+                            <button type="submit" class="btn btn-info">@lang('general.Create')</button>
 
                         </form>
                     </div>

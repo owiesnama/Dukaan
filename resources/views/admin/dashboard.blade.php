@@ -105,9 +105,9 @@
 @endsection
 
 
-@section('js')
+@push('js')
     @foreach($charts as $chart)
         {!! $chart->renderChartJsLibrary() !!}
         {!! $chart->renderJs() !!}
     @endforeach
-@endsection
+@endpush

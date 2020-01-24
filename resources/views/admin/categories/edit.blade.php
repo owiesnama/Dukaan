@@ -59,7 +59,7 @@
 
                             </div>
 
-                            <button type="submit" class="btn btn-info">Update</button>
+                            <button type="submit" class="btn btn-info">@lang('general.Update')</button>
 
                         </form>
                     </div>
