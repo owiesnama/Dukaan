@@ -6,19 +6,27 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property int $id
  * @property mixed $products
  * @property mixed $children
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  * @mixin Builder
  * @method static Category main()
  */
 class Category extends Model
 {
+    /**
+     * spcify fillable items on this category model
+     *
+     * @var array
+     */
     public $fillable = [
         'name', 'desc', 'parent_id', 'status', 'code'
     ];
 
     /**
-     * Get parent category of this category
+     * Get parent category of this category.
      *
      * @return $this
      */
@@ -31,7 +39,7 @@ class Category extends Model
     }
 
     /**
-     * Get associated children
+     * Get associated children.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -40,6 +48,11 @@ class Category extends Model
         return $this->hasMany(Category::class, 'parent_id');
     }
 
+    /**
+     * Get all category that has the same parent category.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function siblings()
     {
         return $this->where('parent_id', $this->parent->id)->get();
