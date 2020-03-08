@@ -31,6 +31,9 @@ class Product extends Model implements HasMedia, Buyable
     ];
     protected $appends = ['thumbnail'];
 
+    /**
+     * @param Media|null $media
+     */
     public function registerMediaConversions(Media $media = null)
     {
         $this->addMediaConversion('thumb')
@@ -146,6 +149,9 @@ class Product extends Model implements HasMedia, Buyable
         return $this->price;
     }
 
+    /**
+     * @return array
+     */
     public function toSearchableArray()
     {
         return [

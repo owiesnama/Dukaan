@@ -1,6 +1,17 @@
 <?php
+
 namespace App;
+
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+
+/**
+ *
+ * @property int $id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ *
+ */
 class Rating extends Model
 {
     /**
@@ -14,13 +25,11 @@ class Rating extends Model
     /**
      * Get products with high ratings.
      *
-     * @param Builder $builder
-     * @param ProductFilters $filters
      *
      * @return Builder
      */
     public static function mostRated()
     {
-        return static::where('rating', '>' , 4);
+        return static::where('rating', '>', 4);
     }
 }
