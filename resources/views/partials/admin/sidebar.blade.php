@@ -2,7 +2,8 @@
 <nav class="navbar mb-0 navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
+                aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
@@ -12,10 +13,12 @@
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
             <li class="nav-item dropdown">
-                <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
                     <i class="ni ni-bell-55"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right" aria-labelledby="navbar-default_dropdown_1">
+                <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right"
+                     aria-labelledby="navbar-default_dropdown_1">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
@@ -23,7 +26,8 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
                     <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
                 <img alt="Image placeholder" src="{{asset('img/theme/team-1-800x800.jpg')}}">
@@ -69,7 +73,9 @@
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
-                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse"
+                                data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false"
+                                aria-label="Toggle sidenav">
                             <span></span>
                             <span></span>
                         </button>
@@ -79,7 +85,8 @@
             <!-- Form -->
             <form class="mt-4 mb-3 d-md-none">
                 <div class="input-group input-group-rounded input-group-merge">
-                    <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="ابحث" aria-label="Search">
+                    <input type="search" class="form-control form-control-rounded form-control-prepended"
+                           placeholder="ابحث" aria-label="Search">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <span class="fa fa-search"></span>
@@ -99,6 +106,18 @@
                     <a class="nav-link" href="/admin/categories">
                         <i class="ni ni-tv-2 text-primary"></i>
                         @lang('admin.pages.Categories')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/collections">
+                        <i class="ni ni-tv-2 text-primary"></i>
+                        @lang('admin.pages.Collections')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/attributes">
+                        <i class="ni ni-tv-2 text-primary"></i>
+                        @lang('admin.pages.Attributes')
                     </a>
                 </li>
                 <li class="nav-item">

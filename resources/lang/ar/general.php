@@ -9,6 +9,7 @@ return [
     'Checkout' => 'إتمام الشراء',
     'Products'=> 'المنتجات',
     'Close'=> 'إغلاق',
+    'Register'=> 'تسجيل',
     'Password confirmation'=>'تأكيد كلمة السر',
     'Name'=>'الإسم',
     'Description'=>'الوصف',
