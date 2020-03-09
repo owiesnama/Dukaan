@@ -12,6 +12,8 @@ return [
     'pages' => [
         'Dashboard' => 'اللوحة الرئسية',
         'Categories' => 'الاصناف',
+        'Collections' => 'المجموعات',
+        'Attributes' => 'الحقول الإضافية',
         'Orders' => 'الطلبات',
         'Products' => 'المنتجات',
         'Settings' => 'الإعدادات',

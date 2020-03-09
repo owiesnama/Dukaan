@@ -13,43 +13,10 @@
                 </div>
             </div>
             <div class="col-sm-12">
-                @foreach($products as $product)
-                    <div class="card mb-2">
-                        <div class="card-header px-2 py-1">
-                            <div class="flex items-start">
-                                <img src="{{$product->thumbnail}}"
-                                     class="rounded w-16 h-16"
-                                     alt="{{$product->name}}">
-                                <div class="mx-1">
-                                    <h3>{{$product->name}}</h3>
-                                    <p class="text-gray-600">{{$product->category->name}}</p>
-                                </div>
-                                <div class="mr-auto">
-                                    <div class="col-sm-5">
-                                        <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-sm btn-info">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                    </div>
-                                    <div class="col-sm-5">
-                                        <form onsubmit="return confirm('Are you sure want to delete this?')" action="{{ route('admin.products.destroy', $product) }}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body px-2 py-1">
-                            <p class="text-gray-600">{{$product->description}}</p>
-                        </div>
-                    </div>
-                @endforeach
+                <livewire:products-datatable></livewire:products-datatable>
             </div>
         </div>
-        <div class="row">
-            {{$products->links()}}
-        </div>
+
     </div>
     
     

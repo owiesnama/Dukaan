@@ -9,11 +9,9 @@ use App\Product;
 
 class ProductsController extends Controller
 {
-    public function index(ProductFilters $filters)
+    public function index()
     {
-        $products = Product::latest()->filterBy($filters)->paginate(16);
-
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index');
     }
 
     /**
