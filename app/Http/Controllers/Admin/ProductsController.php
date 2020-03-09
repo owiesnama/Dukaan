@@ -41,7 +41,7 @@ class ProductsController extends Controller
             'detailed_description' => 'required',
             'price' => 'required',
             'category_id' => 'required',
-            'images.*' => 'mimes:jpeg,png',
+            'images.*' => 'mimes:jpeg,png,jpg',
         ]);
 
         $category = Category::findOrFail(request('category_id'));
@@ -82,13 +82,16 @@ class ProductsController extends Controller
      */
     public function update(Product $product)
     {
+
         $attributes = request()->validate([
             'name' => 'required',
             'description' => 'required',
             'detailed_description' => 'required',
             'price' => 'required',
             'category_id' => 'required',
+            'images.*' => 'mimes:jpeg,png,jpg',
         ]);
+
 
         $product->update($attributes);
         if (request()->has('images')) {

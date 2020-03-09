@@ -2,7 +2,8 @@
     <div class="category">
         <div class="ht__cat__thumb">
             <a :href="'/products/'+product.id ">
-                <img height="150px" width="100px" :src="product.thumbnail" :alt="product.description">
+                <img class="lazy-load" height="150px" width="100px" :data-src="product.thumbnail"
+                     :alt="product.description">
             </a>
         </div>
         <div class="fr__hover__info">
@@ -21,6 +22,7 @@
     </div>
 </template>
 <script>
+
     export default{
         props: ['product'],
 
@@ -28,6 +30,6 @@
             addToCart(product){
                 cart.add(product)
             }
-        }
+        },
     }
 </script>
