@@ -20,27 +20,28 @@
             </section>
             <!-- End Category Area -->
             <!-- Start Prize Good Area -->
-            <section class="htc__good__sale bg__cat--3">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                            <div class="fr__prize__inner">
-                                <h2>المنتجات الافضل لك الان</h2>
-                                <h3>افضل الاسعار لك </h3>
-                                <a class="fr__btn" href="#">@lang('home.Read More')</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                            <div class="prize__inner">
-                                <div class="prize__thumb">
-                                    <img src="{{asset('/images/banner/big-img/1.png')}}" alt="banner images">
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {{--<section class="htc__good__sale bg__cat--3">--}}
+                {{--<div class="container">--}}
+                    {{--<div class="row">--}}
+                        {{--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">--}}
+                            {{--<div class="fr__prize__inner">--}}
+                                {{--<h2>المنتجات الافضل لك الان</h2>--}}
+                                {{--<h3>افضل الاسعار لك </h3>--}}
+                                {{--<a class="fr__btn" href="#">@lang('home.Read More')</a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">--}}
+                            {{--<div class="prize__inner">--}}
+                                {{--<div class="prize__thumb">--}}
+                                    {{--<img src="{{asset('/images/banner/big-img/1.png')}}" alt="banner images">--}}
+                                {{--</div>--}}
+
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</section>--}}
 
             @if(!! $mostRatedProducts->count())
             <section class="top__rated__area bg__white pt--100 pb--110">
