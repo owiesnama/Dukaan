@@ -23,8 +23,9 @@ php artisan serve
 ```
 ## Roadmap
 Dukaan is under development till now, so here a list what features to include 
-- [] Add Collections feature.
-- [] Add CMS.
-- [] Add featured products feature.
-- [] Switch to livewire.
-- [] Add multitenancy.
+- [ ] Add Collections feature.
+- [ ] Add CMS.
+- [ ] Add featured products feature.
+- [ ] Switch to livewire.
+- [ ] Add multitenancy.
+- [ ] Add multitenancy.
