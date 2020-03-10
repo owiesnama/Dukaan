@@ -16,6 +16,8 @@ class CreateCollectionsTable extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('visibility')->default(true);
+            $table->boolean('featured')->default(false);
             $table->text('description');
             $table->timestamps();
         });

@@ -32,6 +32,7 @@ return [
     'Price' => 'السعر',
     'Category' => 'الصنف',
     'Images' => 'الصور',
+    'Visibility' => 'الظهور',
     'Cover image' => 'صورة الغلاف',
     'Update' => 'تحديث',
     'Create' => 'حفظ',
