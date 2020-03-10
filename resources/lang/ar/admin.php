@@ -3,6 +3,7 @@
 return [
     'Revenues' => 'الإيرادات',
     'New users' => 'المستخدمين الجدد',
+    'Users' => 'المستخدمين',
     'Pending Orders' => 'الطلبات المعلقة',
     'Products' => 'المنتجات',
     'Orders by days' => 'الطلبات على حسب الايام',

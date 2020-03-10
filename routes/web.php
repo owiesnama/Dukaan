@@ -43,6 +43,7 @@ Route::prefix('admin')
         Route::resource('categories', 'CategoriesController');
         Route::resource('products', 'ProductsController');
         Route::resource('collections', 'CollectionsController');
+        Route::resource('attributes', 'AttributesController');
         Route::resource('orders', 'OrdersController')->only(['index', 'show', 'update']);
         Route::get('pages', 'PagesController@index')->name('pages.index');
         Route::patch('pages', 'PagesController@update')->name('pages.update');
