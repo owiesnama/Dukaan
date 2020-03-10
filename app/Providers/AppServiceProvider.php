@@ -10,6 +10,7 @@ use App\Product;
 use App\Rating;
 use App\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
@@ -47,6 +48,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('pages', Cache::rememberForEver('pages', function () {
                 return Page::all();
             }));
+        });
+
+        Blade::directive('money', function ($money) {
+            return "<?php echo number_format($money, 2); ?>";
         });
 
         Category::observe(CategoryObserver::class);

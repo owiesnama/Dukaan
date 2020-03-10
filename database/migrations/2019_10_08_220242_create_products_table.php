@@ -13,13 +13,14 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('category_id')->index();
+            $table->unsignedInteger('collection_id')->nullable()->index();
             $table->string('name');
             $table->string('code');
             $table->text('description');
             $table->text('detailed_description');
             $table->double('price');
             $table->boolean('published')->default(true);
-            $table->unsignedInteger('category_id')->index();
             $table->timestamps();
         });
     }

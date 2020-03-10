@@ -12,7 +12,7 @@
 
     {{--<!-- Styles -->--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/argon.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/argon.css') }}" rel="stylesheet">--}}
 
     <link href="{{ asset('css/argon-rtl.css') }}" rel="stylesheet">
     {{--<!-- Fonts -->--}}

@@ -15,5 +15,6 @@ require('laravel-mix-tailwind')
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css/')
     .sass('resources/sass/admin.scss', 'public/css/')
+    .sass('resources/sass/argon.scss', 'public/css/argon-rtl.css')
     .tailwind('tailwind.config.js')
     .purgeCss();

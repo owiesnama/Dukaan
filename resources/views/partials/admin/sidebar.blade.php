@@ -1,5 +1,5 @@
 <!-- Sidenav -->
-<nav class="navbar mb-0 navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+<nav class="navbar border-l border-gray-300 border-solid mb-0 navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main"
@@ -98,7 +98,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/dashboard">
-                        <i class="ni ni-tv-2 text-primary"></i>
+                        <i class="ni ni-chart-bar-32 text-primary"></i>
                         @lang('admin.pages.Dashboard')
                     </a>
                 </li>
@@ -110,31 +110,31 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/collections">
-                        <i class="ni ni-tv-2 text-primary"></i>
+                        <i class="ni ni-collection text-green"></i>
                         @lang('admin.pages.Collections')
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/attributes">
-                        <i class="ni ni-tv-2 text-primary"></i>
+                        <i class="ni ni-bullet-list-67 text-primary"></i>
                         @lang('admin.pages.Attributes')
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/products">
-                        <i class="ni ni-planet text-blue"></i>
+                        <i class="ni ni-shop text-yellow"></i>
                         @lang('admin.pages.Products')
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/orders">
-                        <i class="ni ni-pin-3 text-orange"></i>
+                        <i class="ni ni-delivery-fast text-orange"></i>
                         @lang('admin.pages.Orders')
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin/pages">
-                        <i class="ni ni-circle-08 text-pink"></i>
+                        <i class="ni ni-settings-gear-65   text-pink"></i>
                         @lang('admin.pages.Settings')
                     </a>
                 </li>
