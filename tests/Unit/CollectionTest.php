@@ -20,7 +20,9 @@ class CollectionTest extends TestCase
 
         $collection = factory(Collection::class)->create();
 
-        $collection->add($product->toArray());
+        $collection->assign($product);
+
+        $collection->assign($product);
 
         $this->assertCount(1, $collection->fresh()->products);
     }

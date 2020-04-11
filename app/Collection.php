@@ -9,16 +9,19 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property mixed $add
  */
 class Collection extends Model
 {
+    protected $guarded = [];
+
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
-    public function add($product)
+    public function assign($products)
     {
-        return $this->products()->create($product);
+        return $this->products()->sync($products, $detaching = false);
     }
 }

@@ -11,15 +11,15 @@
     <title>{{ config('app.name', 'Dukaan') }}</title>
 
     {{--<!-- Styles -->--}}
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-{{--    <link href="{{ asset('css/argon.css') }}" rel="stylesheet">--}}
+    {{--<link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
+    {{--    <link href="{{ asset('css/argon.css') }}" rel="stylesheet">--}}
 
     <link href="{{ asset('css/argon-rtl.css') }}" rel="stylesheet">
     {{--<!-- Fonts -->--}}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     {{--icons--}}
     <link href="{{asset('vendor/nucleo/css/nucleo.css')}}" rel="stylesheet">
-    <link href="{{asset('fonts/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+    <link href="{{asset('vendor/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
     <livewire:styles></livewire:styles>
 </head>
 <body>
@@ -35,7 +35,7 @@
 
 <!-- Scripts -->
 <livewire:scripts></livewire:scripts>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.js" defer></script>
 <script src="/vendor/jquery/dist/jquery.min.js"></script>
 <script src="/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Argon JS -->

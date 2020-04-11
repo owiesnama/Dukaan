@@ -14,7 +14,7 @@ use Spatie\MediaLibrary\Models\Media;
 
 /**
  * @property \Carbon\Carbon $created_at
- * @property int            $id
+ * @property int $id
  * @property \Carbon\Carbon $updated_at
  * @property mixed description
  * @property mixed price
@@ -55,6 +55,11 @@ class Product extends Model implements HasMedia, Buyable
         return "/admin/products/{$this->id}";
     }
 
+    public function collection()
+    {
+        $this->belongsToMany(Collection::class);
+    }
+
     /**
      * category which associated whit this product.
      *
@@ -92,7 +97,7 @@ class Product extends Model implements HasMedia, Buyable
     /**
      * Apply all relevant product filters.
      *
-     * @param Builder        $builder
+     * @param Builder $builder
      * @param ProductFilters $filters
      *
      * @return Builder
@@ -104,7 +109,7 @@ class Product extends Model implements HasMedia, Buyable
 
     public function getThumbnailAttribute()
     {
-        return $this->getMedia('images')->first() ? $this->getMedia('images')->first()->getUrl('thumb') : 'https://placeimg.com/640/480/any?'.$this->id;
+        return $this->getMedia('images')->first() ? $this->getMedia('images')->first()->getUrl('thumb') : 'https://placeimg.com/640/480/any?' . $this->id;
     }
 
     /**
